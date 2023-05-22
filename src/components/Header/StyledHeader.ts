@@ -1,51 +1,54 @@
 import styled from 'styled-components';
 
-const StyleHeader = styled.div`
+const Header = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     font-family: SpoqaHanSansNeoBold;
-    padding: 200px;
+    height: 100px;
+    width: auto;
+    padding-left: 140px;
+    padding-right: 140px;
 `;
 
-const StyleLogo = styled.div`
+const Logo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
 
-const StyleMenu = styled.div`
+const Menu = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 50px;
+    gap: 40px;
 `;
 
-const StyleMenuTypo = styled.a`
-    font-size: 32px;
+const MenuTypo = styled.a`
+    font-size: 24px;
 `;
 
-const StyleButtonGroup = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 30px;
-`;
-
-const StyleButton = styled.a`
+const ButtonGroup = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 30px;
 `;
 
-const StyleButtonTypo = styled.p`
+const Button = styled.a`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
-    font-size: 30px;
+    gap: 20px;
+`;
+
+const ButtonTypo = styled.p`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    font-size: 20px;
     color: #124800;
 `;
 
-export { StyleHeader, StyleLogo, StyleMenu, StyleMenuTypo, StyleButtonGroup, StyleButton, StyleButtonTypo };
+export { Header, Logo, Menu, MenuTypo, ButtonGroup, Button, ButtonTypo };
