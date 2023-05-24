@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
 const body = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 10px;
     gap: 10px;
     width: 240px;
     margin: 7px 12px;
+    padding: 40px 10px;
     border-right: 0.7px solid #ccc;
 `;
 
