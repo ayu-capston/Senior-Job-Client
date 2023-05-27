@@ -1,9 +1,9 @@
-import React from 'react';
+import IconLabel from '../IconLabel/IconLabel';
 
-function ContentInfo() {
+const ContentInfo = () => {
     return (
         <section>
-            <h4>강좌 내용</h4>
+            <IconLabel label='강좌 내용' />
             <hr />
             <p>
                 기초부터 전문도배기술 실무를 반복적 실습을 통하여 습득하며, 벽지 종류별 재단 및 초배, 정배를 단계적 시공실습하고 도배기술 전반의
@@ -12,6 +12,6 @@ function ContentInfo() {
             </p>
         </section>
     );
-}
+};
 
 export default ContentInfo;

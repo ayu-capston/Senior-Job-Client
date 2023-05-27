@@ -1,6 +1,4 @@
-import React from 'react';
-
-function PriceInfo() {
+const PriceInfo = () => {
     return (
         <>
             <div>
@@ -9,6 +7,6 @@ function PriceInfo() {
             </div>
         </>
     );
-}
+};
 
 export default PriceInfo;

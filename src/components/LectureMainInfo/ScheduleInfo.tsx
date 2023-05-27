@@ -1,6 +1,4 @@
-import React from 'react';
-
-function ScheduleInfo() {
+const ScheduleInfo = () => {
     return (
         <>
             <div>
@@ -9,6 +7,6 @@ function ScheduleInfo() {
             </div>
         </>
     );
-}
+};
 
 export default ScheduleInfo;

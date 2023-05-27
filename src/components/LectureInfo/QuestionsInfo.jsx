@@ -1,13 +1,13 @@
-import React from 'react';
+import IconLabel from '../IconLabel/IconLabel';
 
-function QuestionsInfo() {
+const QuestionsInfo = () => {
     return (
         <section>
-            <h4>문의 사항</h4>
+            <IconLabel label='문의 사항' />
             <hr />
             <p>010-1234-5678</p>
         </section>
     );
-}
+};
 
 export default QuestionsInfo;

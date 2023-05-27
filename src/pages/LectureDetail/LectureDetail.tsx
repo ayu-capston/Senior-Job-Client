@@ -23,7 +23,6 @@ const LectureDetail = () => {
                                 <img src={personImg} alt='사람 이미지' />
                                 <span>김땡땡땡</span>
                             </div>
-                            {/* 컴포넌트로 만들기. 아이콘은 가상요소로 */}
                             <LectureMainInfo type='cost' />
                             <LectureMainInfo type='schedule' />
                             <LectureMainInfo type='total' />

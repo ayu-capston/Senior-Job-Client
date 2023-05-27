@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function LectureDetailNav() {
+const LectureDetailNav = () => {
     return (
         <nav>
             <ul>
@@ -13,6 +13,6 @@ function LectureDetailNav() {
             </ul>
         </nav>
     );
-}
+};
 
 export default LectureDetailNav;

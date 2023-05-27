@@ -2,7 +2,7 @@ import PriceInfo from './PriceInfo';
 import ScheduleInfo from './ScheduleInfo';
 import TotalPeople from './TotalPeople';
 
-function LectureMainInfo(props) {
+const LectureMainInfo = (props) => {
     const { type, price, start_date, end_date, max_participants } = props;
     const mainInfo = {
         cost: <PriceInfo price={price} />,
@@ -10,6 +10,6 @@ function LectureMainInfo(props) {
         total: <TotalPeople participant={max_participants} />
     };
     return <>{mainInfo[type]}</>;
-}
+};
 
 export default LectureMainInfo;
