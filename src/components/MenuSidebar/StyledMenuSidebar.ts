@@ -34,8 +34,6 @@ const menuTitle = styled.button`
     align-items: center;
     width: 100%;
     padding: 0px, 14px;
-    border: none;
-    outline: none;
     background: none;
     border-bottom: 2px solid #cccccc;
     font-family: SpoqaHanSansNeoMedium;

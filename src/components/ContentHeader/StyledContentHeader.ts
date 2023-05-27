@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const contentHeader = styled.div`
+const contentHeader = styled.h1`
     display: flex;
     flex-direction: row;
     align-items: center;
