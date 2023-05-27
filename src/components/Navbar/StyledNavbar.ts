@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Header = styled.div`
+const Navbar = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -24,7 +24,7 @@ const Menu = styled.div`
     gap: 40px;
 `;
 
-const MenuTypo = styled.a`
+const MenuTypo = styled.span`
     font-size: 24px;
 `;
 
@@ -42,7 +42,7 @@ const Button = styled.a`
     gap: 20px;
 `;
 
-const ButtonTypo = styled.p`
+const ButtonTypo = styled.span`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -51,4 +51,4 @@ const ButtonTypo = styled.p`
     color: #124800;
 `;
 
-export { Header, Logo, Menu, MenuTypo, ButtonGroup, Button, ButtonTypo };
+export { Navbar, Logo, Menu, MenuTypo, ButtonGroup, Button, ButtonTypo };
