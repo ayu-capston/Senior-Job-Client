@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const FormBox = styled.div`
+const FormBox = styled.section`
     display: flex;
     flex-direction: column;
     gap: 14px;
-    width: 90%;
+    width: 100%;
     height: 2500px;
     padding: 35px 50px 35px 35px;
     border-radius: 20px;
@@ -13,22 +13,16 @@ const FormBox = styled.div`
 
 const Form = styled.div`
     width: 100%;
-    padding: 10px 14px;
+    padding: 20px 14px;
 `;
 
-const FormHead = styled.div`
+const FormHeader = styled.div`
     display: flex;
     flex-direction: row;
     width: auto;
     height: 27px;
     padding: 0px 7px;
     gap: 7px;
-`;
-
-const TitleBullet = styled.a`
-    width: 2px;
-    height: auto;
-    background-color: #ccc;
 `;
 
 const FormTitle = styled.div`
@@ -39,24 +33,31 @@ const FormTitle = styled.div`
     align-items: center;
 `;
 
-const FormTitleTypo = styled.a`
+const FormTitleBullet = styled.div`
+    width: 2px;
+    height: auto;
+    background-color: #ccc;
+`;
+
+const FormTitleTypo = styled.span`
     display: flex;
     flex-direction: row;
     align-items: center;
     font-family: SpoqaHanSansNeoMedium;
     font-size: 18px;
-
-    span {
-        color: #ff6666;
-    }
 `;
 
-const FormTitleHint = styled.ul`
-    li {
-        font-family: SpoqaHanSansNeoRegular;
-        font-size: 12px;
-        color: #124800;
-    }
+const FormRequired = styled.span`
+    font-size: 18px;
+    color: #ff6666;
+`;
+
+const FormHintTitle = styled.ul``;
+
+const FormHintBody = styled.li`
+    font-family: SpoqaHanSansNeoRegular;
+    font-size: 12px;
+    color: #124800;
 `;
 
 const FormBody = styled.div`
@@ -65,7 +66,7 @@ const FormBody = styled.div`
 `;
 
 const Horizontal = styled.div`
-    border: 0.7px solid #ccc;
+    border-bottom: 0.7px solid #ccc;
 `;
 
-export { FormBox, Form, FormHead, TitleBullet, FormTitle, FormTitleTypo, FormTitleHint, FormBody, Horizontal };
+export { FormBox, Form, FormHeader, FormTitle, FormTitleBullet, FormTitleTypo, FormRequired, FormHintTitle, FormHintBody, FormBody, Horizontal };
