@@ -44,18 +44,20 @@ const FormTitleTypo = styled.span`
     flex-direction: row;
     align-items: center;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.8rem;
 `;
 
 const FormRequired = styled.span`
-    font-size: 18px;
+    font-size: 1.8rem;
     color: #ff6666;
 `;
 
 const FormHintTitle = styled.ul``;
 
 const FormHintBody = styled.li`
-    font-size: 12px;
+    padding: 5px;
+    list-style-type: disc;
+    font-size: 1.2rem;
     color: #124800;
 `;
 
@@ -63,7 +65,7 @@ const FormBody = styled.div`
     gap: 5px;
     margin: 14px 7px;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 1.4rem;
 `;
 
 const FormGroup = styled.div`
@@ -73,7 +75,7 @@ const FormGroup = styled.div`
     gap: 5px;
     margin: 14px 7px;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 1.4rem;
 `;
 
 const Horizontal = styled.div`

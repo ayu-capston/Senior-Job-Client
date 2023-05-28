@@ -25,7 +25,7 @@ const Menu = styled.div`
 `;
 
 const MenuTypo = styled.span`
-    font-size: 24px;
+    font-size: 2.4rem;
 `;
 
 const ButtonGroup = styled.div`
@@ -47,7 +47,7 @@ const ButtonTypo = styled.span`
     flex-wrap: wrap;
     align-items: center;
     gap: 7px;
-    font-size: 20px;
+    font-size: 2rem;
     color: #124800;
 `;
 

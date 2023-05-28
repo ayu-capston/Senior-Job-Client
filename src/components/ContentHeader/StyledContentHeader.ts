@@ -5,9 +5,9 @@ const contentHeader = styled.h1`
     flex-direction: row;
     align-items: center;
     gap: 7px;
-    padding: 0px 14px;
+    padding: 14px;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 2rem;
 `;
 
 export { contentHeader };

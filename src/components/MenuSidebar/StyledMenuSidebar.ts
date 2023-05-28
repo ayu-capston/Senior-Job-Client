@@ -17,8 +17,8 @@ const title = styled.div`
     border-bottom: 2px solid #124800;
 `;
 
-const titleTypo = styled.a`
-    font-size: 24px;
+const titleTypo = styled.span`
+    font-size: 2.4rem;
     font-weight: 700;
 `;
 
@@ -33,10 +33,10 @@ const menuTitle = styled.button`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 14px;
+    padding: 30px 14px 14px 14px;
     background: none;
     border-bottom: 2px solid #cccccc;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-weight: 500;
 `;
 
@@ -49,7 +49,7 @@ const menuElement = styled.div`
     height: 50px;
     padding-left: 28px;
     list-style: none;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-weight: 500;
 
     &:hover {

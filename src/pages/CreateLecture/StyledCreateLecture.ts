@@ -44,7 +44,7 @@ const FormTitleTypo = styled.a`
     flex-direction: row;
     align-items: center;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 1.8rem;
 
     span {
         color: #ff6666;
@@ -53,7 +53,7 @@ const FormTitleTypo = styled.a`
 
 const FormTitleHint = styled.ul`
     li {
-        font-size: 12px;
+        font-size: 1.2rem;
         color: #124800;
     }
 `;
