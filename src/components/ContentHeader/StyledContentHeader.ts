@@ -6,7 +6,7 @@ const contentHeader = styled.h1`
     align-items: center;
     gap: 7px;
     padding: 0px 14px;
-    font-family: SpoqaHanSansNeoMedium;
+    font-weight: 500;
     font-size: 20px;
 `;
 

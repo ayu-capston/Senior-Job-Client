@@ -4,11 +4,11 @@ const Navbar = styled.nav`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-family: SpoqaHanSansNeoBold;
+    font-weight: 700;
     height: 100px;
     width: auto;
-    padding-left: 140px;
-    padding-right: 140px;
+    padding: 0px 140px;
+    border-bottom: 1px solid #ccc;
 `;
 
 const Logo = styled.div`

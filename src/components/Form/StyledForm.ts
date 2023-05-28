@@ -43,7 +43,7 @@ const FormTitleTypo = styled.span`
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: SpoqaHanSansNeoMedium;
+    font-weight: 500;
     font-size: 18px;
 `;
 
@@ -55,7 +55,6 @@ const FormRequired = styled.span`
 const FormHintTitle = styled.ul``;
 
 const FormHintBody = styled.li`
-    font-family: SpoqaHanSansNeoRegular;
     font-size: 12px;
     color: #124800;
 `;
@@ -63,7 +62,7 @@ const FormHintBody = styled.li`
 const FormBody = styled.div`
     gap: 5px;
     margin: 14px 7px;
-    font-family: SpoqaHanSansNeoMedium;
+    font-weight: 500;
     font-size: 14px;
 `;
 
@@ -73,7 +72,7 @@ const FormGroup = styled.div`
     justify-items: center;
     gap: 5px;
     margin: 14px 7px;
-    font-family: SpoqaHanSansNeoMedium;
+    font-weight: 500;
     font-size: 14px;
 `;
 

@@ -43,7 +43,7 @@ const FormTitleTypo = styled.a`
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-family: SpoqaHanSansNeoMedium;
+    font-weight: 500;
     font-size: 18px;
 
     span {
@@ -53,7 +53,6 @@ const FormTitleTypo = styled.a`
 
 const FormTitleHint = styled.ul`
     li {
-        font-family: SpoqaHanSansNeoRegular;
         font-size: 12px;
         color: #124800;
     }

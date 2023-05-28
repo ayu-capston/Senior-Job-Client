@@ -12,18 +12,18 @@ const DropDown = styled(FormControl)({
 });
 
 const DropDownLabel = styled(InputLabel)({
-    fontFamily: 'SpoqaHanSansNeoMedium',
+    fontWeight: 500,
     fontSize: '14px',
     backgroundColor: '#fff'
 });
 
 const DropDownGroup = styled(Select)({
-    fontFamily: 'SpoqaHanSansNeoMedium',
+    fontWeight: 500,
     fontSize: '14px'
 });
 
 const DropDownItem = styled(MenuItem)({
-    fontFamily: 'SpoqaHanSansNeoMedium',
+    fontWeight: 500,
     fontSize: '14px'
 });
 
