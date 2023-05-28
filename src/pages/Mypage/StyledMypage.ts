@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const body = styled.div`
     display: flex;
-    flex-direction: row;
     margin: 20px 140px;
 `;
 

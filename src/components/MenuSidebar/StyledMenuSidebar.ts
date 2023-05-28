@@ -29,7 +29,6 @@ const menuGroup = styled.div`
 
 const menuTitle = styled.button`
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 100%;
