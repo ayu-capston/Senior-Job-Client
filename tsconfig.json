@@ -17,6 +17,6 @@
         "jsx": "react-jsx",
         "typeRoots": ["./src/types"]
     },
-    "include": ["src"],
+    "include": ["src", "src/custom.d.ts"],
     "exclude": ["node_modules"]
 }

@@ -1,12 +1,14 @@
 import IconLabel from '../IconLabel/IconLabel';
+import paymentIcon from '../../assets/images/icon-card.svg';
+import * as S from './StyledLectureInfo';
 
 const PaymentInfo = () => {
     return (
-        <section>
-            <IconLabel label='결제 수단' />
-            <hr />
+        <S.Infowrap>
+            <IconLabel label='결제 수단' iconimg={paymentIcon} />
+            <S.Line />
             <p>신한 은행 xxx-xxx-xxxxxxx</p>
-        </section>
+        </S.Infowrap>
     );
 };
 

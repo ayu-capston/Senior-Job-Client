@@ -31,7 +31,8 @@ const GlobalStyled = createGlobalStyle`
 
   a {
     text-decoration: none; 
-    outline: none
+    outline: none;
+    color: #000000;
   }
 
   .hidden {

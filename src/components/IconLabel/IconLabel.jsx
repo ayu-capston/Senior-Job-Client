@@ -1,5 +1,7 @@
-const IconLabel = ({ label }) => {
-    return <h4>{label}</h4>;
+import * as S from './StyledIconLabel';
+
+const IconLabel = ({ label, iconimg }) => {
+    return <S.Heading iconimg={iconimg}>{label}</S.Heading>;
 };
 
 export default IconLabel;
