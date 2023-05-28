@@ -7,7 +7,7 @@ import { ReactComponent as LogoutIcon } from '@images/icon-38-logout.svg';
 
 import * as s from './StyledNavbar';
 
-export default function Header() {
+export default function Navbar() {
     return (
         <>
             <s.Navbar>
@@ -33,7 +33,6 @@ export default function Header() {
                     </s.Button>
                 </s.ButtonGroup>
             </s.Navbar>
-            <hr />
         </>
     );
 }
