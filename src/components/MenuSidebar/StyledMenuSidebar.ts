@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
 const body = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 10px;
     gap: 10px;
     width: 240px;
     margin: 7px 12px;
+    padding: 40px 10px;
     border-right: 0.7px solid #ccc;
 `;
 
@@ -21,8 +18,8 @@ const title = styled.div`
 `;
 
 const titleTypo = styled.a`
-    font-family: SpoqaHanSansNeoBold;
     font-size: 24px;
+    font-weight: 700;
 `;
 
 const menuGroup = styled.div`
@@ -36,13 +33,11 @@ const menuTitle = styled.button`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0px, 14px;
-    border: none;
-    outline: none;
+    padding: 14px;
     background: none;
     border-bottom: 2px solid #cccccc;
-    font-family: SpoqaHanSansNeoMedium;
     font-size: 17px;
+    font-weight: 500;
 `;
 
 const menuList = styled.div``;
@@ -54,11 +49,11 @@ const menuElement = styled.div`
     height: 50px;
     padding-left: 28px;
     list-style: none;
-    font-family: 'SpoqaHanSansNeoRegular';
     font-size: 14px;
+    font-weight: 500;
 
     &:hover {
-        font-family: SpoqaHanSansNeoBold;
+        font-weight: 700;
     }
 `;
 

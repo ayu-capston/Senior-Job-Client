@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MenuSidebar from '../../components/MenuSidebar/MenuSidebar';
+import MenuSidebar from '@components/MenuSidebar/MenuSidebar';
 
 import * as s from './StyledMypage';
 

@@ -1,4 +1,3 @@
-import Footer from '../../components/Footer/Footer';
 import LectureDetailNav from '../../components/PageNav/LectureDetailNav';
 import LectureMainInfo from '../../components/LectureMainInfo/LectureMainInfo';
 import LectureInfo from '../../components/LectureInfo/LectureInfo';
@@ -41,7 +40,6 @@ const LectureDetail = () => {
                 </S.LecturePostWrap>
                 <S.MoveListLink to='/lecture'>목록으로 돌아가기</S.MoveListLink>
             </S.LectureDetailWrap>
-            <Footer />
         </>
     );
 };
