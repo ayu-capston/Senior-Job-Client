@@ -23,7 +23,7 @@ const Menu = styled.div`
     gap: 40px;
 `;
 
-const MenuTypo = styled.span`
+const MenuTypo = styled.button`
     font-size: 2.4rem;
 `;
 
@@ -34,14 +34,7 @@ const ButtonGroup = styled.div`
     gap: 30px;
 `;
 
-const Button = styled.a`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-`;
-
-const ButtonTypo = styled.span`
+const ButtonTypo = styled.button`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -50,4 +43,4 @@ const ButtonTypo = styled.span`
     color: #124800;
 `;
 
-export { Navbar, Logo, Menu, MenuTypo, ButtonGroup, Button, ButtonTypo };
+export { Navbar, Logo, Menu, MenuTypo, ButtonGroup, ButtonTypo };
