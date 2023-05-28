@@ -63,10 +63,35 @@ const FormHintBody = styled.li`
 const FormBody = styled.div`
     gap: 5px;
     margin: 14px 7px;
+    font-family: SpoqaHanSansNeoMedium;
+    font-size: 14px;
+`;
+
+const FormGroup = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    gap: 5px;
+    margin: 14px 7px;
+    font-family: SpoqaHanSansNeoMedium;
+    font-size: 14px;
 `;
 
 const Horizontal = styled.div`
     border-bottom: 0.7px solid #ccc;
 `;
 
-export { FormBox, Form, FormHeader, FormTitle, FormTitleBullet, FormTitleTypo, FormRequired, FormHintTitle, FormHintBody, FormBody, Horizontal };
+export {
+    FormBox,
+    Form,
+    FormHeader,
+    FormTitle,
+    FormTitleBullet,
+    FormTitleTypo,
+    FormRequired,
+    FormHintTitle,
+    FormHintBody,
+    FormBody,
+    FormGroup,
+    Horizontal
+};
