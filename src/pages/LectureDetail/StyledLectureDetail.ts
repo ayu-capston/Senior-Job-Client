@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const LectureDetailWrap = styled.section`
-    /* height: 100vh; */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
