@@ -13,7 +13,7 @@ interface ParamProps {
     erase?: boolean;
 }
 
-export default function TextInput({ name, type, width, placeholder, required, maxLength, max, erase }: ParamProps) {
+function TextInput({ name, type, width, placeholder, required, maxLength, max, erase }: ParamProps) {
     const [isInputValue, setIsInputValue] = useState('');
 
     const onClickInitInputValue = () => {
@@ -31,6 +31,7 @@ export default function TextInput({ name, type, width, placeholder, required, ma
                 <s.TextInput
                     name={name}
                     type={type}
+                    value={isInputValue}
                     width={width}
                     required={required}
                     max={max}
@@ -49,3 +50,40 @@ export default function TextInput({ name, type, width, placeholder, required, ma
         </>
     );
 }
+
+function TextArea({ name, placeholder, required, maxLength, erase }: ParamProps) {
+    const [isTextAreaValue, setIsTextAreaValue] = useState('');
+
+    const onClickInitInputValue = () => {
+        setIsTextAreaValue('');
+    };
+
+    const onChangeInputValue = (e: any) => {
+        setIsTextAreaValue(e.target.value);
+    };
+
+    return (
+        <>
+            <s.TextInputSection>
+                {erase ? <s.TextInputResetButton onClick={onClickInitInputValue}> 지우기 </s.TextInputResetButton> : ''}
+                <s.TextArea
+                    name={name}
+                    value={isTextAreaValue}
+                    required={required}
+                    maxLength={maxLength}
+                    placeholder={placeholder ? placeholder : ''}
+                    onChange={onChangeInputValue}
+                />
+                {maxLength ? (
+                    <s.TextInputLength>
+                        ( {isTextAreaValue.length} / {maxLength} )
+                    </s.TextInputLength>
+                ) : (
+                    ''
+                )}
+            </s.TextInputSection>
+        </>
+    );
+}
+
+export { TextInput, TextArea };

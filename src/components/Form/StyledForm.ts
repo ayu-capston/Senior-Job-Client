@@ -5,7 +5,7 @@ const FormBox = styled.section`
     flex-direction: column;
     gap: 14px;
     width: 100%;
-    height: 2500px;
+    height: auto;
     padding: 35px 50px 35px 35px;
     border-radius: 20px;
     border: 0.7px solid #ccc;
@@ -18,7 +18,6 @@ const Form = styled.div`
 
 const FormHeader = styled.div`
     display: flex;
-    flex-direction: row;
     width: auto;
     height: 27px;
     padding: 0px 7px;
@@ -27,7 +26,6 @@ const FormHeader = styled.div`
 
 const FormTitle = styled.div`
     display: flex;
-    flex-direction: row;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -41,7 +39,6 @@ const FormTitleBullet = styled.div`
 
 const FormTitleTypo = styled.span`
     display: flex;
-    flex-direction: row;
     align-items: center;
     font-weight: 500;
     font-size: 1.8rem;
@@ -62,18 +59,18 @@ const FormHintBody = styled.li`
 `;
 
 const FormBody = styled.div`
-    gap: 5px;
-    margin: 14px 7px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 20px 7px;
     font-weight: 500;
     font-size: 1.4rem;
 `;
 
 const FormGroup = styled.div`
     display: flex;
-    flex-direction: row;
     justify-items: center;
-    gap: 5px;
-    margin: 14px 7px;
+    gap: 14px;
     font-weight: 500;
     font-size: 1.4rem;
 `;

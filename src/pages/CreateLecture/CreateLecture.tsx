@@ -5,10 +5,11 @@ import bankName from '~/constants/bank';
 import Mypage from '@pages/Mypage/Mypage';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
 import FormHeader from '@components/Form/FormHeader';
-import TextInput from '@components/Form/TextInput';
+import { TextInput, TextArea } from '@components/Form/TextInput';
 import Dropdown from '@components/Form/Dropdown';
 import DateRangePicker from '@components/Form/DateRangePicker';
 import * as formStyle from '@components/Form/StyledForm';
+import * as s from './StyledCreateLecture';
 
 export default function CreateLecture() {
     const paramArr: Array<string> = ['개설 강좌', '강좌 개설하기'];
@@ -76,6 +77,7 @@ export default function CreateLecture() {
                                 required={true}
                                 maxLength={24}
                                 erase={true}
+                                width='100%'
                             />
                         </formStyle.FormBody>
                     </formStyle.Form>
@@ -100,11 +102,13 @@ export default function CreateLecture() {
                     <formStyle.Form>
                         <FormHeader title='강좌 진행 기간' required={true} hint={DateFormHint}></FormHeader>
                         <formStyle.FormBody>
-                            <Dropdown menuUnit='월/주' menuItems={dateUnitArr}></Dropdown>{' '}
-                            <Dropdown menuUnit='횟수' menuItems={dateCountArr}></Dropdown>
-                        </formStyle.FormBody>
-                        <formStyle.FormBody>
-                            <DateRangePicker />
+                            <formStyle.FormGroup>
+                                <Dropdown menuUnit='월/주' menuItems={dateUnitArr}></Dropdown>{' '}
+                                <Dropdown menuUnit='횟수' menuItems={dateCountArr}></Dropdown>
+                            </formStyle.FormGroup>
+                            <formStyle.FormGroup>
+                                <DateRangePicker />
+                            </formStyle.FormGroup>
                         </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
@@ -117,15 +121,37 @@ export default function CreateLecture() {
 
                     <formStyle.Form>
                         <FormHeader title='가격' hint={PriceFormHint}></FormHeader>
-                        <formStyle.FormGroup>
-                            <TextInput name='price' placeholder='0' width='30%' type='number' max={1000000} required={true} /> <span>원 </span>
-                        </formStyle.FormGroup>
-                        <formStyle.FormGroup>
-                            <Dropdown menuUnit='은행명' menuItems={Object.keys(bankName)}></Dropdown>
-                            <TextInput name='owner' placeholder='예금주' type='text' />
-                        </formStyle.FormGroup>
+                        <formStyle.FormBody>
+                            <formStyle.FormGroup>
+                                <Dropdown menuUnit='은행명' menuItems={Object.keys(bankName)}></Dropdown>
+                                <TextInput name='owner' placeholder='예금주' type='text' />
+                            </formStyle.FormGroup>
+                            <formStyle.FormGroup>
+                                <TextInput name='frontBankNumber' placeholder='계좌번호 앞자리' width='200px' type='number' />
+                                <s.InputLabel>-</s.InputLabel>
+                                <TextInput name='rearBankNumber' placeholder='계좌번호 뒷자리' width='200px' type='number' />
+                            </formStyle.FormGroup>
+                            <formStyle.FormGroup>
+                                <TextInput name='price' placeholder='0' width='150px' type='number' max={1000000} required={true} />
+                                <s.InputLabel>원</s.InputLabel>
+                            </formStyle.FormGroup>
+                        </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
+
+                    <formStyle.Form>
+                        <FormHeader title='강좌 설명'></FormHeader>
+                        <formStyle.FormBody>
+                            <TextArea
+                                name='lecture_content'
+                                placeholder='진행할 강좌의 특징을 강조해주세요!&#13;&#10;회원님의 경력을 잘 나타낼 수 있는 문구를 적으면 더 좋겠죠?'
+                                required={true}
+                                maxLength={500}
+                                erase={true}
+                                width='100%'
+                            />
+                        </formStyle.FormBody>
+                    </formStyle.Form>
                 </formStyle.FormBox>
             </Mypage>
         </>
