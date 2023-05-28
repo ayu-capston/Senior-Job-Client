@@ -4,12 +4,16 @@ import * as s from './StyledInput';
 
 interface ParamProps {
     name: string;
+    type?: string;
+    width?: string;
     placeholder?: string;
     required?: boolean;
+    max?: number;
     maxLength?: number;
+    erase?: boolean;
 }
 
-export default function TextInput({ name, placeholder, required, maxLength }: ParamProps) {
+export default function TextInput({ name, type, width, placeholder, required, maxLength, max, erase }: ParamProps) {
     const [isInputValue, setIsInputValue] = useState('');
 
     const onClickInitInputValue = () => {
@@ -20,24 +24,27 @@ export default function TextInput({ name, placeholder, required, maxLength }: Pa
         setIsInputValue(e.target.value);
     };
 
-    useEffect(() => {}, [isInputValue]);
-
     return (
         <>
             <s.TextInputSection>
-                <s.TextInputResetButton onClick={onClickInitInputValue}> 지우기 </s.TextInputResetButton>
+                {erase ? <s.TextInputResetButton onClick={onClickInitInputValue}> 지우기 </s.TextInputResetButton> : ''}
                 <s.TextInput
-                    type='text'
                     name={name}
+                    type={type}
+                    width={width}
                     required={required}
+                    max={max}
                     maxLength={maxLength}
-                    value={isInputValue}
                     placeholder={placeholder ? placeholder : ''}
                     onChange={onChangeInputValue}
                 />
-                <s.TextInputLength>
-                    ( {isInputValue.length} / {maxLength} )
-                </s.TextInputLength>
+                {maxLength ? (
+                    <s.TextInputLength>
+                        ( {isInputValue.length} / {maxLength} )
+                    </s.TextInputLength>
+                ) : (
+                    ''
+                )}
             </s.TextInputSection>
         </>
     );

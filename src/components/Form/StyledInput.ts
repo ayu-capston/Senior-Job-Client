@@ -8,16 +8,16 @@ const TextInputSection = styled.section`
 `;
 
 const TextInput = styled.input`
-    width: 100%;
+    width: ${({ width }) => (width ? { width } : '100%')};
     height: 30px;
-    padding-left: 10px;
+    padding: 25px;
     font-family: SpoqaHanSansNeoRegular;
     font-size: 14px;
     border-radius: 5px;
-    border: 0.7px solid #dae0e6;
+    border: 1.2px solid #c4c4c4;
 
     &::placeholder {
-        color: #ccc;
+        color: #c4c4c4;
     }
 `;
 
@@ -35,7 +35,7 @@ const TextInputResetButton = styled.button`
 const TextInputLength = styled.span`
     font-family: SpoqaHanSansNeoRegular;
     font-size: 10px;
-    color: #ccc;
+    color: #c4c4c4;
 `;
 
 export { TextInputSection, TextInputResetButton, TextInputLength, TextInput };
