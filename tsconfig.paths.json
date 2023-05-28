@@ -7,7 +7,7 @@
             "@pages/*": ["pages/*"],
             "@assets/*": ["assets/*"],
             "@images/*": ["assets/images/*"],
-            "@utils/*": ["utilss/*"]
+            "@utils/*": ["utils/*"]
         }
     }
 }
