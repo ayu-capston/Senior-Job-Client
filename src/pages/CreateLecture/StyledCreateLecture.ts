@@ -16,4 +16,10 @@ const InputLabel = styled.span`
     height: auto;
 `;
 
-export { FormBox, InputLabel };
+const ButtonSection = styled.section`
+    display: flex;
+    justify-content: center;
+    padding: 30px 0px;
+`;
+
+export { FormBox, InputLabel, ButtonSection };

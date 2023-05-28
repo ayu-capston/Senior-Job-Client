@@ -8,6 +8,8 @@ import FormHeader from '@components/Form/FormHeader';
 import { TextInput, TextArea } from '@components/Form/TextInput';
 import Dropdown from '@components/Form/Dropdown';
 import DateRangePicker from '@components/Form/DateRangePicker';
+import { SubmitButton } from '@components/Button/StyledSubmitButton';
+
 import * as formStyle from '@components/Form/StyledForm';
 import * as s from './StyledCreateLecture';
 
@@ -152,6 +154,10 @@ export default function CreateLecture() {
                             />
                         </formStyle.FormBody>
                     </formStyle.Form>
+
+                    <s.ButtonSection>
+                        <SubmitButton> 강좌 개설하기</SubmitButton>
+                    </s.ButtonSection>
                 </formStyle.FormBox>
             </Mypage>
         </>
