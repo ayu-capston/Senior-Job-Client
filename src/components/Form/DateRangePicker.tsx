@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 
-import dayjs from 'dayjs';
+import dayjs, { Dayjs } from 'dayjs';
 import weekday from 'dayjs/plugin/weekday';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -8,6 +8,11 @@ import { LocalizationProvider, DatePicker, DateValidationError } from '@mui/x-da
 
 import validationLectureDate from '@utils/validation/lectureDate';
 import * as s from './StyledDateRangePicker';
+
+interface ParamProps {
+    onChangeStartDate: (value: any) => void;
+    onChangeEndDate: (value: any) => void;
+}
 
 const theme = createTheme({
     components: {
@@ -53,11 +58,11 @@ const theme = createTheme({
     }
 });
 
-export default function DateRangePicker() {
+export default function DateRangePicker(props: ParamProps) {
     dayjs.extend(weekday);
 
-    const [isStartDate, setStartDate] = useState(undefined);
-    const [isEndDate, setEndDate] = useState(undefined);
+    const [isStartDate, setStartDate] = React.useState<Dayjs | null>(dayjs());
+    const [isEndDate, setEndDate] = React.useState<Dayjs | null>(dayjs().add(7, 'day'));
 
     const [error, setError] = useState<DateValidationError | null>(null);
 
@@ -89,15 +94,16 @@ export default function DateRangePicker() {
                     <DatePicker
                         label='시작일'
                         value={isStartDate}
-                        defaultValue={dayjs()}
                         minDate={dayjs()}
-                        onChange={(newValue: any) => setStartDate(newValue)}
+                        onChange={(newValue: any) => {
+                            setStartDate(newValue.$d);
+                            props.onChangeStartDate(newValue.$d);
+                        }}
                     />
                     {' ~ '}
                     <DatePicker
                         label='종료일'
                         value={isEndDate}
-                        defaultValue={dayjs().add(7, 'day')}
                         onError={(newError) => setError(newError)}
                         slotProps={{
                             textField: {
@@ -105,7 +111,10 @@ export default function DateRangePicker() {
                             }
                         }}
                         minDate={dayjs(isStartDate).add(7, 'day')}
-                        onChange={(newValue: any) => setEndDate(newValue)}
+                        onChange={(newValue: any) => {
+                            setEndDate(newValue.$d);
+                            props.onChangeEndDate(newValue.$d);
+                        }}
                     />
                 </LocalizationProvider>
             </ThemeProvider>

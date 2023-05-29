@@ -11,37 +11,40 @@ interface ParamProps {
     max?: number;
     maxLength?: number;
     erase?: boolean;
+    onChange: (value: any) => void;
 }
 
-function TextInput({ name, type, width, placeholder, required, maxLength, max, erase }: ParamProps) {
+function TextInput(props: ParamProps) {
     const [isInputValue, setIsInputValue] = useState('');
 
     const onClickInitInputValue = () => {
         setIsInputValue('');
+        props.onChange('');
     };
 
     const onChangeInputValue = (e: any) => {
         setIsInputValue(e.target.value);
+        props.onChange(e.target.value);
     };
 
     return (
         <>
             <s.TextInputSection>
-                {erase ? <s.TextInputResetButton onClick={onClickInitInputValue}> 지우기 </s.TextInputResetButton> : ''}
+                {props.erase ? <s.TextInputResetButton onClick={onClickInitInputValue}> 지우기 </s.TextInputResetButton> : ''}
                 <s.TextInput
-                    name={name}
-                    type={type}
+                    name={props.name}
+                    type={props.type}
                     value={isInputValue}
-                    width={width}
-                    required={required}
-                    max={max}
-                    maxLength={maxLength}
-                    placeholder={placeholder ? placeholder : ''}
+                    width={props.width}
+                    required={props.required}
+                    max={props.max}
+                    maxLength={props.maxLength}
+                    placeholder={props.placeholder ? props.placeholder : ''}
                     onChange={onChangeInputValue}
                 />
-                {maxLength ? (
+                {props.maxLength ? (
                     <s.TextInputLength>
-                        ( {isInputValue.length} / {maxLength} )
+                        ( {isInputValue.length} / {props.maxLength} )
                     </s.TextInputLength>
                 ) : (
                     ''
@@ -51,32 +54,34 @@ function TextInput({ name, type, width, placeholder, required, maxLength, max, e
     );
 }
 
-function TextArea({ name, placeholder, required, maxLength, erase }: ParamProps) {
+function TextArea(props: ParamProps) {
     const [isTextAreaValue, setIsTextAreaValue] = useState('');
 
     const onClickInitInputValue = () => {
         setIsTextAreaValue('');
+        props.onChange('');
     };
 
     const onChangeInputValue = (e: any) => {
         setIsTextAreaValue(e.target.value);
+        props.onChange(e.target.value);
     };
 
     return (
         <>
             <s.TextInputSection>
-                {erase ? <s.TextInputResetButton onClick={onClickInitInputValue}> 지우기 </s.TextInputResetButton> : ''}
+                {props.erase ? <s.TextInputResetButton onClick={onClickInitInputValue}> 지우기 </s.TextInputResetButton> : ''}
                 <s.TextArea
-                    name={name}
+                    name={props.name}
                     value={isTextAreaValue}
-                    required={required}
-                    maxLength={maxLength}
-                    placeholder={placeholder ? placeholder : ''}
+                    required={props.required}
+                    maxLength={props.maxLength}
+                    placeholder={props.placeholder ? props.placeholder : ''}
                     onChange={onChangeInputValue}
                 />
-                {maxLength ? (
+                {props.maxLength ? (
                     <s.TextInputLength>
-                        ( {isTextAreaValue.length} / {maxLength} )
+                        ( {isTextAreaValue.length} / {props.maxLength} )
                     </s.TextInputLength>
                 ) : (
                     ''

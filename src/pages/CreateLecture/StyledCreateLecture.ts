@@ -22,4 +22,9 @@ const ButtonSection = styled.section`
     padding: 30px 0px;
 `;
 
-export { FormBox, InputLabel, ButtonSection };
+const PriceGroup = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+
+export { FormBox, InputLabel, ButtonSection, PriceGroup };

@@ -5,18 +5,20 @@ import * as s from './StyledDropDown';
 interface ParamProps {
     menuUnit: string;
     menuItems: string[];
+    onChange: (value: any) => void;
 }
 
-export default function Dropdown({ menuUnit, menuItems }: ParamProps) {
+export default function Dropdown(props: ParamProps) {
     const [isValue, setValue] = useState('');
 
     return (
         <s.DropDown>
-            <s.DropDownLabel>{menuUnit}</s.DropDownLabel>
+            <s.DropDownLabel>{props.menuUnit}</s.DropDownLabel>
             <s.DropDownGroup
                 value={isValue}
                 onChange={(e: any) => {
                     setValue(e.target.value);
+                    props.onChange(e.target.value);
                 }}
                 MenuProps={{
                     PaperProps: {
@@ -26,7 +28,7 @@ export default function Dropdown({ menuUnit, menuItems }: ParamProps) {
                     }
                 }}
             >
-                {menuItems?.map((menuItem) => {
+                {props.menuItems?.map((menuItem) => {
                     return (
                         <s.DropDownItem key={menuItem} value={menuItem}>
                             {menuItem}
