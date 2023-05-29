@@ -2,6 +2,11 @@
     "name": "senior-job-client",
     "version": "0.1.0",
     "private": true,
+    "devDependencies": {
+        "@types/date-fns": "^2.6.0",
+        "@types/react-date-range": "^1.4.4",
+        "@types/styled-components": "^5.1.26"
+    },
     "dependencies": {
         "@craco/craco": "^7.1.0",
         "@emotion/react": "^11.11.0",
@@ -12,9 +17,7 @@
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",
         "@testing-library/user-event": "^13.2.1",
-        "@types/date-fns": "^2.6.0",
-        "@types/react-date-range": "^1.4.4",
-        "@types/styled-components": "^5.1.26",
+        "@reduxjs/toolkit": "^1.9.5",
         "axios": "^1.4.0",
         "craco-alias": "^3.0.1",
         "dayjs": "^1.11.7",
