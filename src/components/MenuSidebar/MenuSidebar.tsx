@@ -44,16 +44,16 @@ export default function MenuSideBar() {
                     </svg>
                 </s.menuTitle>
                 <s.menuList>
-                    <Link to='/lecture/participate'>
+                    <Link to='/mypage/lecture/participate'>
                         <s.menuElement id='lecture-participant'>참여 강좌</s.menuElement>
                     </Link>
-                    <Link to='/lecture/apply'>
+                    <Link to='/mypage/lecture/apply'>
                         <s.menuElement id='lecture-apply'>신청 강좌</s.menuElement>
                     </Link>
-                    <Link to='/lecture/propose'>
+                    <Link to='/mypage/lecture/propose'>
                         <s.menuElement id='lecture-propose'>제안 강좌</s.menuElement>
                     </Link>
-                    <Link to='/lecture/created'>
+                    <Link to='/mypage/lecture/created'>
                         <s.menuElement id='lecture-created'>개설 강좌</s.menuElement>
                     </Link>
                 </s.menuList>
@@ -69,10 +69,10 @@ export default function MenuSideBar() {
                     </svg>
                 </s.menuTitle>
                 <s.menuList>
-                    <Link to='/parttime/apply'>
+                    <Link to='/mypage/parttime/apply'>
                         <s.menuElement id='parttime-apply'>신청 파트타임</s.menuElement>
                     </Link>
-                    <Link to='/parttime/propose'>
+                    <Link to='/mypage/parttime/propose'>
                         <s.menuElement id='parttime-propose'>제안 파트타임</s.menuElement>
                     </Link>
                 </s.menuList>
