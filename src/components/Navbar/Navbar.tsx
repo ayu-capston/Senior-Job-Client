@@ -13,8 +13,10 @@ export default function Navbar() {
         <>
             <s.Navbar>
                 <s.Logo>
-                    <img src={LogoBi} width='75px' height='55px' alt='logo-bi' />
-                    <img src={LogoTitle} width='80px' height='34px' alt='logo-title' />
+                    <Link to='/'>
+                        <img src={LogoBi} width='55px' height='43px' alt='logo-bi' />
+                        <img src={LogoTitle} width='80px' height='34px' alt='logo-title' />
+                    </Link>
                 </s.Logo>
                 <s.Menu>
                     <Link to='/lecture'>

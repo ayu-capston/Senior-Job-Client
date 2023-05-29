@@ -14,6 +14,9 @@ const Logo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    img {
+        margin: 5px;
+    }
 `;
 
 const Menu = styled.div`

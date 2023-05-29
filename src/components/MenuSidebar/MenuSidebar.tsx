@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import * as s from './StyledMenuSidebar';
 
@@ -6,7 +7,9 @@ export default function MenuSideBar() {
     return (
         <s.body>
             <s.title>
-                <s.titleTypo>마이페이지</s.titleTypo>
+                <Link to='/mypage'>
+                    <s.titleTypo>마이페이지</s.titleTypo>
+                </Link>
             </s.title>
             <s.menuGroup>
                 <s.menuTitle>
@@ -19,9 +22,15 @@ export default function MenuSideBar() {
                     </svg>
                 </s.menuTitle>
                 <s.menuList>
-                    <s.menuElement id='profile'>내 정보</s.menuElement>
-                    <s.menuElement id='resume'>이력서 관리</s.menuElement>
-                    <s.menuElement id='cert'>자격 증명</s.menuElement>
+                    <Link to='/mypage/profile'>
+                        <s.menuElement id='profile'>내 정보</s.menuElement>
+                    </Link>
+                    <Link to='/mypage/resume'>
+                        <s.menuElement id='resume'>이력서 관리</s.menuElement>
+                    </Link>
+                    <Link to='/mypage/cert'>
+                        <s.menuElement id='cert'>자격 증명</s.menuElement>
+                    </Link>
                 </s.menuList>
             </s.menuGroup>
             <s.menuGroup>
@@ -35,10 +44,18 @@ export default function MenuSideBar() {
                     </svg>
                 </s.menuTitle>
                 <s.menuList>
-                    <s.menuElement id='lecture-participant'>참여 강좌</s.menuElement>
-                    <s.menuElement id='lecture-apply'>신청 강좌</s.menuElement>
-                    <s.menuElement id='lecture-propose'>제안 강좌</s.menuElement>
-                    <s.menuElement id='lecture-created'>개설 강좌</s.menuElement>
+                    <Link to='/lecture/participate'>
+                        <s.menuElement id='lecture-participant'>참여 강좌</s.menuElement>
+                    </Link>
+                    <Link to='/lecture/apply'>
+                        <s.menuElement id='lecture-apply'>신청 강좌</s.menuElement>
+                    </Link>
+                    <Link to='/lecture/propose'>
+                        <s.menuElement id='lecture-propose'>제안 강좌</s.menuElement>
+                    </Link>
+                    <Link to='/lecture/created'>
+                        <s.menuElement id='lecture-created'>개설 강좌</s.menuElement>
+                    </Link>
                 </s.menuList>
             </s.menuGroup>
             <s.menuGroup>
@@ -52,8 +69,12 @@ export default function MenuSideBar() {
                     </svg>
                 </s.menuTitle>
                 <s.menuList>
-                    <s.menuElement id='parttime-apply'>신청 파트타임</s.menuElement>
-                    <s.menuElement id='parttime-propose'>제안 파트타임</s.menuElement>
+                    <Link to='/parttime/apply'>
+                        <s.menuElement id='parttime-apply'>신청 파트타임</s.menuElement>
+                    </Link>
+                    <Link to='/parttime/propose'>
+                        <s.menuElement id='parttime-propose'>제안 파트타임</s.menuElement>
+                    </Link>
                 </s.menuList>
             </s.menuGroup>
         </s.body>
