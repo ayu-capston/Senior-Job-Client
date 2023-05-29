@@ -22,9 +22,27 @@ const ButtonSection = styled.section`
     padding: 30px 0px;
 `;
 
+const RegionSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    height: 500px;
+`;
+
+const SelectedRegion = styled.input`
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
+    border: 1.2px solid #c4c4c4;
+    text-align: right;
+    font-weight: 500;
+`;
+
 const PriceGroup = styled.div`
     display: flex;
     justify-content: space-between;
 `;
 
-export { FormBox, InputLabel, ButtonSection, PriceGroup };
+export { FormBox, InputLabel, ButtonSection, RegionSection, SelectedRegion, PriceGroup };

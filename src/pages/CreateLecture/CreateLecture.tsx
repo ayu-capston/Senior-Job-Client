@@ -8,9 +8,11 @@ import Mypage from '@pages/Mypage/Mypage';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
 import FormHeader from '@components/Form/FormHeader';
 import { TextInput, TextArea } from '@components/Form/TextInput';
+import SearchInput from '~/components/Search/SearchInput';
 import Dropdown from '@components/Form/Dropdown';
 import DateRangePicker from '@components/Form/DateRangePicker';
 import { SubmitButton } from '@components/Button/StyledSubmitButton';
+import KakaoMap from '@components/Map/KakaoMap';
 
 import * as formStyle from '@components/Form/StyledForm';
 import * as s from './StyledCreateLecture';
@@ -19,6 +21,7 @@ export default function CreateLecture() {
     const paramArr: CotentHeaderParam = { '개설 강좌': '/mypage/lecture/created', '강좌 개설하기': '/mypage/lecture/created/form' };
 
     const navigate = useNavigate();
+    const [isSearchRegion, setSearchRegion] = useState('');
     const [isLectureInfo, setLectureInfo] = useState({
         maxParticipants: 0,
         category: '',
@@ -172,7 +175,25 @@ export default function CreateLecture() {
 
                     <formStyle.Form>
                         <FormHeader title='강좌 진행 지역' required={true} hint={RegionFormHint}></FormHeader>
-                        <formStyle.FormBody></formStyle.FormBody>
+                        <formStyle.FormBody>
+                            <s.RegionSection>
+                                <SearchInput
+                                    name='region'
+                                    placeholder='주소를 입력해주세요'
+                                    value={isSearchRegion}
+                                    onChange={(e: any) => {
+                                        setSearchRegion(e);
+                                    }}
+                                />
+                                <KakaoMap
+                                    value={isSearchRegion}
+                                    onChange={(e: string) => {
+                                        setLectureInfo({ ...isLectureInfo, region: e });
+                                    }}
+                                />
+                                <s.SelectedRegion value={isLectureInfo.region ? isLectureInfo.region : '마커를 클릭해주세요.'} disabled />
+                            </s.RegionSection>
+                        </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
 

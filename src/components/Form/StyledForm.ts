@@ -18,17 +18,18 @@ const Form = styled.div`
 
 const FormHeader = styled.div`
     display: flex;
+    gap: 7px;
     width: auto;
     height: 27px;
     padding: 0px 7px;
-    gap: 7px;
+    margin-bottom: 50px;
 `;
 
 const FormTitle = styled.div`
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 `;
 
 const FormTitleBullet = styled.div`
