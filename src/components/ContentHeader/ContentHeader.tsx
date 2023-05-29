@@ -1,13 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { ReactComponent as ArrowIcon } from '@images/icon-24-arrow.svg';
 
 import * as s from './StyledContentHeader';
 
 // 대분류 > 중분류 > 소분류
-export default function ContentHeader(param: Array<string>) {
-    const jsonString: string = JSON.stringify(Object.values(param));
+export default function ContentHeader(param: CotentHeaderParam) {
+    const jsonString: string = JSON.stringify(Object.keys(param));
     const stringArray: Array<string> = JSON.parse(jsonString);
+
     return (
         <>
             <s.contentHeader>
@@ -15,10 +17,16 @@ export default function ContentHeader(param: Array<string>) {
                     index % 2 ? (
                         <>
                             <ArrowIcon />
-                            <p key={item}>{item}</p>
+                            <Link to={param[item.toString()]}>
+                                <s.contentTypo key={item}>{item}</s.contentTypo>
+                            </Link>
                         </>
                     ) : (
-                        <p key={item}>{item}</p>
+                        <>
+                            <Link to={param[item.toString()]}>
+                                <s.contentTypo key={item}>{item}</s.contentTypo>
+                            </Link>
+                        </>
                     )
                 )}
             </s.contentHeader>
