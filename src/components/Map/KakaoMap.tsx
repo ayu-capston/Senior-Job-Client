@@ -8,7 +8,7 @@ declare global {
 
 interface propsParam {
     value?: string;
-    onChange: (value: any) => void;
+    onChange?: any;
 }
 
 function KakaoMap(props: propsParam) {
