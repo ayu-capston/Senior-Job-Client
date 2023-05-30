@@ -7,7 +7,7 @@ const createLecture = (isLectureInfo: any) => {
         max_participants: isLectureInfo.maxParticipants,
         category: isLectureInfo.category,
         bank_name: isLectureInfo.bankName,
-        account_name: '',
+        account_name: isLectureInfo.accountName,
         account_number: isLectureInfo.frontAccountNumber + isLectureInfo.rearAccountNumber,
         price: isLectureInfo.price,
         title: isLectureInfo.title,
