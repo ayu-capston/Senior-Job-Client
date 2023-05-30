@@ -3,11 +3,11 @@ import ScheduleInfo from './ScheduleInfo';
 import TotalPeople from './TotalPeople';
 
 const LectureMainInfo = (props) => {
-    const { type, price, start_date, end_date, max_participants } = props;
+    const { type, price, startdate, enddate, maxparticipants } = props;
     const mainInfo = {
         cost: <PriceInfo price={price} />,
-        schedule: <ScheduleInfo startDate={start_date} endDate={end_date} />,
-        total: <TotalPeople participant={max_participants} />
+        schedule: <ScheduleInfo startdate={startdate} enddate={enddate} />,
+        total: <TotalPeople maxparticipant={maxparticipants} />
     };
     return <>{mainInfo[type]}</>;
 };

@@ -4,11 +4,11 @@ import PaymentInfo from './PaymentInfo';
 import QuestionsInfo from './QuestionsInfo';
 
 const LectureInfo = (props) => {
-    const { type, region, content, bank_name, account_number } = props;
+    const { type, region, content, bankname, accountnumber, accountname } = props;
     const subInfo = {
         region: <RegionInfo region={region} />,
         lectureContent: <ContentInfo content={content} />,
-        payment: <PaymentInfo bankName={bank_name} account_number={account_number} />,
+        payment: <PaymentInfo bankname={bankname} accountnumber={accountnumber} accountname={accountname} />,
         question: <QuestionsInfo />
     };
     return <>{subInfo[type]}</>;
