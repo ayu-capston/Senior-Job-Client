@@ -1,17 +1,44 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
+import submitLecture from '~/api/createLecture';
 import lectureCategory from '~/constants/category';
 import bankName from '~/constants/bank';
 import Mypage from '@pages/Mypage/Mypage';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
 import FormHeader from '@components/Form/FormHeader';
-import TextInput from '@components/Form/TextInput';
+import { TextInput, TextArea } from '@components/Form/TextInput';
+import SearchInput from '~/components/Search/SearchInput';
 import Dropdown from '@components/Form/Dropdown';
 import DateRangePicker from '@components/Form/DateRangePicker';
+import { SubmitButton } from '@components/Button/StyledSubmitButton';
+import KakaoMap from '@components/Map/KakaoMap';
+
 import * as formStyle from '@components/Form/StyledForm';
+import * as s from './StyledCreateLecture';
 
 export default function CreateLecture() {
-    const paramArr: Array<string> = ['개설 강좌', '강좌 개설하기'];
+    const paramArr: CotentHeaderParam = { '개설 강좌': '/mypage/lecture/created', '강좌 개설하기': '/mypage/lecture/created/form' };
+
+    const navigate = useNavigate();
+    const [isSearchRegion, setSearchRegion] = useState('');
+    const [isLectureInfo, setLectureInfo] = useState({
+        maxParticipants: 0,
+        category: '',
+        bankName: '',
+        accoutName: '',
+        frontAccountNumber: '',
+        rearAccountNumber: '',
+        price: 0,
+        title: '',
+        content: '',
+        dateUnit: '',
+        dateCount: '',
+        startDate: '',
+        endDate: '',
+        region: '',
+        imageUrl: ''
+    });
 
     const ImageFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
@@ -76,6 +103,10 @@ export default function CreateLecture() {
                                 required={true}
                                 maxLength={24}
                                 erase={true}
+                                width='100%'
+                                onChange={(e: any) => {
+                                    setLectureInfo({ ...isLectureInfo, title: e });
+                                }}
                             />
                         </formStyle.FormBody>
                     </formStyle.Form>
@@ -84,7 +115,13 @@ export default function CreateLecture() {
                     <formStyle.Form>
                         <FormHeader title='강좌 유형' required={true}></FormHeader>
                         <formStyle.FormBody>
-                            <Dropdown menuUnit='카테고리' menuItems={lectureCategory}></Dropdown>
+                            <Dropdown
+                                menuUnit='카테고리'
+                                menuItems={lectureCategory}
+                                onChange={(e: any) => {
+                                    setLectureInfo({ ...isLectureInfo, category: e });
+                                }}
+                            ></Dropdown>
                         </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
@@ -92,7 +129,13 @@ export default function CreateLecture() {
                     <formStyle.Form>
                         <FormHeader title='모집 최대 인원' required={true} hint={ParticipantFormHint}></FormHeader>
                         <formStyle.FormBody>
-                            <Dropdown menuUnit='명' menuItems={participantArr}></Dropdown>
+                            <Dropdown
+                                menuUnit='명'
+                                menuItems={participantArr}
+                                onChange={(e: any) => {
+                                    setLectureInfo({ ...isLectureInfo, maxParticipants: e });
+                                }}
+                            ></Dropdown>
                         </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
@@ -100,32 +143,150 @@ export default function CreateLecture() {
                     <formStyle.Form>
                         <FormHeader title='강좌 진행 기간' required={true} hint={DateFormHint}></FormHeader>
                         <formStyle.FormBody>
-                            <Dropdown menuUnit='월/주' menuItems={dateUnitArr}></Dropdown>{' '}
-                            <Dropdown menuUnit='횟수' menuItems={dateCountArr}></Dropdown>
-                        </formStyle.FormBody>
-                        <formStyle.FormBody>
-                            <DateRangePicker />
+                            <formStyle.FormGroup>
+                                <Dropdown
+                                    menuUnit='월/주'
+                                    menuItems={dateUnitArr}
+                                    onChange={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, dateUnit: e });
+                                    }}
+                                ></Dropdown>{' '}
+                                <Dropdown
+                                    menuUnit='횟수'
+                                    menuItems={dateCountArr}
+                                    onChange={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, dateCount: e });
+                                    }}
+                                ></Dropdown>
+                            </formStyle.FormGroup>
+                            <formStyle.FormGroup>
+                                <DateRangePicker
+                                    onChangeStartDate={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, startDate: e });
+                                    }}
+                                    onChangeEndDate={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, endDate: e });
+                                    }}
+                                />
+                            </formStyle.FormGroup>
                         </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
 
                     <formStyle.Form>
                         <FormHeader title='강좌 진행 지역' required={true} hint={RegionFormHint}></FormHeader>
-                        <formStyle.FormBody></formStyle.FormBody>
+                        <formStyle.FormBody>
+                            <s.RegionSection>
+                                <SearchInput
+                                    name='region'
+                                    placeholder='주소를 입력해주세요'
+                                    value={isSearchRegion}
+                                    onChange={(e: any) => {
+                                        setSearchRegion(e);
+                                    }}
+                                />
+                                <KakaoMap
+                                    value={isSearchRegion}
+                                    onChange={(e: string) => {
+                                        setLectureInfo({ ...isLectureInfo, region: e });
+                                    }}
+                                />
+                                <s.SelectedRegion value={isLectureInfo.region ? isLectureInfo.region : '마커를 클릭해주세요.'} disabled />
+                            </s.RegionSection>
+                        </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
 
                     <formStyle.Form>
                         <FormHeader title='가격' hint={PriceFormHint}></FormHeader>
-                        <formStyle.FormGroup>
-                            <TextInput name='price' placeholder='0' width='30%' type='number' max={1000000} required={true} /> <span>원 </span>
-                        </formStyle.FormGroup>
-                        <formStyle.FormGroup>
-                            <Dropdown menuUnit='은행명' menuItems={Object.keys(bankName)}></Dropdown>
-                            <TextInput name='owner' placeholder='예금주' type='text' />
-                        </formStyle.FormGroup>
+                        <formStyle.FormBody>
+                            <formStyle.FormGroup>
+                                <Dropdown
+                                    menuUnit='은행명'
+                                    menuItems={Object.keys(bankName)}
+                                    onChange={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, bankName: e });
+                                    }}
+                                ></Dropdown>
+                                <TextInput
+                                    name='owner'
+                                    placeholder='예금주'
+                                    type='text'
+                                    onChange={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, accoutName: e });
+                                    }}
+                                />
+                            </formStyle.FormGroup>
+                            <s.PriceGroup>
+                                <formStyle.FormGroup>
+                                    <TextInput
+                                        name='frontBankNumber'
+                                        placeholder='계좌번호 앞자리'
+                                        width='200px'
+                                        type='number'
+                                        onChange={(e: any) => {
+                                            setLectureInfo({ ...isLectureInfo, frontAccountNumber: e });
+                                        }}
+                                    />
+                                    <s.InputLabel>-</s.InputLabel>
+                                    <TextInput
+                                        name='rearBankNumber'
+                                        placeholder='계좌번호 뒷자리'
+                                        width='200px'
+                                        type='number'
+                                        onChange={(e: any) => {
+                                            setLectureInfo({ ...isLectureInfo, rearAccountNumber: e });
+                                        }}
+                                    />
+                                </formStyle.FormGroup>
+                                <formStyle.FormGroup>
+                                    <TextInput
+                                        name='price'
+                                        placeholder='0'
+                                        width='150px'
+                                        type='number'
+                                        max={1000000}
+                                        required={true}
+                                        onChange={(e: any) => {
+                                            setLectureInfo({ ...isLectureInfo, price: e });
+                                        }}
+                                    />
+
+                                    <s.InputLabel>원</s.InputLabel>
+                                </formStyle.FormGroup>
+                            </s.PriceGroup>
+                        </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
+
+                    <formStyle.Form>
+                        <FormHeader title='강좌 설명'></FormHeader>
+                        <formStyle.FormBody>
+                            <TextArea
+                                name='lecture_content'
+                                placeholder='진행할 강좌의 특징을 강조해주세요!&#13;&#10;회원님의 경력을 잘 나타낼 수 있는 문구를 적으면 더 좋겠죠?'
+                                required={true}
+                                maxLength={500}
+                                erase={true}
+                                width='100%'
+                                onChange={(e: any) => {
+                                    setLectureInfo({ ...isLectureInfo, content: e });
+                                }}
+                            />
+                        </formStyle.FormBody>
+                    </formStyle.Form>
+
+                    <s.ButtonSection>
+                        <SubmitButton
+                            onClick={() => {
+                                submitLecture(isLectureInfo);
+                                navigate(0);
+                            }}
+                        >
+                            {' '}
+                            강좌 개설하기
+                        </SubmitButton>
+                    </s.ButtonSection>
                 </formStyle.FormBox>
             </Mypage>
         </>

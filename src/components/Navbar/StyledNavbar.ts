@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Navbar = styled.nav`
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     font-weight: 700;
     height: 100px;
@@ -15,6 +14,9 @@ const Logo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    img {
+        margin: 5px;
+    }
 `;
 
 const Menu = styled.div`
@@ -24,8 +26,8 @@ const Menu = styled.div`
     gap: 40px;
 `;
 
-const MenuTypo = styled.span`
-    font-size: 24px;
+const MenuTypo = styled.button`
+    font-size: 2.4rem;
 `;
 
 const ButtonGroup = styled.div`
@@ -35,20 +37,13 @@ const ButtonGroup = styled.div`
     gap: 30px;
 `;
 
-const Button = styled.a`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-`;
-
-const ButtonTypo = styled.span`
+const ButtonTypo = styled.button`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 7px;
-    font-size: 20px;
+    font-size: 2rem;
     color: #124800;
 `;
 
-export { Navbar, Logo, Menu, MenuTypo, ButtonGroup, Button, ButtonTypo };
+export { Navbar, Logo, Menu, MenuTypo, ButtonGroup, ButtonTypo };

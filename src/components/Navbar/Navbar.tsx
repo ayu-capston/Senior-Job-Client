@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import LogoBi from '@images/logo-bi.png';
 import LogoTitle from '@images/logo-title.png';
@@ -12,25 +13,35 @@ export default function Navbar() {
         <>
             <s.Navbar>
                 <s.Logo>
-                    <img src={LogoBi} width='75px' height='55px' alt='logo-bi' />
-                    <img src={LogoTitle} width='80px' height='34px' alt='logo-title' />
+                    <Link to='/'>
+                        <img src={LogoBi} width='55px' height='43px' alt='logo-bi' />
+                        <img src={LogoTitle} width='80px' height='34px' alt='logo-title' />
+                    </Link>
                 </s.Logo>
                 <s.Menu>
-                    <s.MenuTypo>강좌 수강</s.MenuTypo>
-                    <s.MenuTypo>강좌 제안</s.MenuTypo>
-                    <s.MenuTypo>파트타임</s.MenuTypo>
+                    <Link to='/lecture'>
+                        <s.MenuTypo>강좌 수강</s.MenuTypo>
+                    </Link>
+                    <Link to='/lecture/propose'>
+                        <s.MenuTypo>강좌 제안</s.MenuTypo>
+                    </Link>
+                    <Link to='/parttime'>
+                        <s.MenuTypo>파트타임</s.MenuTypo>
+                    </Link>
                 </s.Menu>
                 <s.ButtonGroup>
-                    <s.Button>
+                    <Link to='/mypage'>
                         <s.ButtonTypo>
                             <MypageIcon />
                             마이페이지
                         </s.ButtonTypo>
+                    </Link>
+                    <Link to='/signout'>
                         <s.ButtonTypo>
                             <LogoutIcon />
                             로그아웃
                         </s.ButtonTypo>
-                    </s.Button>
+                    </Link>
                 </s.ButtonGroup>
             </s.Navbar>
         </>

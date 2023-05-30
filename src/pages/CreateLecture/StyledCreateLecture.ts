@@ -11,60 +11,38 @@ const FormBox = styled.section`
     border: 0.7px solid #ccc;
 `;
 
-const Form = styled.div`
-    width: 100%;
-    padding: 10px 14px;
-`;
-
-const FormHead = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: auto;
-    height: 27px;
-    padding: 0px 7px;
-    gap: 7px;
-`;
-
-const TitleBullet = styled.a`
-    width: 2px;
+const InputLabel = styled.span`
+    margin: auto 0px;
     height: auto;
-    background-color: #ccc;
 `;
 
-const FormTitle = styled.div`
+const ButtonSection = styled.section`
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    padding: 30px 0px;
+`;
+
+const RegionSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    height: 500px;
+`;
+
+const SelectedRegion = styled.input`
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const FormTitleTypo = styled.a`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    padding: 10px;
+    border: 1.2px solid #c4c4c4;
+    text-align: right;
     font-weight: 500;
-    font-size: 18px;
-
-    span {
-        color: #ff6666;
-    }
 `;
 
-const FormTitleHint = styled.ul`
-    li {
-        font-size: 12px;
-        color: #124800;
-    }
+const PriceGroup = styled.div`
+    display: flex;
+    justify-content: space-between;
 `;
 
-const FormBody = styled.div`
-    gap: 5px;
-    margin: 14px 7px;
-`;
-
-const Horizontal = styled.div`
-    border: 0.7px solid #ccc;
-`;
-
-export { FormBox, Form, FormHead, TitleBullet, FormTitle, FormTitleTypo, FormTitleHint, FormBody, Horizontal };
+export { FormBox, InputLabel, ButtonSection, RegionSection, SelectedRegion, PriceGroup };

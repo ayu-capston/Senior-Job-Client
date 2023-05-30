@@ -2,12 +2,17 @@ import styled from 'styled-components';
 
 const contentHeader = styled.h1`
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 7px;
-    padding: 0px 14px;
-    font-weight: 500;
-    font-size: 20px;
+    padding: 14px;
 `;
 
-export { contentHeader };
+const contentTypo = styled.span`
+    font-weight: 500;
+    font-size: 2rem;
+    &:hover {
+        font-weight: 700;
+    }
+`;
+
+export { contentHeader, contentTypo };
