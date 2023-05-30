@@ -4,6 +4,7 @@ import postAPI from '../../api/postAPI';
 import LectureDetailNav from '../../components/PageNav/LectureDetailNav';
 import LectureMainInfo from '../../components/LectureMainInfo/LectureMainInfo';
 import LectureInfo from '../../components/LectureInfo/LectureInfo';
+import ContentHeader from '@components/ContentHeader/ContentHeader';
 import Logo from '../../assets/images/Logo.svg';
 import NotFountImg from '../../assets/images/Image-Not-Found.svg';
 import * as S from './StyledLectureDetail';
@@ -22,14 +23,16 @@ const LectureDetail = () => {
             }
         };
         getLectureData();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    const paramArr = { '강좌 수강': '/lecture', '강좌 상세보기': '/lecture/detail' };
 
     return (
         <>
             <S.LectureDetailWrap>
                 <h1 className='hidden'>강좌 상세 페이지</h1>
                 <LectureDetailNav />
+                {/* <ContentHeader {...paramArr} /> */}
                 <S.LecturePostWrap>
                     <h2 className='hidden'>강좌 주요 내용</h2>
                     {lectureData && (

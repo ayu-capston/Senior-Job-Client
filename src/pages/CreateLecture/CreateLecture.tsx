@@ -26,7 +26,7 @@ export default function CreateLecture() {
         maxParticipants: 0,
         category: '',
         bankName: '',
-        accoutName: '',
+        accountName: '',
         frontAccountNumber: '',
         rearAccountNumber: '',
         price: 0,
@@ -39,6 +39,8 @@ export default function CreateLecture() {
         region: '',
         imageUrl: ''
     });
+
+    console.log(isLectureInfo);
 
     const ImageFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
@@ -213,7 +215,7 @@ export default function CreateLecture() {
                                     placeholder='예금주'
                                     type='text'
                                     onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, accoutName: e });
+                                        setLectureInfo({ ...isLectureInfo, accountName: e });
                                     }}
                                 />
                             </formStyle.FormGroup>
