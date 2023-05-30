@@ -9,6 +9,7 @@ declare global {
 interface propsParam {
     value?: string;
     onChange?: any;
+    marker?: boolean;
 }
 
 function KakaoMap(props: propsParam) {
@@ -37,7 +38,7 @@ function KakaoMap(props: propsParam) {
                 const bounds = new window.kakao.maps.LatLngBounds();
 
                 for (let i = 0; i < data.length; i++) {
-                    displayMarker(data[i]);
+                    props.marker ? displayMarker(data[i]) : void 0;
                     bounds.extend(new window.kakao.maps.LatLng(data[i].y, data[i].x));
                 }
 

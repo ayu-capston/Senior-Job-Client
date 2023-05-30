@@ -187,6 +187,7 @@ export default function CreateLecture() {
                                 />
                                 <KakaoMap
                                     value={isSearchRegion}
+                                    marker={true}
                                     onChange={(e: string) => {
                                         setLectureInfo({ ...isLectureInfo, region: e });
                                     }}
