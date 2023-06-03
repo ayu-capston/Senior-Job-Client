@@ -7,6 +7,7 @@ import ContentHeader from '@components/ContentHeader/ContentHeader';
 import Logo from '../../assets/images/Logo.svg';
 import NotFountImg from '../../assets/images/Image-Not-Found.svg';
 import * as S from './StyledLectureDetail';
+import JoinButton from '~/components/JoinButton/JoinButton';
 
 const LectureDetail = () => {
     const { lectureid } = useParams();
@@ -22,6 +23,7 @@ const LectureDetail = () => {
             }
         };
         getLectureData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const paramArr = { '강좌 수강': '/lecture', '강좌 상세보기': '/lecture/detail' };
@@ -50,10 +52,7 @@ const LectureDetail = () => {
                                         <LectureMainInfo type='cost' price={lectureData.price} />
                                         <LectureMainInfo type='schedule' startdate={lectureData.start_date} enddate={lectureData.end_date} />
                                         <LectureMainInfo type='total' maxparticipants={lectureData.max_participants} />
-                                        <S.ApplyBtn>
-                                            <span>7일 남았어요!</span>
-                                            참여 신청하기
-                                        </S.ApplyBtn>
+                                        <JoinButton text1='7일 남았어요!' text2='참여 신청하기' btncolor='#124800' color='#ffffff;' />
                                     </div>
                                 </S.LectureCardWrap>
                                 <LectureInfo type='region' region={lectureData.region} />
