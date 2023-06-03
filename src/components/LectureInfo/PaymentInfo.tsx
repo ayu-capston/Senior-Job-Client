@@ -2,7 +2,13 @@ import IconLabel from '../IconLabel/IconLabel';
 import paymentIcon from '../../assets/images/icon-card.svg';
 import * as S from './StyledLectureInfo';
 
-const PaymentInfo = ({ bankname, accountnumber, accountname }) => {
+interface PaymentInfoProps {
+    bankname?: string;
+    accountnumber?: string;
+    accountname?: string;
+}
+
+const PaymentInfo = ({ bankname, accountnumber, accountname }: PaymentInfoProps) => {
     return (
         <S.Infowrap>
             <IconLabel label='결제 수단' iconimg={paymentIcon} />

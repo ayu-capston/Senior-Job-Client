@@ -2,7 +2,11 @@ import IconLabel from '../IconLabel/IconLabel';
 import locationIcon from '../../assets/images/icon-location.svg';
 import * as S from './StyledLectureInfo';
 
-const RegionInfo = ({ region }) => {
+interface RegionInfoProps {
+    region?: string;
+}
+
+const RegionInfo = ({ region }: RegionInfoProps) => {
     return (
         <S.Infowrap>
             <IconLabel label='강좌 지역' iconimg={locationIcon} />

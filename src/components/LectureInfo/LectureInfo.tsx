@@ -3,8 +3,16 @@ import ContentInfo from './ContentInfo';
 import PaymentInfo from './PaymentInfo';
 import QuestionsInfo from './QuestionsInfo';
 
-const LectureInfo = (props) => {
-    const { type, region, content, bankname, accountnumber, accountname } = props;
+interface LectureInfoProps {
+    type: 'region' | 'lectureContent' | 'payment' | 'question';
+    region?: string;
+    content?: string;
+    bankname?: string;
+    accountnumber?: string;
+    accountname?: string;
+}
+
+const LectureInfo = ({ type, region, content, bankname, accountnumber, accountname }: LectureInfoProps) => {
     const subInfo = {
         region: <RegionInfo region={region} />,
         lectureContent: <ContentInfo content={content} />,
