@@ -9,20 +9,6 @@ import NotFountImg from '../../assets/images/Image-Not-Found.svg';
 import * as S from './StyledLectureDetail';
 import JoinButton from '~/components/JoinButton/JoinButton';
 
-interface LectureData {
-    title: string;
-    creator: string;
-    price: number;
-    start_date: string;
-    end_date: string;
-    max_participants: number;
-    region: string;
-    content: string;
-    bank_name: string;
-    account_number: string;
-    account_name: string;
-}
-
 const LectureDetail = () => {
     const { createid } = useParams();
     const [lectureData, setLectureData] = useState<LectureData | null>(null);
