@@ -2,8 +2,15 @@ import PriceInfo from './PriceInfo';
 import ScheduleInfo from './ScheduleInfo';
 import TotalPeople from './TotalPeople';
 
-const LectureMainInfo = (props) => {
-    const { type, price, startdate, enddate, maxparticipants } = props;
+interface LectureMainInfoProps {
+    type: 'cost' | 'schedule' | 'total';
+    price?: number;
+    startdate?: string;
+    enddate?: string;
+    maxparticipants?: number;
+}
+
+const LectureMainInfo = ({ type, price, startdate, enddate, maxparticipants }: LectureMainInfoProps) => {
     const mainInfo = {
         cost: <PriceInfo price={price} />,
         schedule: <ScheduleInfo startdate={startdate} enddate={enddate} />,

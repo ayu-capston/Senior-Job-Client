@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const InfoWrap = styled.div`
+interface InfoWrapProps {
+    icon: string;
+}
+
+export const InfoWrap = styled.div<InfoWrapProps>`
     display: flex;
     justify-content: space-between;
     position: relative;

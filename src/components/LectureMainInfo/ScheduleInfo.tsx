@@ -1,9 +1,16 @@
 import calendarIcon from '../../assets/images/icon-calendar.svg';
 import * as S from './StyledLectureMainInfo';
 
-const ScheduleInfo = ({ startdate, enddate }) => {
-    const [sYear, sMonth, sDay] = startdate.substring(0, 10).split('-');
-    const [eYear, eMonth, eDay] = enddate.substring(0, 10).split('-');
+interface ScheduleInfoProps {
+    startdate?: String;
+    enddate?: String;
+}
+
+const ScheduleInfo = ({ startdate, enddate }: ScheduleInfoProps) => {
+    const defaultDate = '2023-00-00T00:00:00';
+
+    const [sYear, sMonth, sDay] = (startdate || defaultDate).substring(0, 10).split('-');
+    const [eYear, eMonth, eDay] = (enddate || defaultDate).substring(0, 10).split('-');
 
     return (
         <S.InfoWrap icon={calendarIcon}>
