@@ -15,6 +15,7 @@ const TextInput = styled.input`
     height: 20px;
     padding: 25px 15px;
     font-size: 1.4rem;
+    font-family: inherit;
     border-style: none;
 
     &::placeholder {
