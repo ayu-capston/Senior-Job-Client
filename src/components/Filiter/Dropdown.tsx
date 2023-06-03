@@ -9,7 +9,7 @@ interface ParamProps {
 }
 
 export default function Dropdown(props: ParamProps) {
-    const [isValue, setValue] = useState('');
+    const [isValue, setValue] = useState(props.menuUnit);
 
     return (
         <s.DropDownGroup>

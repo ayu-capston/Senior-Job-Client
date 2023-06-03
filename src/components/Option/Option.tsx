@@ -31,7 +31,7 @@ export default function Option(props: ParamProps) {
             <s.Option
                 color={props.value === '가격 낮은 순' ? 'true' : 'false'}
                 onClick={() => {
-                    props.onChange(' 가격 낮은 순');
+                    props.onChange('가격 낮은 순');
                 }}
             >
                 가격 낮은 순

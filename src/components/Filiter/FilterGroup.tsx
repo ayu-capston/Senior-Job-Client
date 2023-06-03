@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import category from '~/constants/category';
+import province from '~/constants/province';
+import countrySearch from '~/api/countrySearch';
 import CurrentPositionButton from './CurrentPositionButton';
 import Dropdown from './Dropdown';
 import Button from './Button';
@@ -24,10 +26,11 @@ interface ParamProps {
     categoryOnChange: (value: LectureCategory) => void;
 }
 
-const provinceMenuItems: string[] = [];
-const countryMenuItems: string[] = [];
+const provinceMenuItems: string[] = province;
 
 export default function FilterGroup(props: ParamProps) {
+    const [countryMenuItems, setCountryMenuItems] = useState<string[]>([]);
+
     return (
         <s.Filter>
             <s.FilterGroup>
@@ -35,8 +38,21 @@ export default function FilterGroup(props: ParamProps) {
                     <span>지역</span>
                     <CurrentPositionButton />
                 </s.FilterTitle>
-                <Dropdown menuUnit='시/도 선택' menuItems={provinceMenuItems} onChange={(e: string) => props.provinceOnChange(e)} />
-                <Dropdown menuUnit='시/군/구 선택' menuItems={countryMenuItems} onChange={(e: string) => props.provinceOnChange(e)} />
+                <Dropdown
+                    menuUnit='시/도 선택'
+                    menuItems={provinceMenuItems}
+                    onChange={async (e: string) => {
+                        props.provinceOnChange(e);
+                        setCountryMenuItems(await countrySearch(e));
+                    }}
+                />
+                <Dropdown
+                    menuUnit='시/군/구 선택'
+                    menuItems={countryMenuItems}
+                    onChange={(e: string) => {
+                        props.countryOnChange(e);
+                    }}
+                />
             </s.FilterGroup>
             <s.Horizontal />
             <s.FilterGroup>
@@ -80,7 +96,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconHome />
-                    <span>홈/리빙</span>
+                    <span>{category[0]}</span>
                 </Button>
                 <Button
                     status={props.category.business}
@@ -89,7 +105,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconBusiness />
-                    <span>비즈니스</span>
+                    <span>{category[1]}</span>
                 </Button>
                 <Button
                     status={props.category.design}
@@ -98,7 +114,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconDesign />
-                    <span>디자인</span>
+                    <span>{category[2]}</span>
                 </Button>
                 <Button
                     status={props.category.development}
@@ -107,7 +123,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconDevelopment />
-                    <span>개발</span>
+                    <span>{category[3]}</span>
                 </Button>
                 <Button
                     status={props.category.health}
@@ -116,7 +132,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconHealth />
-                    <span>건강</span>
+                    <span>{category[4]}</span>
                 </Button>
                 <Button
                     status={props.category.beauty}
@@ -125,7 +141,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconBeauty />
-                    <span>미용</span>
+                    <span>{category[5]}</span>
                 </Button>
                 <Button
                     status={props.category.cooking}
@@ -134,7 +150,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconCooking />
-                    <span>요리</span>
+                    <span>{category[6]}</span>
                 </Button>
                 <Button
                     status={props.category.etc}
@@ -143,7 +159,7 @@ export default function FilterGroup(props: ParamProps) {
                     }}
                 >
                     <IconEtc />
-                    <span>기타</span>
+                    <span>{category[7]}</span>
                 </Button>
             </s.FilterGroup>
         </s.Filter>

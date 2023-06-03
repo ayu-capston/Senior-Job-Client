@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import SearchBar from '@components/Search/SearchBar';
 import Option from '@components/Option/Option';
@@ -33,7 +34,9 @@ export default function LectureList() {
             <section></section>
             <s.RecommendBanner>
                 <s.RecommendBannerTypo>강좌를 개설하고 직접 수업을 진행해보세요!</s.RecommendBannerTypo>
-                <s.RecommendBannerButton>강좌 개설하기</s.RecommendBannerButton>
+                <Link to='/mypage/lecture/created/form'>
+                    <s.RecommendBannerButton>강좌 개설하기</s.RecommendBannerButton>
+                </Link>
             </s.RecommendBanner>
             <s.SearchGroup>
                 {/* 검색 */}
