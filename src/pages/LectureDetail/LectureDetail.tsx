@@ -50,7 +50,13 @@ const LectureDetail = () => {
                                             <span>{lectureData.creator}</span>
                                         </S.InstructorWrap>
                                         <LectureMainInfo type='cost' price={lectureData.price} />
-                                        <LectureMainInfo type='schedule' startdate={lectureData.start_date} enddate={lectureData.end_date} />
+                                        <LectureMainInfo
+                                            type='schedule'
+                                            startdate={lectureData.start_date}
+                                            enddate={lectureData.end_date}
+                                            cycle={lectureData.cycle}
+                                            count={lectureData.count}
+                                        />
                                         <LectureMainInfo type='total' maxparticipants={lectureData.max_participants} />
                                         <JoinButton text1='7일 남았어요!' text2='참여 신청하기' btncolor='#124800' color='#ffffff;' />
                                     </div>

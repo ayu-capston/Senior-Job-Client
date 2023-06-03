@@ -48,7 +48,7 @@ export const LectureCardWrap = styled.section`
     }
 
     & > div > div:nth-child(3) {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 `;
 
