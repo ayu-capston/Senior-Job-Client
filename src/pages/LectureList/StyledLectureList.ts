@@ -35,8 +35,12 @@ const SearchGroup = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     margin: 0px 140px;
 `;
 
-export { RecommendBanner, RecommendBannerTypo, RecommendBannerButton, SearchGroup };
+const ContentGroup = styled.section`
+    display: flex;
+    margin: 0px 140px;
+`;
+
+export { RecommendBanner, RecommendBannerTypo, RecommendBannerButton, SearchGroup, ContentGroup };

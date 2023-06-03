@@ -22,5 +22,24 @@ interface LectureData {
     createdDate?: Date;
 }
 
-declare module 'LectureData';
+interface LectureState {
+    recruit: boolean;
+    wait: boolean;
+    progress: boolean;
+}
+
+interface LectureCategory {
+    home: boolean;
+    business: boolean;
+    design: boolean;
+    development: boolean;
+    health: boolean;
+    beauty: boolean;
+    cooking: boolean;
+    etc: boolean;
+}
+
 declare module 'CotentHeaderParam';
+declare module 'LectureData';
+declare module 'LectureState';
+declare module 'LectureCategory';

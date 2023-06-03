@@ -2,12 +2,30 @@ import React, { useState } from 'react';
 
 import SearchBar from '@components/Search/SearchBar';
 import Option from '@components/Option/Option';
+import FilterGroup from '@components/Filiter/FilterGroup';
 
 import * as s from './StyledLectureList';
 
 export default function LectureList() {
-    const [isSearchKeyWord, setSearchKeyWord] = useState('');
-    const [isOption, setOption] = useState('최신순');
+    const [isSearchKeyWord, setSearchKeyWord] = useState(''); // Search Key word
+    const [isOption, setOption] = useState('최신순'); // Sorting
+    const [isProvince, setProvince] = useState(''); // Region - Province
+    const [isCountry, setCountry] = useState(''); // Region - Country
+    const [isState, setState] = useState<LectureState>({
+        recruit: true,
+        wait: false,
+        progress: false
+    });
+    const [isCategory, setCateogory] = useState<LectureCategory>({
+        home: false,
+        business: false,
+        design: false,
+        development: false,
+        health: false,
+        beauty: false,
+        cooking: false,
+        etc: false
+    });
 
     return (
         <>
@@ -37,14 +55,26 @@ export default function LectureList() {
                     }}
                 />
             </s.SearchGroup>
-            <section>
-                <div>
-                    {/* 필터 */}
-                    <div></div>
-                    {/* 카드뷰 */}
-                    <div></div>
-                </div>
-            </section>
+            <s.ContentGroup>
+                <FilterGroup
+                    state={isState}
+                    category={isCategory}
+                    provinceOnChange={(e) => {
+                        setProvince(e);
+                    }}
+                    countryOnChange={(e) => {
+                        setCountry(e);
+                    }}
+                    stateOnChange={(e) => {
+                        setState(e);
+                    }}
+                    categoryOnChange={(e) => {
+                        setCateogory(e);
+                    }}
+                />
+                {/* 카드뷰 */}
+                <div></div>
+            </s.ContentGroup>
         </>
     );
 }
