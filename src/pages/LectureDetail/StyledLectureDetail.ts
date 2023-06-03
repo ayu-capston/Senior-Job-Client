@@ -10,6 +10,10 @@ export const LectureDetailWrap = styled.section`
     background-color: #e4ece2;
 `;
 
+export const NavWrap = styled.div`
+    align-self: flex-start;
+`;
+
 export const LectureTitle = styled.h2`
     margin-bottom: 32px;
     text-align: center;

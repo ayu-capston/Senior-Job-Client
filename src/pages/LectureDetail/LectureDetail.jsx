@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import postAPI from '../../api/postAPI';
-import LectureDetailNav from '../../components/PageNav/LectureDetailNav';
 import LectureMainInfo from '../../components/LectureMainInfo/LectureMainInfo';
 import LectureInfo from '../../components/LectureInfo/LectureInfo';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
@@ -31,8 +30,9 @@ const LectureDetail = () => {
         <>
             <S.LectureDetailWrap>
                 <h1 className='hidden'>강좌 상세 페이지</h1>
-                <LectureDetailNav />
-                {/* <ContentHeader {...paramArr} /> */}
+                <S.NavWrap>
+                    <ContentHeader {...paramArr} />
+                </S.NavWrap>
                 <S.LecturePostWrap>
                     <h2 className='hidden'>강좌 주요 내용</h2>
                     {lectureData && (
