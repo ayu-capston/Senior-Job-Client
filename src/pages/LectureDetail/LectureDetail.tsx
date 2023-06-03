@@ -9,14 +9,28 @@ import NotFountImg from '../../assets/images/Image-Not-Found.svg';
 import * as S from './StyledLectureDetail';
 import JoinButton from '~/components/JoinButton/JoinButton';
 
+interface LectureData {
+    title: string;
+    creator: string;
+    price: number;
+    start_date: string;
+    end_date: string;
+    max_participants: number;
+    region: string;
+    content: string;
+    bank_name: string;
+    account_number: string;
+    account_name: string;
+}
+
 const LectureDetail = () => {
-    const { lectureid } = useParams();
-    const [lectureData, setLectureData] = useState();
+    const { createid } = useParams();
+    const [lectureData, setLectureData] = useState<LectureData | null>(null);
 
     useEffect(() => {
         const getLectureData = async () => {
             try {
-                const data = await postAPI.getPostDetail(lectureid);
+                const data = await postAPI.getPostDetail(createid);
                 setLectureData(data);
             } catch (error) {
                 console.log(error);
@@ -47,7 +61,7 @@ const LectureDetail = () => {
                                     <div>
                                         <S.InstructorWrap>
                                             <img src={Logo} alt='사람 이미지' />
-                                            <span>{lectureData.author}</span>
+                                            <span>{lectureData.creator}</span>
                                         </S.InstructorWrap>
                                         <LectureMainInfo type='cost' price={lectureData.price} />
                                         <LectureMainInfo type='schedule' startdate={lectureData.start_date} enddate={lectureData.end_date} />

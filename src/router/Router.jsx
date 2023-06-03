@@ -10,7 +10,7 @@ const Router = () => {
         <BrowserRouter>
             <Navbar />
             <Routes>
-                <Route path='/lecture/detail/:lectureid' element={<LectureDetail />} />
+                <Route path='/lecture/detail/:createid' element={<LectureDetail />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
             </Routes>
