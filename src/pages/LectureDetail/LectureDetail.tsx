@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import postAPI from '../../api/postAPI';
 import LectureMainInfo from '../../components/LectureMainInfo/LectureMainInfo';
 import LectureInfo from '../../components/LectureInfo/LectureInfo';
@@ -8,10 +8,15 @@ import Logo from '../../assets/images/Logo.svg';
 import NotFountImg from '../../assets/images/Image-Not-Found.svg';
 import * as S from './StyledLectureDetail';
 import JoinButton from '~/components/JoinButton/JoinButton';
+import useModal from '~/hooks/useModal';
+import MainModal from '~/components/Modals/MainModal';
+import InnerModal from '~/components/Modals/InnerModal';
 
 const LectureDetail = () => {
     const { createid } = useParams();
+    const navigate = useNavigate();
     const [lectureData, setLectureData] = useState<LectureData | null>(null);
+    const [isShowModal, isShowInnerModal, handleShowModal, handleCloseModal, handleShowInnerModal, handleCloseInnerModal] = useModal();
 
     useEffect(() => {
         const getLectureData = async () => {
@@ -27,6 +32,10 @@ const LectureDetail = () => {
     }, []);
 
     const paramArr = { '강좌 수강': '/lecture', '강좌 상세보기': '/lecture/detail' };
+
+    const handleGoListPage = () => {
+        navigate('lecture/apply');
+    };
 
     return (
         <>
@@ -58,7 +67,13 @@ const LectureDetail = () => {
                                             count={lectureData.count}
                                         />
                                         <LectureMainInfo type='total' maxparticipants={lectureData.max_participants} />
-                                        <JoinButton text1='7일 남았어요!' text2='참여 신청하기' btncolor='#124800' color='#ffffff;' />
+                                        <JoinButton
+                                            text1='7일 남았어요!'
+                                            text2='참여 신청하기'
+                                            btncolor='#124800'
+                                            color='#ffffff;'
+                                            onClick={handleShowModal}
+                                        />
                                     </div>
                                 </S.LectureCardWrap>
                                 <LectureInfo type='region' region={lectureData.region} />
@@ -76,6 +91,9 @@ const LectureDetail = () => {
                 </S.LecturePostWrap>
                 <S.MoveListLink to='/lecture'>목록으로 돌아가기</S.MoveListLink>
             </S.LectureDetailWrap>
+
+            {!isShowModal ? null : <MainModal closeModal={handleCloseModal} showInnerModal={handleShowInnerModal} />}
+            {!isShowInnerModal ? null : <InnerModal closeInnerModal={handleCloseInnerModal} movePage={handleGoListPage} />}
         </>
     );
 };
