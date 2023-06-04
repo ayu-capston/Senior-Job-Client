@@ -93,7 +93,16 @@ const LectureDetail = () => {
             </S.LectureDetailWrap>
 
             {!isShowModal ? null : <MainModal closeModal={handleCloseModal} showInnerModal={handleShowInnerModal} />}
-            {!isShowInnerModal ? null : <InnerModal closeInnerModal={handleCloseInnerModal} movePage={handleGoListPage} />}
+            {!isShowInnerModal ? null : (
+                <InnerModal
+                    closeInnerModal={handleCloseInnerModal}
+                    movePage={handleGoListPage}
+                    desc='강좌 신청 완료 모달'
+                    text1='참여 신청이 정상적으로 이루어졌습니다.'
+                    text2='개설자의 승인을 기다려주세요!'
+                    moveText='내가 신청한 강좌 목록 보러가기'
+                />
+            )}
         </>
     );
 };

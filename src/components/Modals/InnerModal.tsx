@@ -4,21 +4,25 @@ import * as S from './StyledModal';
 interface InnerModalProps {
     closeInnerModal: () => void;
     movePage: () => void;
+    desc: string;
+    text1: string;
+    text2?: string;
+    moveText: string;
 }
 
-const InnerModal = ({ closeInnerModal, movePage }: InnerModalProps) => {
+const InnerModal = ({ closeInnerModal, movePage, desc, text1, text2, moveText }: InnerModalProps) => {
     return (
         <S.ModalWrap>
             <S.ModalContentWrap>
                 <button type='button' onClick={closeInnerModal}>
                     <img src={closeIcon} alt='창 닫기 아이콘' />
                 </button>
-                <h1 className='hidden'>강좌 신청 완료 모달</h1>
+                <h1 className='hidden'>{desc}</h1>
                 <S.SuccessContent>
-                    참여 신청이 정상적으로 이루어졌습니다.
-                    <br /> 개설자의 승인을 기다려주세요!
+                    {text1}
+                    <br /> {text2}
                 </S.SuccessContent>
-                <S.MoveList onClick={movePage}>내가 신청한 강좌 목록 보러가기</S.MoveList>
+                <S.MoveList onClick={movePage}>{moveText}</S.MoveList>
             </S.ModalContentWrap>
         </S.ModalWrap>
     );
