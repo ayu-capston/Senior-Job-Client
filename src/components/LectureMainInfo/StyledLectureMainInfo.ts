@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
-export const InfoWrap = styled.div`
+interface InfoWrapProps {
+    icon: string;
+}
+
+export const InfoWrap = styled.div<InfoWrapProps>`
     display: flex;
     justify-content: space-between;
     position: relative;
     font-weight: 700;
+    font-size: 1.6rem;
 
     &::before {
         content: '';
@@ -22,8 +27,11 @@ export const InfoWrap = styled.div`
         font-size: 2rem;
         color: #f9b501;
     }
+`;
 
-    & > span:nth-child(2) {
-        font-size: 1.6rem;
+export const DateWrap = styled.div`
+    & > p:nth-child(2) {
+        color: #000000;
+        text-align: right;
     }
 `;

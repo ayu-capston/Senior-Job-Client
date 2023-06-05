@@ -78,6 +78,7 @@ function TextArea(props: ParamProps) {
                     maxLength={props.maxLength}
                     placeholder={props.placeholder ? props.placeholder : ''}
                     onChange={onChangeInputValue}
+                    width={props.width}
                 />
                 {props.maxLength ? (
                     <s.TextInputLength>

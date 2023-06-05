@@ -30,6 +30,7 @@ export const Map = styled.div`
     margin-bottom: 9px;
     border-radius: 13px;
     background-color: #d8d8d8;
+    overflow: hidden;
 `;
 
 export const LocationWrap = styled.div`

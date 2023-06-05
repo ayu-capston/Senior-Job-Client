@@ -1,6 +1,11 @@
 import * as S from './StyledIconLabel';
 
-const IconLabel = ({ label, iconimg }) => {
+interface IconLabelProps {
+    label: string;
+    iconimg: string;
+}
+
+const IconLabel = ({ label, iconimg }: IconLabelProps) => {
     return <S.Heading iconimg={iconimg}>{label}</S.Heading>;
 };
 
