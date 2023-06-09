@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Filter = styled.section`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 20px;
     width: 230px;
     margin-top: 35px;

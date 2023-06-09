@@ -40,7 +40,18 @@ const SearchGroup = styled.section`
 
 const ContentGroup = styled.section`
     display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 1350px;
     margin: 0px 140px;
 `;
 
-export { RecommendBanner, RecommendBannerTypo, RecommendBannerButton, SearchGroup, ContentGroup };
+const LectureItemGroup = styled.section`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px;
+`;
+
+export { RecommendBanner, RecommendBannerTypo, RecommendBannerButton, SearchGroup, ContentGroup, LectureItemGroup };

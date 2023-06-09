@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SearchBar from '@components/Search/SearchBar';
 import Option from '@components/Option/Option';
 import FilterGroup from '@components/Filiter/FilterGroup';
+import Card from '~/components/Card/Card';
 
 import * as s from './StyledLectureList';
 
@@ -76,7 +77,20 @@ export default function LectureList() {
                     }}
                 />
                 {/* 카드뷰 */}
-                <div></div>
+                <s.LectureItemGroup>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </s.LectureItemGroup>
             </s.ContentGroup>
         </>
     );
