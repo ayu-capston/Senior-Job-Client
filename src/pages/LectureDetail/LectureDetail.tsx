@@ -66,7 +66,11 @@ const LectureDetail = () => {
                                             cycle={lectureData.cycle}
                                             count={lectureData.count}
                                         />
-                                        <LectureMainInfo type='total' maxparticipants={lectureData.max_participants} />
+                                        <LectureMainInfo
+                                            type='total'
+                                            maxparticipants={lectureData.max_participants}
+                                            currentparticipants={lectureData.current_participants}
+                                        />
                                         <JoinButton
                                             text1='7일 남았어요!'
                                             text2='참여 신청하기'

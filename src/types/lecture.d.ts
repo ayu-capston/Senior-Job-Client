@@ -6,6 +6,7 @@ interface LectureData {
     create_id?: number;
     creator: string;
     max_participants: number;
+    current_participants: number;
     category?: string;
     bank_name?: string;
     account_name?: string;
