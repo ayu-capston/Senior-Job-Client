@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import LectureCarousel from '../../components/Carousel/LectureCarousel';
+import LectureCarousel from '@components/Carousel/LectureCarousel';
 import SearchBar from '@components/Search/SearchBar';
 import Option from '@components/Option/Option';
 import FilterGroup from '@components/Filiter/FilterGroup';
-import Card from '~/components/Card/Card';
+import Card from '@components/Card/Card';
+import Pagination from '@components/Pagination/Pagination';
 
 import * as s from './StyledLectureList';
 
@@ -93,6 +94,7 @@ export default function LectureList() {
                     <Card />
                 </s.LectureItemGroup>
             </s.ContentGroup>
+            <Pagination />
         </>
     );
 }

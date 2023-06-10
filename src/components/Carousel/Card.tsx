@@ -13,10 +13,10 @@ const Card = () => {
             <s.Description>
                 <s.Title>
                     {/* <h4>타이틀</h4> */}
-                    <h4>글자수테스트입니다최대길이는24자입니다람쥐똥구멍</h4>
+                    <h4>글자수테스트입니다최대길이는스물넷입니다람쥐똥꾸</h4>
                 </s.Title>
                 <s.Region>
-                    <span>인천시 동구</span>
+                    <span>부산시 사하구</span>
                 </s.Region>
             </s.Description>
         </s.Card>

@@ -52,7 +52,7 @@ const Title = styled.div`
     height: 48px;
     margin-bottom: 20px;
     & h4 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 700;
         color: #424242;
     }
