@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const CardBtn = styled.button`
+export const CardLink = styled(Link)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 313px;
+    min-width: 313px;
     padding: 45px 0;
     border-radius: 30px;
-    background-color: pink;
+    background-color: #ffffff;
     font-weight: 700;
     color: #124800;
 
