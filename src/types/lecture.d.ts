@@ -11,6 +11,7 @@ interface LectureData {
     account_name?: string;
     account_number?: string;
 }
+
 interface LectureData {
     create_id?: number;
     creator: string;
