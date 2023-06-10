@@ -10,6 +10,10 @@ export const LectureDetailWrap = styled.section`
     background-color: #e4ece2;
 `;
 
+export const NavWrap = styled.div`
+    align-self: flex-start;
+`;
+
 export const LectureTitle = styled.h2`
     margin-bottom: 32px;
     text-align: center;
@@ -44,7 +48,7 @@ export const LectureCardWrap = styled.section`
     }
 
     & > div > div:nth-child(3) {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 `;
 
@@ -64,24 +68,6 @@ export const InstructorWrap = styled.div`
     & > span {
         font-size: 2rem;
         font-weight: 700;
-    }
-`;
-
-export const ApplyBtn = styled.button`
-    width: 437px;
-    height: 79px;
-    margin-top: 24px;
-    background-color: #124800;
-    border-radius: 9px;
-    font-size: 2.7rem;
-    font-weight: 700;
-    color: #ffffff;
-
-    & > span {
-        display: block;
-        margin-bottom: 7px;
-        font-size: 2rem;
-        color: #cccccc;
     }
 `;
 

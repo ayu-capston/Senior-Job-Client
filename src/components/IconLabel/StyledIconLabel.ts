@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Heading = styled.h3`
+interface HeadingProps {
+    iconimg: string;
+}
+
+export const Heading = styled.h3<HeadingProps>`
     display: flex;
     align-items: center;
     font-size: 2.4rem;
