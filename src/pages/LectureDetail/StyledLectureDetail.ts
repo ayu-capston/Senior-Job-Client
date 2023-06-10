@@ -44,11 +44,11 @@ export const LectureCardWrap = styled.section`
     }
 
     & > div > div:nth-child(2) {
-        margin-bottom: 25px;
+        margin-bottom: 26px;
     }
 
     & > div > div:nth-child(3) {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
     }
 `;
 
@@ -56,7 +56,7 @@ export const InstructorWrap = styled.div`
     display: flex;
     gap: 11px;
     align-items: center;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 
     & > img {
         width: 40px;
@@ -72,7 +72,6 @@ export const InstructorWrap = styled.div`
 `;
 
 export const MoveListLink = styled(Link)`
-    /* display: inline-block; */
     width: 192px;
     margin-top: 53px;
     padding: 17px 20px;

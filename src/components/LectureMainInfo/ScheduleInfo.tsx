@@ -19,9 +19,9 @@ const ScheduleInfo = ({ startdate, enddate, cycle, count }: ScheduleInfoProps) =
             <span>진행일정</span>
             <S.DateWrap>
                 <p>
-                    {`${sYear}년 ${sMonth}월 ${sDay}일`} ~ {`${eYear}년 ${eMonth}월 ${eDay}일`}
+                    {`${sYear}년 ${sMonth}월 ${sDay}일`} ~ {`${eYear}년 ${eMonth}월 ${eDay}일`} <br />
+                    {`(${cycle} ${count}회)`}
                 </p>
-                <p>{`(${cycle} ${count}회)`}</p>
             </S.DateWrap>
         </S.InfoWrap>
     );
