@@ -1,11 +1,23 @@
-import house from '@assets/images/icon-small-house.svg';
+import { useNavigate } from 'react-router-dom';
 import * as S from './StyledLectureBtn';
 
-function LectureBtn() {
+interface LectureBtnProps {
+    img: string;
+    title: string;
+    desc: string;
+}
+
+function LectureBtn({ img, title, desc }: LectureBtnProps) {
+    const navigate = useNavigate();
+
+    const handleGoLecturePage = () => {
+        navigate('/lecture');
+    };
+
     return (
-        <S.LectureBtn>
-            <img src={house} alt='집 모양 아이콘' />
-            <span>홈/리빙</span>
+        <S.LectureBtn onClick={handleGoLecturePage}>
+            <img src={img} alt={desc} />
+            <span>{title}</span>
         </S.LectureBtn>
     );
 }

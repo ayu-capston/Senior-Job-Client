@@ -16,8 +16,11 @@ export const MoreInfoWrap = styled.section`
     display: flex;
     justify-content: center;
     gap: 13px;
-    margin-bottom: 30px;
     background: url(${wave}) center / cover no-repeat;
+
+    & > img {
+        margin-bottom: 30px;
+    }
 `;
 
 export const ContentsWrap = styled.div`
@@ -40,5 +43,27 @@ export const ContentsWrap = styled.div`
     }
     & > div > a:first-child {
         margin: 0 13px 0 136px;
+    }
+`;
+
+export const LectureBtnWrap = styled.section`
+    padding: 80px 0 76px 0;
+    & > p {
+        margin-bottom: 90px;
+        font-size: 3.2rem;
+        font-weight: 700;
+        text-align: center;
+        & > span {
+            background: linear-gradient(87deg, #f17228 6%, #fdc347 42%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    & > div {
+        display: flex;
+        justify-content: center;
+        gap: 29px;
     }
 `;
