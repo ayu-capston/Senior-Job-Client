@@ -4,12 +4,14 @@ import Footer from '@components/Footer/Footer';
 import LectureDetail from '@pages/LectureDetail/LectureDetail';
 import Mypage from '@pages/Mypage/Mypage';
 import CreateLecture from '@pages/CreateLecture/CreateLecture';
+import MainPage from '~/pages/MainPage/MainPage';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Navbar />
             <Routes>
+                <Route path='/' element={<MainPage />} />
                 <Route path='/lecture/detail/:createid' element={<LectureDetail />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
