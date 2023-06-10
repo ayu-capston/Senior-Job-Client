@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from '@components/Navbar/Navbar';
 import Footer from '@components/Footer/Footer';
+import LectureList from '@pages/LectureList/LectureList';
 import LectureDetail from '@pages/LectureDetail/LectureDetail';
 import Mypage from '@pages/Mypage/Mypage';
 import CreateLecture from '@pages/CreateLecture/CreateLecture';
@@ -10,6 +11,7 @@ const Router = () => {
         <BrowserRouter>
             <Navbar />
             <Routes>
+                <Route path='/lecture' element={<LectureList />} />
                 <Route path='/lecture/detail/:createid' element={<LectureDetail />} />
                 <Route path='/mypage' element={<Mypage />} />
                 <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
