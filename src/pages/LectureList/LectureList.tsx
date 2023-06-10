@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import LectureCarousel from '../../components/Carousel/LectureCarousel';
 import SearchBar from '@components/Search/SearchBar';
 import Option from '@components/Option/Option';
 import FilterGroup from '@components/Filiter/FilterGroup';
@@ -31,7 +32,7 @@ export default function LectureList() {
 
     return (
         <>
-            {/* 현재 인기 강좌 */}
+            <LectureCarousel />
             <section></section>
             <s.RecommendBanner>
                 <s.RecommendBannerTypo>강좌를 개설하고 직접 수업을 진행해보세요!</s.RecommendBannerTypo>
