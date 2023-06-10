@@ -10,6 +10,7 @@ interface LectureData {
     bank_name?: string;
     account_name?: string;
     account_number?: string;
+}
 interface LectureData {
     create_id?: number;
     creator: string;
