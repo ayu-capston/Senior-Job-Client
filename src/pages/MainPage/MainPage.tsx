@@ -1,4 +1,3 @@
-import React from 'react';
 import BasicLink from '~/components/BasicLink/BasicLink';
 import CardMenu from '~/components/CardMenu/CardMenu';
 import LectureBtn from '~/components/LectureBtn/LectureBtn';
@@ -14,6 +13,9 @@ import pencil from '@assets/images/icon-small-pencil.svg';
 import pot from '@assets/images/icon-small-pot.svg';
 import scissors from '@assets/images/icon-small-scissors.svg';
 import tool from '@assets/images/icon-small-tool.svg';
+import LifeQuotes from '@assets/images/LifeQuotes.svg';
+import HandHeart from '@assets/images/Icon-handheart.svg';
+import PinkLocation from '@assets/images/Icon-pinklocation.svg';
 import * as S from './StyledMainPage';
 
 function MainPage() {
@@ -57,6 +59,28 @@ function MainPage() {
                     <LectureBtn img={dot} title='기타' desc='점 아이콘' />
                 </div>
             </S.LectureBtnWrap>
+            <S.SearchJobWrap>
+                <h2 className='hidden'>파트타임 일자리 검색</h2>
+                <S.SearchFormWrap>
+                    <p>새로운 일자리를 찾고 계시나요?</p>
+                    <span>원하는 직종 및 지역을 선택하고 일자리를 찾아보세요!</span>
+                    <S.SearchForm>
+                        <div>
+                            <S.JobTypeBtn type='button' iconimg={HandHeart} colortype='orange'>
+                                직종
+                            </S.JobTypeBtn>
+                            <S.JobTypeBtn type='button' iconimg={PinkLocation} colortype='pink'>
+                                지역
+                            </S.JobTypeBtn>
+                        </div>
+                        <S.InputBtnWrap>
+                            <input placeholder='원하는 키워드를 입력해보세요!' />
+                            <button>검색</button>
+                        </S.InputBtnWrap>
+                    </S.SearchForm>
+                </S.SearchFormWrap>
+                <img src={LifeQuotes} alt='명언 이미지' />
+            </S.SearchJobWrap>
         </S.MinPageWrap>
     );
 }

@@ -7,7 +7,6 @@ interface StyledLinkProps {
 
 export const StyledLink = styled(Link)<StyledLinkProps>`
     display: inline-block;
-    width: 120px;
     width: ${(props) => (props.size === 's' ? '120px' : '173px')};
     padding: 12px 0;
     border-radius: 3px;
