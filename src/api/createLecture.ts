@@ -1,27 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 
-const createLecture = (isLectureInfo: any) => {
-    const lectrueData = {
-        author: '',
-        max_participants: isLectureInfo.maxParticipants,
-        category: isLectureInfo.category,
-        bank_name: isLectureInfo.bankName,
-        account_name: isLectureInfo.accountName,
-        account_number: isLectureInfo.frontAccountNumber + isLectureInfo.rearAccountNumber,
-        price: isLectureInfo.price,
-        title: isLectureInfo.title,
-        content: isLectureInfo.content,
-        start_date: isLectureInfo.startDate,
-        end_date: isLectureInfo.endDate,
-        region: isLectureInfo.region,
-        image_url: isLectureInfo.imageUrl
-    };
-
+const createLecture = (isLectureInfo: LectureData) => {
     axios({
         method: 'post',
         url: `/api/lectures`,
-        data: lectrueData,
+        data: isLectureInfo,
         headers: {
             'Content-Type': 'application/json'
         }

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const SearchInputSection = styled.div`
+const SearchInputSection = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;

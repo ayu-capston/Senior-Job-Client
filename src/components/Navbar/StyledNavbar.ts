@@ -27,7 +27,13 @@ const Menu = styled.div`
 `;
 
 const MenuTypo = styled.button`
+    height: 100%;
     font-size: 2.4rem;
+    border-bottom: ${({ color }) => (color === 'true' ? '3.5px solid #124800;' : '')};
+
+    & a {
+        color: ${({ color }) => (color === 'true' ? '#124800' : '')};
+    }
 `;
 
 const ButtonGroup = styled.div`

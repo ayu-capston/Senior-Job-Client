@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { ReactComponent as IconZoom } from '@images/icon-17-zoom.svg';
+import { ReactComponent as IconZoom } from '@images/icon-20-zoom.svg';
 
-import * as s from './StyledSearchInput';
+import * as s from './StyledSearchBar';
 
 interface ParamProps {
     name: string;
@@ -11,7 +11,7 @@ interface ParamProps {
     onChange: (value: any) => void;
 }
 
-export default function SearchInput(props: ParamProps) {
+export default function SearchBar(props: ParamProps) {
     const [isInputValue, setIsInputValue] = useState('');
 
     const onChangeInputValue = (e: any) => {
@@ -24,7 +24,7 @@ export default function SearchInput(props: ParamProps) {
 
     return (
         <>
-            <s.SearchInputSection>
+            <s.SearchBarSection>
                 <s.TextInput
                     name={props.name}
                     value={isInputValue}
@@ -34,7 +34,7 @@ export default function SearchInput(props: ParamProps) {
                 <s.SubmitButton onClick={onClickSubmitButton}>
                     <IconZoom /> 검색
                 </s.SubmitButton>
-            </s.SearchInputSection>
+            </s.SearchBarSection>
         </>
     );
 }

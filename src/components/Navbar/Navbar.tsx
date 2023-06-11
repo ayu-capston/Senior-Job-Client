@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import LogoBi from '@images/logo-bi.png';
 import LogoTitle from '@images/logo-title.png';
@@ -9,6 +9,9 @@ import { ReactComponent as LogoutIcon } from '@images/icon-38-logout.svg';
 import * as s from './StyledNavbar';
 
 export default function Navbar() {
+    const location = useLocation();
+    const currentPage = location.pathname.split('/')[1];
+
     return (
         <>
             <s.Navbar>
@@ -19,15 +22,17 @@ export default function Navbar() {
                     </Link>
                 </s.Logo>
                 <s.Menu>
-                    <Link to='/lecture'>
-                        <s.MenuTypo>강좌 수강</s.MenuTypo>
-                    </Link>
-                    <Link to='/lecture/propose'>
-                        <s.MenuTypo>강좌 제안</s.MenuTypo>
-                    </Link>
-                    <Link to='/parttime'>
-                        <s.MenuTypo>파트타임</s.MenuTypo>
-                    </Link>
+                    <s.MenuTypo color={currentPage === 'lecture' ? 'true' : 'false'}>
+                        <Link to='/lecture'>강좌 수강</Link>
+                    </s.MenuTypo>
+
+                    <s.MenuTypo color={currentPage === 'propose' ? 'true' : 'false'}>
+                        <Link to='/propose'>강좌 제안</Link>
+                    </s.MenuTypo>
+
+                    <s.MenuTypo color={currentPage === 'parttime' ? 'true' : 'false'}>
+                        <Link to='/parttime'>파트타임</Link>
+                    </s.MenuTypo>
                 </s.Menu>
                 <s.ButtonGroup>
                     <Link to='/mypage'>

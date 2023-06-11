@@ -22,22 +22,23 @@ export default function CreateLecture() {
 
     const navigate = useNavigate();
     const [isSearchRegion, setSearchRegion] = useState('');
-    const [isLectureInfo, setLectureInfo] = useState({
-        maxParticipants: 0,
+    const [isLectureInfo, setLectureInfo] = useState<LectureData>({
+        create_id: 0,
+        creator: '',
+        max_participants: 0,
         category: '',
-        bankName: '',
-        accountName: '',
-        frontAccountNumber: '',
-        rearAccountNumber: '',
+        bank_name: '',
+        account_name: '',
+        account_number: '',
         price: 0,
         title: '',
         content: '',
-        dateUnit: '',
-        dateCount: '',
-        startDate: '',
-        endDate: '',
+        cycle: '',
+        count: 0,
+        start_date: '',
+        end_date: '',
         region: '',
-        imageUrl: ''
+        image_url: ''
     });
 
     console.log(isLectureInfo);
@@ -135,7 +136,7 @@ export default function CreateLecture() {
                                 menuUnit='명'
                                 menuItems={participantArr}
                                 onChange={(e: any) => {
-                                    setLectureInfo({ ...isLectureInfo, maxParticipants: e });
+                                    setLectureInfo({ ...isLectureInfo, max_participants: e });
                                 }}
                             ></Dropdown>
                         </formStyle.FormBody>
@@ -150,24 +151,24 @@ export default function CreateLecture() {
                                     menuUnit='월/주'
                                     menuItems={dateUnitArr}
                                     onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, dateUnit: e });
+                                        setLectureInfo({ ...isLectureInfo, cycle: e });
                                     }}
                                 ></Dropdown>{' '}
                                 <Dropdown
                                     menuUnit='횟수'
                                     menuItems={dateCountArr}
                                     onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, dateCount: e });
+                                        setLectureInfo({ ...isLectureInfo, count: e });
                                     }}
                                 ></Dropdown>
                             </formStyle.FormGroup>
                             <formStyle.FormGroup>
                                 <DateRangePicker
                                     onChangeStartDate={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, startDate: e });
+                                        setLectureInfo({ ...isLectureInfo, start_date: e });
                                     }}
                                     onChangeEndDate={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, endDate: e });
+                                        setLectureInfo({ ...isLectureInfo, end_date: e });
                                     }}
                                 />
                             </formStyle.FormGroup>
@@ -208,7 +209,7 @@ export default function CreateLecture() {
                                     menuUnit='은행명'
                                     menuItems={Object.keys(bankName)}
                                     onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, bankName: e });
+                                        setLectureInfo({ ...isLectureInfo, bank_name: e });
                                     }}
                                 ></Dropdown>
                                 <TextInput
@@ -216,7 +217,7 @@ export default function CreateLecture() {
                                     placeholder='예금주'
                                     type='text'
                                     onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, accountName: e });
+                                        setLectureInfo({ ...isLectureInfo, account_name: e });
                                     }}
                                 />
                             </formStyle.FormGroup>
@@ -224,25 +225,13 @@ export default function CreateLecture() {
                                 <formStyle.FormGroup>
                                     <TextInput
                                         name='frontBankNumber'
-                                        placeholder='계좌번호 앞자리'
-                                        width='200px'
+                                        placeholder='계좌번호'
+                                        width='400px'
                                         type='number'
                                         onChange={(e: any) => {
-                                            setLectureInfo({ ...isLectureInfo, frontAccountNumber: e });
+                                            setLectureInfo({ ...isLectureInfo, account_number: e });
                                         }}
                                     />
-                                    <s.InputLabel>-</s.InputLabel>
-                                    <TextInput
-                                        name='rearBankNumber'
-                                        placeholder='계좌번호 뒷자리'
-                                        width='200px'
-                                        type='number'
-                                        onChange={(e: any) => {
-                                            setLectureInfo({ ...isLectureInfo, rearAccountNumber: e });
-                                        }}
-                                    />
-                                </formStyle.FormGroup>
-                                <formStyle.FormGroup>
                                     <TextInput
                                         name='price'
                                         placeholder='0'
