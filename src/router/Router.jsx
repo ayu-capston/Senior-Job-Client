@@ -5,12 +5,14 @@ import LectureList from '@pages/LectureList/LectureList';
 import LectureDetail from '@pages/LectureDetail/LectureDetail';
 import Mypage from '@pages/Mypage/Mypage';
 import CreateLecture from '@pages/CreateLecture/CreateLecture';
+import MainPage from '~/pages/MainPage/MainPage';
 
 const Router = () => {
     return (
         <BrowserRouter>
             <Navbar />
             <Routes>
+                <Route path='/' element={<MainPage />} />
                 <Route path='/lecture' element={<LectureList />} />
                 <Route path='/lecture/detail/:createid' element={<LectureDetail />} />
                 <Route path='/mypage' element={<Mypage />} />

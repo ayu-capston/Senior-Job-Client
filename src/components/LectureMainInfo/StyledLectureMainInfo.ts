@@ -16,7 +16,7 @@ export const InfoWrap = styled.div<InfoWrapProps>`
         position: absolute;
         width: 33px;
         height: 33px;
-        margin: -6px;
+        margin: -6px 0 0 -6px;
         background: ${(props) => `url(${props.icon}) no-repeat 33px 33px`};
         background-position: 50% 50%;
         background-size: cover;
@@ -30,8 +30,9 @@ export const InfoWrap = styled.div<InfoWrapProps>`
 `;
 
 export const DateWrap = styled.div`
-    & > p:nth-child(2) {
+    & > p {
         color: #000000;
         text-align: right;
+        line-height: 2rem;
     }
 `;
