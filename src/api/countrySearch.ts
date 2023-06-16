@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import config from '~/config/confg';
+import config from '~/config/config';
 
 const countrySearch = async (isConvinceKeyWord: string) => {
     return await axios({
