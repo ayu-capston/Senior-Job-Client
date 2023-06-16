@@ -1,22 +1,11 @@
 interface CotentHeaderParam {
     [key: string]: string;
 }
-
 interface LectureData {
     create_id?: number;
     creator: string;
     max_participants: number;
-    current_participants: number;
-    category?: string;
-    bank_name?: string;
-    account_name?: string;
-    account_number?: string;
-}
-
-interface LectureData {
-    create_id?: number;
-    creator: string;
-    max_participants: number;
+    current_participants?: number;
     category?: string;
     bank_name?: string;
     account_name?: string;
@@ -35,6 +24,7 @@ interface LectureData {
     region: string;
     image_url?: string;
     createdDate?: Date;
+    status?: string;
 }
 
 interface LectureState {
@@ -54,7 +44,29 @@ interface LectureCategory {
     etc: boolean;
 }
 
+interface lectureFilter {
+    region: string;
+    status: string[];
+    category: string[];
+}
+interface LectureListOptions {
+    sortCondition: string;
+    searchKeyword: string;
+    filterCondition: lectureFilter;
+    page: number;
+}
+
+interface LectureListResponse {
+    content?: LectureData[];
+    totalElements: number;
+    totalPages: number;
+    number: number;
+}
+
 declare module 'CotentHeaderParam';
 declare module 'LectureData';
 declare module 'LectureState';
 declare module 'LectureCategory';
+declare module 'lectureFilter';
+declare module 'LectureListOptions';
+declare module 'LectureListResponse';
