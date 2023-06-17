@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+import readPopularityLectureList from '~/api/readPopularityLectureList';
 import Card from './Card';
 import { ReactComponent as LeftArrow } from '@images/icon-carousel-left-arrow.svg';
 import { ReactComponent as RightArrow } from '@images/icon-carousel-right-arrow.svg';
@@ -7,6 +8,25 @@ import { ReactComponent as RightArrow } from '@images/icon-carousel-right-arrow.
 import * as s from './StyledLectureCarousel';
 
 const Carousel = () => {
+    const [isNowPosition, setNowPosition] = useState(0);
+    const [isLectureList, setLectureList] = useState<LectureData[] | null>(null);
+
+    useEffect(() => {
+        const getPopularityLectureList = async () => {
+            try {
+                const data = await readPopularityLectureList();
+                const responseLectureData: LectureData[] = [];
+                for (let i = isNowPosition * 4; i < Math.min(data.length, isNowPosition * 4 + 4); i++) {
+                    responseLectureData.push(data[i]);
+                }
+                setLectureList(responseLectureData);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getPopularityLectureList();
+    }, [isNowPosition]);
+
     return (
         <>
             <s.Carousel>
@@ -14,16 +34,23 @@ const Carousel = () => {
                     <h4>현재 인기 강좌</h4>
                 </s.Header>
                 <s.Body>
-                    <button>
+                    <button
+                        onClick={() => {
+                            setNowPosition((isNowPosition + 2) % 3);
+                        }}
+                    >
                         <LeftArrow />
                     </button>
                     <s.CardGroup>
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
+                        {isLectureList?.map((item: LectureData) => (
+                            <Card {...item} />
+                        ))}
                     </s.CardGroup>
-                    <button>
+                    <button
+                        onClick={() => {
+                            setNowPosition((isNowPosition + 1) % 3);
+                        }}
+                    >
                         <RightArrow />
                     </button>
                 </s.Body>
