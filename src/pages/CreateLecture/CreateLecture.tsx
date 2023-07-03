@@ -25,6 +25,7 @@ export default function CreateLecture() {
     const [isLectureInfo, setLectureInfo] = useState<LectureData>({
         create_id: 0,
         creator: '',
+        current_participants: 0,
         max_participants: 0,
         category: '',
         bank_name: '',

@@ -1,25 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+import NotFountImg from '@images/Image-Not-Found.svg';
+import CategoryIcon from '@components/Card/CategoryIcon';
+import regionParser from '~/utils/parser/regionParser';
+
 import * as s from './StyledCard';
 
-const Card = () => {
+const Card = (props: LectureData) => {
     return (
-        <s.Card>
-            <s.Thumbnail>
-                <s.Category>
-                    <div>{/* 아이콘 */}아이콘</div>
-                </s.Category>
-                <img src='https://pbs.twimg.com/media/EA9UJBjU4AAdkCm.jpg' alt='강좌 썸네일 이미지' />
-            </s.Thumbnail>
-            <s.Description>
-                <s.Title>
-                    {/* <h4>타이틀</h4> */}
-                    <h4>글자수테스트입니다최대길이는스물넷입니다람쥐똥꾸</h4>
-                </s.Title>
-                <s.Region>
-                    <span>부산시 사하구</span>
-                </s.Region>
-            </s.Description>
-        </s.Card>
+        <Link to={`/lecture/detail/${props.create_id}`}>
+            <s.Card>
+                <s.Thumbnail>
+                    <s.Category>
+                        <CategoryIcon category={props.category} />
+                        <span>{props.category}</span>
+                    </s.Category>
+                    <img src={props.image_url || NotFountImg} alt='강좌 썸네일 이미지' />
+                </s.Thumbnail>
+                <s.Description>
+                    <s.Title>
+                        <h4>{props.title}</h4>
+                    </s.Title>
+                    <s.Region>
+                        <span>{regionParser(props.region)}</span>
+                    </s.Region>
+                </s.Description>
+            </s.Card>
+        </Link>
     );
 };
 

@@ -95,7 +95,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, home: !props.category.home });
                     }}
                 >
-                    <IconHome />
+                    <IconHome width='36' height='34' veiwBox='0 0 36 34' fill='#F9B501' />
                     <span>{category[0]}</span>
                 </Button>
                 <Button
@@ -104,7 +104,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, business: !props.category.business });
                     }}
                 >
-                    <IconBusiness />
+                    <IconBusiness width='35' height='40' veiwBox='0 0 35 40' fill='#F9B501' />
                     <span>{category[1]}</span>
                 </Button>
                 <Button
@@ -113,7 +113,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, design: !props.category.design });
                     }}
                 >
-                    <IconDesign />
+                    <IconDesign width='35' height='36' veiwBox='0 0 35 36' fill='#F9B501' />
                     <span>{category[2]}</span>
                 </Button>
                 <Button
@@ -122,7 +122,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, development: !props.category.development });
                     }}
                 >
-                    <IconDevelopment />
+                    <IconDevelopment width='36' height='38' veiwBox='0 0 36 38' fill='#F9B501' />
                     <span>{category[3]}</span>
                 </Button>
                 <Button
@@ -131,7 +131,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, health: !props.category.health });
                     }}
                 >
-                    <IconHealth />
+                    <IconHealth width='36' height='40' veiwBox='0 0 36 40' fill='#F9B501' />
                     <span>{category[4]}</span>
                 </Button>
                 <Button
@@ -140,7 +140,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, beauty: !props.category.beauty });
                     }}
                 >
-                    <IconBeauty />
+                    <IconBeauty width='33' height='40' veiwBox='0 0 33 40' fill='#F9B501' />
                     <span>{category[5]}</span>
                 </Button>
                 <Button
@@ -149,7 +149,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, cooking: !props.category.cooking });
                     }}
                 >
-                    <IconCooking />
+                    <IconCooking width='36' height='34' veiwBox='0 0 36 34' fill='#F9B501' />
                     <span>{category[6]}</span>
                 </Button>
                 <Button
@@ -158,7 +158,7 @@ export default function FilterGroup(props: ParamProps) {
                         props.categoryOnChange({ ...props.category, etc: !props.category.etc });
                     }}
                 >
-                    <IconEtc />
+                    <IconEtc width='36' height='34' veiwBox='0 0 36 34' fill='#F9B501' />
                     <span>{category[7]}</span>
                 </Button>
             </s.FilterGroup>

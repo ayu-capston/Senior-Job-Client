@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import readLectureList from '~/api/readLectureList';
 import LectureCarousel from '@components/Carousel/LectureCarousel';
 import SearchBar from '@components/Search/SearchBar';
 import Option from '@components/Option/Option';
@@ -11,6 +12,32 @@ import Pagination from '@components/Pagination/Pagination';
 import * as s from './StyledLectureList';
 
 export default function LectureList() {
+    const initLectureListOptions = {
+        sortCondition: 'newest',
+        searchKeyword: '',
+        filterCondition: {
+            region: '',
+            status: [],
+            category: []
+        },
+        page: 1
+    };
+
+    const [isLectureList, setLectureList] = useState<LectureListResponse | null>(null);
+    const [isLectureListOptions, setLectureListOptions] = useState<LectureListOptions>(initLectureListOptions);
+
+    useEffect(() => {
+        const getLectureList = async (props: LectureListOptions) => {
+            try {
+                const data = await readLectureList(props);
+                setLectureList({ ...data, number: data.number + 1 });
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getLectureList(isLectureListOptions);
+    }, [isLectureListOptions]);
+
     const [isSearchKeyWord, setSearchKeyWord] = useState(''); // Search Key word
     const [isOption, setOption] = useState('최신순'); // Sorting
     const [isProvince, setProvince] = useState(''); // Region - Province
@@ -78,23 +105,21 @@ export default function LectureList() {
                         setCateogory(e);
                     }}
                 />
-                {/* 카드뷰 */}
+
+                {/* 강좌 카드 리스트 */}
                 <s.LectureItemGroup>
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {isLectureList?.content?.map((item: LectureData) => (
+                        <Card {...item} />
+                    ))}
                 </s.LectureItemGroup>
             </s.ContentGroup>
-            <Pagination />
+            <Pagination
+                activedPage={isLectureList?.number || 0}
+                totalPages={isLectureList?.totalPages || 0}
+                onClick={(clickedPage: number) => {
+                    setLectureListOptions({ ...isLectureListOptions, page: clickedPage });
+                }}
+            />
         </>
     );
 }
