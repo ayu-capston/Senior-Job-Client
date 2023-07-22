@@ -21,6 +21,7 @@ interface LectureData {
     count?: number;
     start_date: string;
     end_date: string;
+    recruitEnd_date?: string;
     region: string;
     image_url?: string;
     createdDate?: Date;
