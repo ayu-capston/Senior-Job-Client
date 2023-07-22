@@ -10,6 +10,7 @@ import FormHeader from '@components/Form/FormHeader';
 import { TextInput, TextArea } from '@components/Form/TextInput';
 import SearchInput from '~/components/Search/SearchInput';
 import Dropdown from '@components/Form/Dropdown';
+import DatePicker from '@components/Form/DatePicker';
 import DateRangePicker from '@components/Form/DateRangePicker';
 import { SubmitButton } from '@components/Button/StyledSubmitButton';
 import KakaoMap from '@components/Map/KakaoMap';
@@ -38,6 +39,7 @@ export default function CreateLecture() {
         count: 0,
         start_date: '',
         end_date: '',
+        recruitEnd_date: '',
         region: '',
         image_url: ''
     });
@@ -48,6 +50,12 @@ export default function CreateLecture() {
         <formStyle.FormHintTitle>
             <formStyle.FormHintBody>허용 파일 포맷 : .jpg .png .bmp</formStyle.FormHintBody>
             <formStyle.FormHintBody>최대 파일 크기 : 1024mb</formStyle.FormHintBody>
+        </formStyle.FormHintTitle>
+    );
+
+    const EndDateFormHint: JSX.Element = (
+        <formStyle.FormHintTitle>
+            <formStyle.FormHintBody>실제 강좌를 진행할 날짜를 선택해주세요!</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
 
@@ -140,6 +148,18 @@ export default function CreateLecture() {
                                     setLectureInfo({ ...isLectureInfo, max_participants: e });
                                 }}
                             ></Dropdown>
+                        </formStyle.FormBody>
+                    </formStyle.Form>
+                    <formStyle.Form>
+                        <FormHeader title='모집 마감 기한' required={true} hint={EndDateFormHint}></FormHeader>
+                        <formStyle.FormBody>
+                            <formStyle.FormGroup>
+                                <DatePicker
+                                    onChange={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, recruitEnd_date: e });
+                                    }}
+                                />
+                            </formStyle.FormGroup>
                         </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />

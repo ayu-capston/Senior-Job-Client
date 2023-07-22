@@ -6,12 +6,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider, DatePicker, DateValidationError } from '@mui/x-date-pickers';
 
-import validationLectureDate from '@utils/validation/lectureDate';
 import * as s from './StyledDateRangePicker';
 
 interface ParamProps {
-    onChangeStartDate: (value: any) => void;
-    onChangeEndDate: (value: any) => void;
+    onChange: (value: any) => void;
 }
 
 const theme = createTheme({
@@ -61,59 +59,21 @@ const theme = createTheme({
 export default function DateRangePicker(props: ParamProps) {
     dayjs.extend(weekday);
 
-    const [isStartDate, setStartDate] = React.useState<Dayjs | null>(dayjs().add(1, 'day'));
-    const [isEndDate, setEndDate] = React.useState<Dayjs | null>(dayjs().add(8, 'day'));
+    const [isDate, setDate] = React.useState<Dayjs | null>(dayjs());
 
-    const [error, setError] = useState<DateValidationError | null>(null);
-
-    const errorMessage = useMemo(() => {
-        switch (error) {
-            case 'maxDate':
-            case 'minDate': {
-                return '종료일은 시작일로부터 최소 7일 뒤로 설정해주세요.';
-            }
-
-            case 'invalidDate': {
-                return '유효하지 않은 날짜 형식입니다.';
-            }
-
-            default: {
-                return '';
-            }
-        }
-    }, [error]);
-
-    useEffect(() => {
-        validationLectureDate(isStartDate, isEndDate);
-    }, [isStartDate, isEndDate]);
+    useEffect(() => {}, [isDate]);
 
     return (
         <s.DatePickerSection>
             <ThemeProvider theme={theme}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
-                        label='시작일'
-                        value={isStartDate}
-                        minDate={dayjs().add(1, 'day')}
+                        label='마감일'
+                        value={isDate}
+                        minDate={dayjs()}
                         onChange={(newValue: any) => {
-                            setStartDate(newValue.$d);
-                            props.onChangeStartDate(newValue.$d);
-                        }}
-                    />
-                    {' ~ '}
-                    <DatePicker
-                        label='종료일'
-                        value={isEndDate}
-                        onError={(newError) => setError(newError)}
-                        slotProps={{
-                            textField: {
-                                helperText: errorMessage
-                            }
-                        }}
-                        minDate={dayjs(isStartDate).add(7, 'day')}
-                        onChange={(newValue: any) => {
-                            setEndDate(newValue.$d);
-                            props.onChangeEndDate(newValue.$d);
+                            setDate(newValue.$d);
+                            props.onChange(newValue.$d);
                         }}
                     />
                 </LocalizationProvider>
