@@ -9,6 +9,7 @@ import { LocalizationProvider, DatePicker, DateValidationError } from '@mui/x-da
 import * as s from './StyledDateRangePicker';
 
 interface ParamProps {
+    startDate: string;
     onChange: (value: any) => void;
 }
 
@@ -61,6 +62,25 @@ export default function DateRangePicker(props: ParamProps) {
 
     const [isDate, setDate] = React.useState<Dayjs | null>(dayjs());
 
+    const [error, setError] = useState<DateValidationError | null>(null);
+
+    const errorMessage = useMemo(() => {
+        switch (error) {
+            case 'minDate':
+            case 'maxDate': {
+                return '모집 마감일은 강좌 시작일로부터 최소 하루 전으로 설정해주세요.';
+            }
+
+            case 'invalidDate': {
+                return '유효하지 않은 날짜 형식입니다.';
+            }
+
+            default: {
+                return '';
+            }
+        }
+    }, [error]);
+
     useEffect(() => {}, [isDate]);
 
     return (
@@ -70,7 +90,14 @@ export default function DateRangePicker(props: ParamProps) {
                     <DatePicker
                         label='마감일'
                         value={isDate}
+                        onError={(newError) => setError(newError)}
+                        slotProps={{
+                            textField: {
+                                helperText: errorMessage
+                            }
+                        }}
                         minDate={dayjs()}
+                        maxDate={dayjs(props.startDate).add(-1, 'day')}
                         onChange={(newValue: any) => {
                             setDate(newValue.$d);
                             props.onChange(newValue.$d);

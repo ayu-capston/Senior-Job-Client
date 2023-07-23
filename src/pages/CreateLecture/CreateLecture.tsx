@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import dayjs from 'dayjs';
+
 import submitLecture from '~/api/createLecture';
 import lectureCategory from '~/constants/category';
 import bankName from '~/constants/bank';
@@ -37,9 +39,9 @@ export default function CreateLecture() {
         content: '',
         cycle: '',
         count: 0,
-        start_date: '',
-        end_date: '',
-        recruitEnd_date: '',
+        start_date: dayjs().add(1, 'day').toString(),
+        end_date: dayjs().add(7, 'day').toString(),
+        recruitEnd_date: dayjs().toString(),
         region: '',
         image_url: ''
     });
@@ -155,6 +157,7 @@ export default function CreateLecture() {
                         <formStyle.FormBody>
                             <formStyle.FormGroup>
                                 <DatePicker
+                                    startDate={isLectureInfo.start_date}
                                     onChange={(e: any) => {
                                         setLectureInfo({ ...isLectureInfo, recruitEnd_date: e });
                                     }}
