@@ -3,11 +3,11 @@ import * as S from './StyledModal';
 
 interface InnerModalProps {
     closeInnerModal: () => void;
-    movePage: () => void;
+    movePage?: () => void;
     desc: string;
     text1: string;
     text2?: string;
-    moveText: string;
+    moveText?: string;
 }
 
 const InnerModal = ({ closeInnerModal, movePage, desc, text1, text2, moveText }: InnerModalProps) => {

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import dayjs from 'dayjs';
+
 import submitLecture from '~/api/createLecture';
 import lectureCategory from '~/constants/category';
 import bankName from '~/constants/bank';
@@ -10,9 +12,12 @@ import FormHeader from '@components/Form/FormHeader';
 import { TextInput, TextArea } from '@components/Form/TextInput';
 import SearchInput from '~/components/Search/SearchInput';
 import Dropdown from '@components/Form/Dropdown';
+import DatePicker from '@components/Form/DatePicker';
 import DateRangePicker from '@components/Form/DateRangePicker';
 import { SubmitButton } from '@components/Button/StyledSubmitButton';
 import KakaoMap from '@components/Map/KakaoMap';
+import useModal from '~/hooks/useModal';
+import InnerModal from '@components/Modals/InnerModal';
 
 import * as formStyle from '@components/Form/StyledForm';
 import * as s from './StyledCreateLecture';
@@ -22,6 +27,7 @@ export default function CreateLecture() {
 
     const navigate = useNavigate();
     const [isSearchRegion, setSearchRegion] = useState('');
+    const [isShowModal, isShowInnerModal, handleShowModal, handleCloseModal, handleShowInnerModal, handleCloseInnerModal] = useModal();
     const [isLectureInfo, setLectureInfo] = useState<LectureData>({
         create_id: 0,
         creator: '',
@@ -36,8 +42,9 @@ export default function CreateLecture() {
         content: '',
         cycle: '',
         count: 0,
-        start_date: '',
-        end_date: '',
+        start_date: dayjs().add(1, 'day'),
+        end_date: dayjs().add(7, 'day'),
+        recruitEnd_date: dayjs(),
         region: '',
         image_url: ''
     });
@@ -48,6 +55,12 @@ export default function CreateLecture() {
         <formStyle.FormHintTitle>
             <formStyle.FormHintBody>허용 파일 포맷 : .jpg .png .bmp</formStyle.FormHintBody>
             <formStyle.FormHintBody>최대 파일 크기 : 1024mb</formStyle.FormHintBody>
+        </formStyle.FormHintTitle>
+    );
+
+    const EndDateFormHint: JSX.Element = (
+        <formStyle.FormHintTitle>
+            <formStyle.FormHintBody>실제 강좌를 진행할 날짜를 선택해주세요!</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
 
@@ -140,6 +153,19 @@ export default function CreateLecture() {
                                     setLectureInfo({ ...isLectureInfo, max_participants: e });
                                 }}
                             ></Dropdown>
+                        </formStyle.FormBody>
+                    </formStyle.Form>
+                    <formStyle.Form>
+                        <FormHeader title='모집 마감 기한' required={true} hint={EndDateFormHint}></FormHeader>
+                        <formStyle.FormBody>
+                            <formStyle.FormGroup>
+                                <DatePicker
+                                    startDate={isLectureInfo.start_date}
+                                    onChange={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, recruitEnd_date: e });
+                                    }}
+                                />
+                            </formStyle.FormGroup>
                         </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
@@ -271,9 +297,13 @@ export default function CreateLecture() {
 
                     <s.ButtonSection>
                         <SubmitButton
-                            onClick={() => {
-                                submitLecture(isLectureInfo);
-                                navigate(0);
+                            onClick={async () => {
+                                try {
+                                    const response = await submitLecture(isLectureInfo);
+                                    handleShowInnerModal();
+                                } catch (err) {
+                                    alert('오류가 발생했습니다. 다시 시도해주세요.');
+                                }
                             }}
                         >
                             {' '}
@@ -282,6 +312,17 @@ export default function CreateLecture() {
                     </s.ButtonSection>
                 </formStyle.FormBox>
             </Mypage>
+            {!isShowInnerModal ? null : (
+                <InnerModal
+                    closeInnerModal={() => {
+                        handleCloseInnerModal();
+                        navigate(0);
+                    }}
+                    desc='강좌 개설 완료 모달'
+                    text1='강좌 개설이 정상적으로 완료 되었습니다.'
+                    moveText='내가 생성한 강좌 목록 보러가기'
+                />
+            )}
         </>
     );
 }

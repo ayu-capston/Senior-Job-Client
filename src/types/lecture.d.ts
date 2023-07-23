@@ -15,12 +15,11 @@ interface LectureData {
     content?: string;
     cycle?: string;
     count?: number;
-    start_date: string;
-    end_date: string;
     cycle?: string;
     count?: number;
-    start_date: string;
-    end_date: string;
+    start_date: Dayjs | null;
+    end_date: Dayjs | null;
+    recruitEnd_date?: Dayjs | null;
     region: string;
     image_url?: string;
     createdDate?: Date;
