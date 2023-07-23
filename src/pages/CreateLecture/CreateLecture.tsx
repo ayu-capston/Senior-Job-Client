@@ -16,6 +16,8 @@ import DatePicker from '@components/Form/DatePicker';
 import DateRangePicker from '@components/Form/DateRangePicker';
 import { SubmitButton } from '@components/Button/StyledSubmitButton';
 import KakaoMap from '@components/Map/KakaoMap';
+import useModal from '~/hooks/useModal';
+import InnerModal from '@components/Modals/InnerModal';
 
 import * as formStyle from '@components/Form/StyledForm';
 import * as s from './StyledCreateLecture';
@@ -25,6 +27,7 @@ export default function CreateLecture() {
 
     const navigate = useNavigate();
     const [isSearchRegion, setSearchRegion] = useState('');
+    const [isShowModal, isShowInnerModal, handleShowModal, handleCloseModal, handleShowInnerModal, handleCloseInnerModal] = useModal();
     const [isLectureInfo, setLectureInfo] = useState<LectureData>({
         create_id: 0,
         creator: '',
@@ -39,9 +42,9 @@ export default function CreateLecture() {
         content: '',
         cycle: '',
         count: 0,
-        start_date: dayjs().add(1, 'day').toString(),
-        end_date: dayjs().add(7, 'day').toString(),
-        recruitEnd_date: dayjs().toString(),
+        start_date: dayjs().add(1, 'day'),
+        end_date: dayjs().add(7, 'day'),
+        recruitEnd_date: dayjs(),
         region: '',
         image_url: ''
     });
@@ -294,9 +297,13 @@ export default function CreateLecture() {
 
                     <s.ButtonSection>
                         <SubmitButton
-                            onClick={() => {
-                                submitLecture(isLectureInfo);
-                                navigate(0);
+                            onClick={async () => {
+                                try {
+                                    const response = await submitLecture(isLectureInfo);
+                                    handleShowInnerModal();
+                                } catch (err) {
+                                    alert('오류가 발생했습니다. 다시 시도해주세요.');
+                                }
                             }}
                         >
                             {' '}
@@ -305,6 +312,17 @@ export default function CreateLecture() {
                     </s.ButtonSection>
                 </formStyle.FormBox>
             </Mypage>
+            {!isShowInnerModal ? null : (
+                <InnerModal
+                    closeInnerModal={() => {
+                        handleCloseInnerModal();
+                        navigate(0);
+                    }}
+                    desc='강좌 개설 완료 모달'
+                    text1='강좌 개설이 정상적으로 완료 되었습니다.'
+                    moveText='내가 생성한 강좌 목록 보러가기'
+                />
+            )}
         </>
     );
 }
