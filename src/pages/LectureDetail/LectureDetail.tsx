@@ -5,7 +5,7 @@ import LectureMainInfo from '../../components/LectureMainInfo/LectureMainInfo';
 import LectureInfo from '../../components/LectureInfo/LectureInfo';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
 import Logo from '../../assets/images/Logo.svg';
-import NotFountImg from '../../assets/images/Image-Not-Found.svg';
+import NotFoundImg from '../../assets/images/Image-Not-Found.svg';
 import * as S from './StyledLectureDetail';
 import JoinButton from '~/components/JoinButton/JoinButton';
 import useModal from '~/hooks/useModal';
@@ -22,6 +22,7 @@ const LectureDetail = () => {
         const getLectureData = async () => {
             try {
                 const data = await postAPI.getPostDetail(createid);
+                console.log(data);
                 setLectureData(data);
             } catch (error) {
                 console.log(error);
@@ -52,7 +53,7 @@ const LectureDetail = () => {
                             <S.LectureInfoWrap>
                                 <S.LectureCardWrap>
                                     <h3 className='hidden'>강좌 개설자, 가격, 진행일정, 인원 정보</h3>
-                                    <img src={NotFountImg} alt='배경 이미지' />
+                                    <img src={lectureData.image_url ? lectureData.image_url : NotFoundImg} alt='배경 이미지' />
                                     <div>
                                         <S.InstructorWrap>
                                             <img src={Logo} alt='사람 이미지' />

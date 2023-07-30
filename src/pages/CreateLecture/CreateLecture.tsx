@@ -26,6 +26,7 @@ export default function CreateLecture() {
         create_id: 0,
         creator: '',
         max_participants: 0,
+        current_participants: 0,
         category: '',
         bank_name: '',
         account_name: '',
