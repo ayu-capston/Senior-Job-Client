@@ -25,7 +25,7 @@ function MainPage() {
             <S.CardWrap>
                 <h2 className='hidden'>메뉴 카드 선택</h2>
                 <CardMenu img={label} imgdesc='가격 라벨 이미지' title='강좌 수강/개설' text='제 2의 커리어 시작하기' move='/lecture' />
-                <CardMenu img={location} imgdesc='위치 마커 이미지' title='일자리 찾기' text='내 위치에서 가까운' move='/lecture/propose' />
+                <CardMenu img={location} imgdesc='위치 마커 이미지' title='일자리 찾기' text='내 위치에서 가까운' move='/lecture/proposal' />
                 <CardMenu img={clock} imgdesc='시계 이미지' title='파트타임 구하기' text='자유로운 근무시간' move='/parttime' />
             </S.CardWrap>
             <S.MoreInfoWrap>
