@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from '@components/Navbar/Navbar';
 import Footer from '@components/Footer/Footer';
 import LectureList from '@pages/LectureList/LectureList';
@@ -19,16 +19,30 @@ const Router = () => {
             <Navbar />
             <Routes>
                 <Route path='/' element={<MainPage />} />
-                <Route path='/lecture' element={<LectureList />} />
-                <Route path='/lecture/detail/:createid' element={<LectureDetail />} />
-                <Route path='/lecture/propose/detail/:createid' element={<ProposeLectureDetail />} />
+                <Route path='/lecture/*' element={<Outlet />}>
+                    <Route path='' element={<LectureList />} />
+                    <Route path='detail/:createid' element={<LectureDetail />} />
+                    <Route path='propose/detail/:createid' element={<ProposeLectureDetail />} />
+                </Route>
+                {/* <Route path='/lecture' element={<LectureList />} /> */}
+                {/* <Route path='/lecture/detail/:createid' element={<LectureDetail />} /> */}
+                {/* <Route path='/lecture/propose/detail/:createid' element={<ProposeLectureDetail />} /> */}
                 <Route path='/mypage' element={<Mypage />} />
+                <Route path='/mypage/lecture/*' element={<Outlet />}>
+                    <Route path='created/form' element={<CreateLecture />} />
+                    <Route path='participate' element={<ParticipateLectureList />} />
+                    <Route path='apply' element={<ApplyLectureList />} />
+                    <Route path='propose' element={<ProposeLectureList />} />
+                    <Route path='open' element={<OpenLectureList />} />
+                    <Route path='open/detail' element={<OpenLectureApproval />} />
+                </Route>
+                {/* <Route path='/mypage' element={<Mypage />} />
                 <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
                 <Route path='/mypage/lecture/open' element={<OpenLectureList />} />
                 <Route path='/mypage/lecture/open/detail' element={<OpenLectureApproval />} />
                 <Route path='/mypage/lecture/propose' element={<ProposeLectureList />} />
                 <Route path='/mypage/lecture/apply' element={<ApplyLectureList />} />
-                <Route path='/mypage/lecture/participate' element={<ParticipateLectureList />} />
+                <Route path='/mypage/lecture/participate' element={<ParticipateLectureList />} /> */}
             </Routes>
             <Footer />
         </BrowserRouter>
