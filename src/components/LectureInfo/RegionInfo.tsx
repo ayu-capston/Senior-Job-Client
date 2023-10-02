@@ -6,14 +6,15 @@ import regionParser from '~/utils/parser/regionParser';
 
 interface RegionInfoProps {
     region?: string;
+    lecturetype?: string;
 }
 
-const RegionInfo = ({ region }: RegionInfoProps) => {
+const RegionInfo = ({ region, lecturetype }: RegionInfoProps) => {
     const defaultRegion = '';
     const sliceRegion = region || defaultRegion;
     return (
         <S.Infowrap>
-            <IconLabel label='강좌 지역' iconimg={locationIcon} />
+            <IconLabel label={lecturetype ? '희망 지역' : '강좌 지역'} iconimg={locationIcon} />
             <S.Line />
             <S.Map>
                 <KakaoMap value={regionParser(sliceRegion)} />
