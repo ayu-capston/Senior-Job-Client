@@ -7,7 +7,8 @@ import LectureDetail from '@pages/LectureDetail/LectureDetail';
 import Mypage from '@pages/Mypage/Mypage';
 import CreateLecture from '@pages/CreateLecture/CreateLecture';
 import MainPage from '~/pages/MainPage/MainPage';
-import Login from '~/pages/Login/Login';
+import LoginPage from '~/pages/LoginPage/LoginPage';
+import SignUpPage from '~/pages/SignUpPage/SignUpPage';
 
 const Router = () => {
     return (
@@ -15,7 +16,8 @@ const Router = () => {
             <Navbar />
             <Routes>
                 <Route path='/' element={<MainPage />} />
-                <Route path='/login' element={<Login />} />
+                <Route path='/login' element={<LoginPage />} />
+                <Route path='/signup' element={<SignUpPage />} />
                 <Route path='/lecture' element={<LectureList />} />
                 <Route path='/proposal' element={<ProposalList />} />
                 <Route path='/lecture/detail/:createid' element={<LectureDetail />} />

@@ -4,7 +4,7 @@ const FormBox = styled.section`
     display: flex;
     flex-direction: column;
     gap: 14px;
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 35px 50px 35px 35px;
     border-radius: 20px;
@@ -22,7 +22,7 @@ const FormHeader = styled.div`
     width: auto;
     height: 27px;
     padding: 0px 7px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 `;
 
 const FormTitle = styled.div`
