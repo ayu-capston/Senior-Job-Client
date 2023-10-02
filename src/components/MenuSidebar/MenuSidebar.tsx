@@ -53,7 +53,7 @@ export default function MenuSideBar() {
                     <Link to='/mypage/lecture/propose'>
                         <s.menuElement id='lecture-propose'>제안 강좌</s.menuElement>
                     </Link>
-                    <Link to='/mypage/lecture/created'>
+                    <Link to='/mypage/lecture/open'>
                         <s.menuElement id='lecture-created'>개설 강좌</s.menuElement>
                     </Link>
                 </s.menuList>

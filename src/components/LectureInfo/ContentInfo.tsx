@@ -4,12 +4,13 @@ import * as S from './StyledLectureInfo';
 
 interface ContentInfoProps {
     content?: string;
+    lecturetype?: string;
 }
 
-const ContentInfo = ({ content }: ContentInfoProps) => {
+const ContentInfo = ({ content, lecturetype }: ContentInfoProps) => {
     return (
         <S.Infowrap>
-            <IconLabel label='강좌 내용' iconimg={contentIcon} />
+            <IconLabel label={lecturetype ? '모집 내용' : '강좌 내용'} iconimg={contentIcon} />
             <S.Line />
             <p>{content}</p>
         </S.Infowrap>
