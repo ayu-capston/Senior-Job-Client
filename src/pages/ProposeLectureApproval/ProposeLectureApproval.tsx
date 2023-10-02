@@ -1,9 +1,9 @@
 import Mypage from '../Mypage/Mypage';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
-import * as S from './StyledOpenLectureApproval';
+import * as S from './StyledProposeLectureApproval';
 
-const OpenLectureApproval = () => {
-    const paramArr: CotentHeaderParam = { '개설 강좌': '/mypage/lecture/open', '강좌 참여자 승인하기': '/mypage/lecture/open/approval/1' };
+const ProposeLectureApproval = () => {
+    const paramArr: CotentHeaderParam = { '제안 강좌': '/mypage/lecture/propose', '선생님 승인하기': '/mypage/lecture/propose/approval/1' };
     const ListData = [
         {
             name: '홍길동',
@@ -28,7 +28,7 @@ const OpenLectureApproval = () => {
                         <span>번호</span>
                         <span>이름</span>
                         <span>신청 이유</span>
-                        <span>승인 여부 (3/30)</span>
+                        <span>승인 여부</span>
                     </S.ListHeader>
                     <S.ListItemWrap>
                         {ListData.map((data, index) => {
@@ -54,4 +54,4 @@ const OpenLectureApproval = () => {
     );
 };
 
-export default OpenLectureApproval;
+export default ProposeLectureApproval;

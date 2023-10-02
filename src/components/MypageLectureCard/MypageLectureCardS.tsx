@@ -14,7 +14,7 @@ const MypageLectureCardS = ({ Lecturetype }: LectureCardApplyProps) => {
                     {Lecturetype === 'Apply' && <S.LectureState>승인 대기중</S.LectureState>}
                 </S.LectureCategoryWrap>
                 <S.FixBtnWrap>
-                    <S.LectureFixBtn>삭제하기</S.LectureFixBtn>
+                    <S.LectureFixBtn>{Lecturetype === 'Participate' ? '삭제하기' : '신청 취소하기'}</S.LectureFixBtn>
                 </S.FixBtnWrap>
             </S.CategoryBtnWrap>
             <S.LectureDetailWrap>

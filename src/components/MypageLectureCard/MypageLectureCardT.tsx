@@ -8,7 +8,11 @@ interface MypageLectureCardProps {
 const MypageLectureCardT = ({ Lecturetype }: MypageLectureCardProps) => {
     const navigate = useNavigate();
     const handleMoveApproval = () => {
-        navigate(`/mypage/lecture/open/detail`);
+        if (Lecturetype === 'ProposeLecture') {
+            navigate(`/mypage/lecture/propose/approval/1`);
+        } else if (Lecturetype === 'OpenLecture') {
+            navigate(`/mypage/lecture/open/approval/1`);
+        }
     };
 
     return (

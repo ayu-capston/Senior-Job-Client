@@ -12,6 +12,7 @@ import ProposeLectureDetail from '~/pages/ProposeLectureDetail/ProposeLectureDet
 import ProposeLectureList from '~/pages/ProposeLectureList/ProposeLectureList';
 import ApplyLectureList from '~/pages/ApplyLectureList/ApplyLectureList';
 import ParticipateLectureList from '~/pages/ParticipateLectureList/ParticipateLectureList';
+import ProposeLectureApproval from '~/pages/ProposeLectureApproval/ProposeLectureApproval';
 
 const Router = () => {
     return (
@@ -33,8 +34,9 @@ const Router = () => {
                     <Route path='participate' element={<ParticipateLectureList />} />
                     <Route path='apply' element={<ApplyLectureList />} />
                     <Route path='propose' element={<ProposeLectureList />} />
+                    <Route path='propose/approval/:createid' element={<ProposeLectureApproval />} />
                     <Route path='open' element={<OpenLectureList />} />
-                    <Route path='open/detail' element={<OpenLectureApproval />} />
+                    <Route path='open/approval/:createid' element={<OpenLectureApproval />} />
                 </Route>
                 {/* <Route path='/mypage' element={<Mypage />} />
                 <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
