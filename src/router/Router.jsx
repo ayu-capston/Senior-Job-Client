@@ -5,6 +5,7 @@ import LectureList from '@pages/LectureList/LectureList';
 import ProposalList from '@pages/ProposalList/ProposalList';
 import LectureDetail from '@pages/LectureDetail/LectureDetail';
 import Mypage from '@pages/Mypage/Mypage';
+import MyProfile from '@pages/MyProfile/MyProfile';
 import CreateLecture from '@pages/CreateLecture/CreateLecture';
 import MainPage from '~/pages/MainPage/MainPage';
 import LoginPage from '~/pages/LoginPage/LoginPage';
@@ -22,6 +23,7 @@ const Router = () => {
                 <Route path='/proposal' element={<ProposalList />} />
                 <Route path='/lecture/detail/:createid' element={<LectureDetail />} />
                 <Route path='/mypage' element={<Mypage />} />
+                <Route path='/mypage/profile' element={<MyProfile />} />
                 <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
             </Routes>
             <Footer />
