@@ -18,7 +18,7 @@ import InnerModal from '@components/Modals/InnerModal';
 import * as formStyle from '@components/Form/StyledForm';
 import * as s from './StyledSignupPage';
 
-export default function CreateLecture() {
+export default function SignUpPage() {
     const paramArr: CotentHeaderParam = { 회원가입: '/signup' };
 
     const navigate = useNavigate();
