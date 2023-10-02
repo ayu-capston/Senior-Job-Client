@@ -72,7 +72,7 @@ export default function MenuSideBar() {
                     <Link to='/mypage/parttime/apply'>
                         <s.menuElement id='parttime-apply'>신청 파트타임</s.menuElement>
                     </Link>
-                    <Link to='/mypage/parttime/propose'>
+                    <Link to='/mypage/parttime/proposal'>
                         <s.menuElement id='parttime-propose'>제안 파트타임</s.menuElement>
                     </Link>
                 </s.menuList>

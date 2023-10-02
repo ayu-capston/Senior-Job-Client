@@ -9,7 +9,7 @@ const contentHeader = styled.h1`
 
 const contentTypo = styled.span`
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 2.4rem;
     &:hover {
         font-weight: 700;
     }

@@ -11,20 +11,22 @@ interface ParamProps {
     max?: number;
     maxLength?: number;
     erase?: boolean;
-    onChange: (value: any) => void;
+    disabled?: boolean;
+    value?: string;
+    onChange?: (value: any) => void;
 }
 
 function TextInput(props: ParamProps) {
-    const [isInputValue, setIsInputValue] = useState('');
+    const [isInputValue, setIsInputValue] = useState(props.value ? props.value : '');
 
     const onClickInitInputValue = () => {
         setIsInputValue('');
-        props.onChange('');
+        props.onChange ? props.onChange('') : void function name() {};
     };
 
     const onChangeInputValue = (e: any) => {
         setIsInputValue(e.target.value);
-        props.onChange(e.target.value);
+        props.onChange ? props.onChange(e.target.value) : void function name() {};
     };
 
     return (
@@ -38,6 +40,7 @@ function TextInput(props: ParamProps) {
                     width={props.width}
                     required={props.required}
                     max={props.max}
+                    disabled={props.disabled}
                     maxLength={props.maxLength}
                     placeholder={props.placeholder ? props.placeholder : ''}
                     onChange={onChangeInputValue}
@@ -59,12 +62,12 @@ function TextArea(props: ParamProps) {
 
     const onClickInitInputValue = () => {
         setIsTextAreaValue('');
-        props.onChange('');
+        props.onChange ? props.onChange('') : void function name() {};
     };
 
     const onChangeInputValue = (e: any) => {
         setIsTextAreaValue(e.target.value);
-        props.onChange(e.target.value);
+        props.onChange ? props.onChange(e.target.value) : void function name() {};
     };
 
     return (

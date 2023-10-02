@@ -26,8 +26,8 @@ export default function Navbar() {
                         <Link to='/lecture'>강좌 수강</Link>
                     </s.MenuTypo>
 
-                    <s.MenuTypo color={currentPage === 'propose' ? 'true' : 'false'}>
-                        <Link to='/propose'>강좌 제안</Link>
+                    <s.MenuTypo color={currentPage === 'proposal' ? 'true' : 'false'}>
+                        <Link to='/proposal'>강좌 제안</Link>
                     </s.MenuTypo>
 
                     <s.MenuTypo color={currentPage === 'parttime' ? 'true' : 'false'}>
