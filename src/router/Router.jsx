@@ -17,6 +17,7 @@ import ParticipateLectureList from '~/pages/ParticipateLectureList/ParticipateLe
 import ProposeLectureApproval from '~/pages/ProposeLectureApproval/ProposeLectureApproval';
 import LoginPage from '~/pages/LoginPage/LoginPage';
 import SignUpPage from '~/pages/SignUpPage/SignUpPage';
+import JobPortal from '~/pages/JobPortal/JobPortal';
 
 const Router = () => {
     return (
@@ -32,9 +33,6 @@ const Router = () => {
                     <Route path='detail/:createid' element={<LectureDetail />} />
                     <Route path='propose/detail/:createid' element={<ProposeLectureDetail />} />
                 </Route>
-                {/* <Route path='/lecture' element={<LectureList />} /> */}
-                {/* <Route path='/lecture/detail/:createid' element={<LectureDetail />} /> */}
-                {/* <Route path='/lecture/propose/detail/:createid' element={<ProposeLectureDetail />} /> */}
                 <Route path='/mypage' element={<MyProfile />} />
                 <Route path='/mypage/profile' element={<MyProfile />} />
                 <Route path='/mypage/lecture/*' element={<Outlet />}>
@@ -46,13 +44,7 @@ const Router = () => {
                     <Route path='open' element={<OpenLectureList />} />
                     <Route path='open/approval/:createid' element={<OpenLectureApproval />} />
                 </Route>
-                {/* <Route path='/mypage' element={<Mypage />} />
-                <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
-                <Route path='/mypage/lecture/open' element={<OpenLectureList />} />
-                <Route path='/mypage/lecture/open/detail' element={<OpenLectureApproval />} />
-                <Route path='/mypage/lecture/propose' element={<ProposeLectureList />} />
-                <Route path='/mypage/lecture/apply' element={<ApplyLectureList />} />
-                <Route path='/mypage/lecture/participate' element={<ParticipateLectureList />} /> */}
+                <Route path='/jobportal' element={<JobPortal />} />
             </Routes>
             <Footer />
         </BrowserRouter>

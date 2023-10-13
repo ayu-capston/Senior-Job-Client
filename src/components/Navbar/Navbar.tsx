@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import LogoBi from '@images/logo-bi.png';
@@ -9,6 +9,7 @@ import { ReactComponent as LogoutIcon } from '@images/icon-38-logout.svg';
 import * as s from './StyledNavbar';
 
 export default function Navbar() {
+    const [view, setView] = useState(false);
     const location = useLocation();
     const currentPage = location.pathname.split('/')[1];
 
@@ -30,8 +31,26 @@ export default function Navbar() {
                         <Link to='/proposal'>강좌 제안</Link>
                     </s.MenuTypo>
 
-                    <s.MenuTypo color={currentPage === 'parttime' ? 'true' : 'false'}>
-                        <Link to='/parttime'>파트타임</Link>
+                    <s.MenuTypo
+                        color={currentPage === 'jobhelper' ? 'true' : 'false'}
+                        onMouseEnter={() => {
+                            setView(true);
+                        }}
+                        onMouseLeave={() => {
+                            setView(false);
+                        }}
+                    >
+                        <div>취업 도우미</div>
+                        {view && (
+                            <s.JobHelperList>
+                                <li>
+                                    <Link to='/jobportal'>일자리 사이트</Link>
+                                </li>
+                                <li>
+                                    <Link to='/aihelper'>AI 취업 도우미</Link>
+                                </li>
+                            </s.JobHelperList>
+                        )}
                     </s.MenuTypo>
                 </s.Menu>
                 <s.ButtonGroup>

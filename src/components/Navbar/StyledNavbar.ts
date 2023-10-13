@@ -27,6 +27,7 @@ const Menu = styled.div`
 `;
 
 const MenuTypo = styled.button`
+    position: relative;
     height: 100%;
     font-size: 2.4rem;
     border-bottom: ${({ color }) => (color === 'true' ? '3.5px solid #124800;' : '')};
@@ -52,4 +53,18 @@ const ButtonTypo = styled.button`
     color: #124800;
 `;
 
-export { Navbar, Logo, Menu, MenuTypo, ButtonGroup, ButtonTypo };
+const JobHelperList = styled.ul`
+    position: absolute;
+    width: 100%;
+    top: 100px;
+    border: 1px solid #dae0e6;
+    background-color: #fff;
+    font-size: 1.5rem;
+    & li {
+        margin: 20px 10px;
+        a:hover {
+            color: #2a9235;
+        }
+    }
+`;
+export { Navbar, Logo, Menu, MenuTypo, ButtonGroup, ButtonTypo, JobHelperList };
