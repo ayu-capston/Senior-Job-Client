@@ -14,6 +14,7 @@ const Logo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
     img {
         margin: 5px;
     }
@@ -23,6 +24,7 @@ const Menu = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    flex-shrink: 0;
     gap: 40px;
 `;
 
@@ -41,6 +43,7 @@ const ButtonGroup = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    flex-shrink: 0;
     gap: 30px;
 `;
 
