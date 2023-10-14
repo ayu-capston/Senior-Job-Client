@@ -18,6 +18,7 @@ import ProposeLectureApproval from '~/pages/ProposeLectureApproval/ProposeLectur
 import LoginPage from '~/pages/LoginPage/LoginPage';
 import SignUpPage from '~/pages/SignUpPage/SignUpPage';
 import JobPortal from '~/pages/JobPortal/JobPortal';
+import AIHelperMain from '~/pages/AIHelperMain/AIHelperMain';
 
 const Router = () => {
     return (
@@ -45,6 +46,7 @@ const Router = () => {
                     <Route path='open/approval/:createid' element={<OpenLectureApproval />} />
                 </Route>
                 <Route path='/jobportal' element={<JobPortal />} />
+                <Route path='/aihelper' element={<AIHelperMain />} />
             </Routes>
             <Footer />
         </BrowserRouter>
