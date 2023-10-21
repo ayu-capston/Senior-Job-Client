@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import EmptyCard from '~/components/EmptyCard/EmptyCard';
-import * as S from './StyledAIHelperMain';
 import ResumeSelectCard from '~/components/ResumeSelectCard/ResumeSelectCard';
+import * as S from './StyledAIHelperMain';
 
 const AIHelperMain = () => {
+    const navigate = useNavigate();
+
     return (
         <S.AIContainer>
             <div>
@@ -24,7 +27,13 @@ const AIHelperMain = () => {
                     ))}
                 </S.ResumeSelectWrap>
                 <S.BtnWrap>
-                    <S.GoInterview>모의 면접 진행하기</S.GoInterview>
+                    <S.GoInterview
+                        onClick={() => {
+                            navigate('/aihelper/interview');
+                        }}
+                    >
+                        모의 면접 진행하기
+                    </S.GoInterview>
                 </S.BtnWrap>
                 {/* <EmptyCard type={'ai'} text1={'면접을 진행할 이력서가 없습니다.'} text2={'새로 강좌를 개설해주세요!'} /> */}
             </div>
