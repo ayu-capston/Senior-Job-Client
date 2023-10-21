@@ -16,7 +16,13 @@ const AIHelperMain = () => {
                     <S.CheckText>정보를 간단하게 입력만 하면 이력서를 만들어줘요!</S.CheckText>
                     <S.CheckText>자신을 나타내는 키워드를 선택하면 키워드를 바탕으로 자기소개서를 만들어줘요!</S.CheckText>
                     <S.CheckText>자기소개서에서 면접 예상 질문을 추출해줘요!</S.CheckText>
-                    <S.ResumeBtn>이력서 작성하러 가기</S.ResumeBtn>
+                    <S.ResumeBtn
+                        onClick={() => {
+                            navigate('/aihelper/resume');
+                        }}
+                    >
+                        이력서 작성하러 가기
+                    </S.ResumeBtn>
                 </S.ResumeWrap>
             </div>
             <div>

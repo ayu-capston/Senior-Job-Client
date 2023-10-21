@@ -20,6 +20,7 @@ import SignUpPage from '~/pages/SignUpPage/SignUpPage';
 import JobPortal from '~/pages/JobPortal/JobPortal';
 import AIHelperMain from '~/pages/AIHelperMain/AIHelperMain';
 import AIInterview from '~/pages/AIInterview/AIInterview';
+import AIResume from '~/pages/AIResume/AIResume';
 
 const Router = () => {
     return (
@@ -50,6 +51,7 @@ const Router = () => {
                 <Route path='/aihelper/*' element={<Outlet />}>
                     <Route path='' element={<AIHelperMain />} />
                     <Route path='interview' element={<AIInterview />} />
+                    <Route path='resume' element={<AIResume />} />
                 </Route>
             </Routes>
             <Footer />
