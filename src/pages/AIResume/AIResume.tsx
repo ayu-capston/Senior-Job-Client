@@ -2,12 +2,13 @@ import AINav from '~/components/AIHelper/AINav/AINav';
 import * as S from './StyledAIResume';
 import AIResumeSchool from '~/components/AIHelper/AIResumeSchool/AIResumeSchool';
 import { useState } from 'react';
-import AICertificate from '~/components/AIHelper/AICertificate/AICertificate';
+import { useNavigate } from 'react-router-dom';
 
 const AIResume = () => {
     const [schoolItem, setSchoolItem] = useState<JSX.Element[]>([]);
     const [nextId, setNextId] = useState(0);
-    const [isNext, setIsNext] = useState(false);
+    const navigate = useNavigate();
+    // const [isNext, setIsNext] = useState(false);
 
     const handleAddSchool = () => {
         const id = nextId;
@@ -19,7 +20,12 @@ const AIResume = () => {
         setSchoolItem((prevSchoolItem) => prevSchoolItem.filter((item) => item.props.id !== id));
     };
 
-    return !isNext ? (
+    const handleNextStep = () => {
+        // setIsNext(true)
+        navigate('/aihelper/resume/certificate');
+    };
+
+    return (
         <S.ResumeContainer>
             <div>
                 <AINav text='학력정보' />
@@ -33,12 +39,10 @@ const AIResume = () => {
                 </S.InputContainer>
             </div>
             <S.BtnWrap>
-                <button>이전</button>
-                <button onClick={() => setIsNext(true)}>다음</button>
+                <button onClick={() => navigate(-1)}>이전</button>
+                <button onClick={handleNextStep}>다음</button>
             </S.BtnWrap>
         </S.ResumeContainer>
-    ) : (
-        <AICertificate />
     );
 };
 
