@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import BulbIcon from '@assets/images/icon-bulb.svg';
 
-export const TipWrap = styled.div`
+interface TipBoxProps {
+    width: string;
+}
+
+export const TipWrap = styled.div<TipBoxProps>`
     display: flex;
     align-items: center;
-    width: 336px;
+    width: ${({ width }) => width};
     padding: 5px 10px;
     border-radius: 10px;
     background-color: #ecf0f3;

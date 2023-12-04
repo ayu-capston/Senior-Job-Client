@@ -22,6 +22,7 @@ import AIHelperMain from '~/pages/AIHelperMain/AIHelperMain';
 import AIInterview from '~/pages/AIInterview/AIInterview';
 import AIResume from '~/pages/AIResume/AIResume';
 import AICertificate from '~/components/AIHelper/AICertificate/AICertificate';
+import AICareer from '~/components/AIHelper/AICareer/AICareer';
 
 const Router = () => {
     return (
@@ -54,6 +55,7 @@ const Router = () => {
                     <Route path='interview' element={<AIInterview />} />
                     <Route path='resume' element={<AIResume />} />
                     <Route path='resume/certificate' element={<AICertificate />} />
+                    <Route path='resume/career' element={<AICareer />} />
                 </Route>
             </Routes>
             <Footer />
