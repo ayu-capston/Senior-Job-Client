@@ -27,7 +27,7 @@ const AICareer = () => {
     return (
         <S.ResumeContainer>
             <div>
-                <AINav text='경력정보' />
+                <AINav text='경력 정보' />
                 <S.InputContainer>
                     <TipBox width='217px' text='회원님의 업무 경험을 알려주세요!' />
                     <AIResumeCareer deleteType='n' />

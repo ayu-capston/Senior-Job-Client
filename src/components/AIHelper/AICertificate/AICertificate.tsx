@@ -27,7 +27,7 @@ const AICertificate = () => {
     return (
         <S.ResumeContainer>
             <div>
-                <AINav text='자격정보' />
+                <AINav text='자격 정보' />
                 <S.InputContainer>
                     <TipBox width='336px' text='회원님의 이력에 도움이 될만한 증빙 자료를 입력해주세요!' />
                     <AIResumeCertificate deleteType='n' />

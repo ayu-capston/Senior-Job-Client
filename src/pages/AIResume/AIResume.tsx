@@ -28,7 +28,7 @@ const AIResume = () => {
     return (
         <S.ResumeContainer>
             <div>
-                <AINav text='학력정보' />
+                <AINav text='학력 정보' />
                 <S.InputContainer>
                     <AIResumeSchool deleteType='n' />
                     {schoolItem.map((data, index) => (

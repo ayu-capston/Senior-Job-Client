@@ -15,7 +15,7 @@ const AIAdditional = () => {
     return (
         <S.ResumeContainer>
             <div>
-                <AINav text='경력정보' />
+                <AINav text='추가 정보' />
                 <S.InputContainer>
                     <TipBox width='370px' text='이제 다 왔어요! 혹시 이력서에 더 넣고 싶은 정보가 있으신가요?' />
                     <S.DropdownWrap>
