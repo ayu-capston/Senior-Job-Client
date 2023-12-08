@@ -26,6 +26,7 @@ import AICareer from '~/components/AIHelper/AICareer/AICareer';
 import AIIntroduction from '~/components/AIHelper/AIIntroduction/AIIntroduction';
 import AIAdditional from '~/components/AIHelper/AIAdditional/AIAdditional';
 import AIResult from '~/components/AIHelper/AIResult/AIResult';
+import MainMypage from '~/pages/MainMypage/MainMypage';
 
 const Router = () => {
     return (
@@ -41,7 +42,7 @@ const Router = () => {
                     <Route path='detail/:createid' element={<LectureDetail />} />
                     <Route path='propose/detail/:createid' element={<ProposeLectureDetail />} />
                 </Route>
-                <Route path='/mypage' element={<MyProfile />} />
+                <Route path='/mypage' element={<MainMypage />} />
                 <Route path='/mypage/profile' element={<MyProfile />} />
                 <Route path='/mypage/lecture/*' element={<Outlet />}>
                     <Route path='created/form' element={<CreateLecture />} />

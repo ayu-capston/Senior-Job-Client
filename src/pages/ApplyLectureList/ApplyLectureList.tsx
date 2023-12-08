@@ -9,7 +9,7 @@ function ApplyLectureList() {
             <Mypage>
                 <S.OpenLectureTitle>신청 강좌</S.OpenLectureTitle>
                 <S.WrapBanner>
-                    <S.BannerTitle>인증 받은 경력 정보로 나만의 강좌를 개설해보세요!</S.BannerTitle>
+                    <S.BannerTitle>배우고 싶은 강좌가 없나요? 새롭게 제안해보세요!</S.BannerTitle>
                     <S.BannerBtn>강좌 개설하기</S.BannerBtn>
                 </S.WrapBanner>
                 <S.LectureBtnWrap>

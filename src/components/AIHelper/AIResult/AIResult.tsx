@@ -9,7 +9,7 @@ const AIResult = () => {
     const navigate = useNavigate();
 
     const handleNextStep = () => {
-        navigate('/aihelper');
+        navigate('/aihelper/interview');
     };
 
     return (

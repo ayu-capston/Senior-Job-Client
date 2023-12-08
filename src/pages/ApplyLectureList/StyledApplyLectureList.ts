@@ -23,7 +23,7 @@ export const WrapBanner = styled.div`
     margin-bottom: 29px;
     padding: 29px 10px;
     border-radius: 17px;
-    background-color: #e7fae1;
+    background-color: #faf7e1;
     background-image: url(${RecommendBannnerImage});
     background-repeat: no-repeat;
     background-position: center;
