@@ -38,8 +38,8 @@ function MainPage() {
                         새로운 일자리와 경력을 찾아보세요!
                     </p>
                     <div>
-                        <BasicLink text='로그인' move='mypage/login' size='s' />
-                        <BasicLink text='회원가입' move='mypage/join' size='s' />
+                        <BasicLink text='로그인' move='/login' size='s' />
+                        <BasicLink text='회원가입' move='/signup' size='s' />
                     </div>
                 </S.ContentsWrap>
             </S.MoreInfoWrap>
