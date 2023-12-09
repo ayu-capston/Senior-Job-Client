@@ -17,6 +17,16 @@ import ParticipateLectureList from '~/pages/ParticipateLectureList/ParticipateLe
 import ProposeLectureApproval from '~/pages/ProposeLectureApproval/ProposeLectureApproval';
 import LoginPage from '~/pages/LoginPage/LoginPage';
 import SignUpPage from '~/pages/SignUpPage/SignUpPage';
+import JobPortal from '~/pages/JobPortal/JobPortal';
+import AIHelperMain from '~/pages/AIHelperMain/AIHelperMain';
+import AIInterview from '~/pages/AIInterview/AIInterview';
+import AIResume from '~/pages/AIResume/AIResume';
+import AICertificate from '~/components/AIHelper/AICertificate/AICertificate';
+import AICareer from '~/components/AIHelper/AICareer/AICareer';
+import AIIntroduction from '~/components/AIHelper/AIIntroduction/AIIntroduction';
+import AIAdditional from '~/components/AIHelper/AIAdditional/AIAdditional';
+import AIResult from '~/components/AIHelper/AIResult/AIResult';
+import MainMypage from '~/pages/MainMypage/MainMypage';
 
 const Router = () => {
     return (
@@ -32,10 +42,7 @@ const Router = () => {
                     <Route path='detail/:createid' element={<LectureDetail />} />
                     <Route path='propose/detail/:createid' element={<ProposeLectureDetail />} />
                 </Route>
-                {/* <Route path='/lecture' element={<LectureList />} /> */}
-                {/* <Route path='/lecture/detail/:createid' element={<LectureDetail />} /> */}
-                {/* <Route path='/lecture/propose/detail/:createid' element={<ProposeLectureDetail />} /> */}
-                <Route path='/mypage' element={<MyProfile />} />
+                <Route path='/mypage' element={<MainMypage />} />
                 <Route path='/mypage/profile' element={<MyProfile />} />
                 <Route path='/mypage/lecture/*' element={<Outlet />}>
                     <Route path='created/form' element={<CreateLecture />} />
@@ -46,13 +53,17 @@ const Router = () => {
                     <Route path='open' element={<OpenLectureList />} />
                     <Route path='open/approval/:createid' element={<OpenLectureApproval />} />
                 </Route>
-                {/* <Route path='/mypage' element={<Mypage />} />
-                <Route path='/mypage/lecture/created/form' element={<CreateLecture />} />
-                <Route path='/mypage/lecture/open' element={<OpenLectureList />} />
-                <Route path='/mypage/lecture/open/detail' element={<OpenLectureApproval />} />
-                <Route path='/mypage/lecture/propose' element={<ProposeLectureList />} />
-                <Route path='/mypage/lecture/apply' element={<ApplyLectureList />} />
-                <Route path='/mypage/lecture/participate' element={<ParticipateLectureList />} /> */}
+                <Route path='/jobportal' element={<JobPortal />} />
+                <Route path='/aihelper/*' element={<Outlet />}>
+                    <Route path='' element={<AIHelperMain />} />
+                    <Route path='interview' element={<AIInterview />} />
+                    <Route path='resume' element={<AIResume />} />
+                    <Route path='resume/certificate' element={<AICertificate />} />
+                    <Route path='resume/career' element={<AICareer />} />
+                    <Route path='resume/introduction' element={<AIIntroduction />} />
+                    <Route path='resume/additional' element={<AIAdditional />} />
+                    <Route path='resume/result' element={<AIResult />} />
+                </Route>
             </Routes>
             <Footer />
         </BrowserRouter>

@@ -20,7 +20,7 @@ import * as formStyle from '@components/Form/StyledForm';
 import * as s from './StyledMyProfile';
 
 export default function MyProfile() {
-    const paramArr: CotentHeaderParam = { '마이 프로필': '/mypage/profile', '내 정보': '/mypage/profile' };
+    const paramArr: CotentHeaderParam = { '마이 프로필': '/mypage', '내 정보': '/mypage/profile' };
 
     const navigate = useNavigate();
     const [isSearchRegion, setSearchRegion] = useState('');
