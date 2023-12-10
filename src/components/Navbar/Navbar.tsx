@@ -32,7 +32,7 @@ export default function Navbar() {
                     </s.MenuTypo>
 
                     <s.MenuTypo
-                        color={currentPage === 'jobhelper' ? 'true' : 'false'}
+                        color={currentPage === 'jobportal' || currentPage === 'aihelper' ? 'true' : 'false'}
                         onMouseEnter={() => {
                             setView(true);
                         }}

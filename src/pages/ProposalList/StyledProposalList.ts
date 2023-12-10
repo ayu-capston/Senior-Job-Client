@@ -47,11 +47,14 @@ const ContentGroup = styled.section`
 `;
 
 const LectureItemGroup = styled.section`
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 10px;
+    gap: 10px;*/
     margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 `;
 
 export { RecommendBanner, RecommendBannerTypo, RecommendBannerButton, SearchGroup, ContentGroup, LectureItemGroup };

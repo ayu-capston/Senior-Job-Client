@@ -8,6 +8,7 @@ import Option from '@components/Option/Option';
 import FilterGroup from '@components/Filiter/FilterGroup';
 import Card from '@components/Card/Card';
 import Pagination from '@components/Pagination/Pagination';
+import { Listsample } from '~/constants/sample';
 
 import * as s from './StyledLectureList';
 
@@ -23,7 +24,7 @@ export default function LectureList() {
         page: 1
     };
 
-    const [isLectureList, setLectureList] = useState<LectureListResponse | null>(null);
+    const [isLectureList, setLectureList] = useState<LectureListResponse | null>(Listsample);
     const [isLectureListOptions, setLectureListOptions] = useState<LectureListOptions>(initLectureListOptions);
 
     useEffect(() => {

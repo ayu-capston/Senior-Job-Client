@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import readPopularityLectureList from '~/api/readPopularityLectureList';
 import Card from './Card';
+import { sample } from '~/constants/sample';
 import { ReactComponent as LeftArrow } from '@images/icon-carousel-left-arrow.svg';
 import { ReactComponent as RightArrow } from '@images/icon-carousel-right-arrow.svg';
 
@@ -9,7 +10,7 @@ import * as s from './StyledLectureCarousel';
 
 const Carousel = () => {
     const [isNowPosition, setNowPosition] = useState(0);
-    const [isLectureList, setLectureList] = useState<LectureData[] | null>(null);
+    const [isLectureList, setLectureList] = useState<LectureData[] | null>(sample);
 
     useEffect(() => {
         const getPopularityLectureList = async () => {

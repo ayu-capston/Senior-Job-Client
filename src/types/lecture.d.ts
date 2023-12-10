@@ -22,7 +22,7 @@ interface LectureData {
     recruitEnd_date?: Dayjs | null;
     region: string;
     image_url?: string;
-    createdDate?: Date;
+    createdDate?: string;
     status?: string;
 }
 

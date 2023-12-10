@@ -27,6 +27,8 @@ export const LectureTitle = styled.h2`
 `;
 
 export const InstructorInfoWrap = styled.div`
+    display: flex;
+    align-items: center;
     position: absolute;
     right: 50px;
     & > img {
