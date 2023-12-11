@@ -5,6 +5,11 @@ export const PortalCardWrap = styled.div`
     padding: 25px 19px;
     border-radius: 10.667px;
     border: 0.667px solid #ccc;
+    img {
+        width: 252px;
+        height: 66px;
+        object-fit: contain;
+    }
 `;
 
 export const PortalCardName = styled.p`
