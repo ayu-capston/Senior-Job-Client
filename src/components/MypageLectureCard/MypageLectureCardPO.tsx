@@ -43,7 +43,7 @@ const MypageLectureCardPO = ({ Lecturetype }: MypageLectureCardProps) => {
                             남았어요!
                         </S.LectureDeadline>
                         <S.ParticipantsListBtn onClick={handleMoveApproval}>
-                            <p>신청자 (14/20)</p>
+                            <p>신청자 (03/20)</p>
                             <p>모집 마감하기</p>
                         </S.ParticipantsListBtn>
                     </S.ParticipantsBtnWrap>
