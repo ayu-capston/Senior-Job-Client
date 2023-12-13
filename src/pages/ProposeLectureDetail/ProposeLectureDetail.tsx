@@ -21,8 +21,7 @@ const ProposeLectureDetail = () => {
             try {
                 // const data = await postAPI.getPostDetail(createid);
                 window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+                    top: 0
                 });
                 const data = pListSample?.content?.[parseInt(createid!) - 1];
                 console.log(data);

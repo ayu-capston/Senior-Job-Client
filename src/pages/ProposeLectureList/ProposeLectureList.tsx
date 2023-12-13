@@ -12,7 +12,7 @@ function ProposeLectureList() {
     };
 
     return (
-        <>
+        <S.LectureWrap>
             <Mypage>
                 <S.OpenLectureTitle>제안 강좌</S.OpenLectureTitle>
                 <S.WrapBanner>
@@ -35,7 +35,7 @@ function ProposeLectureList() {
                 <MypageLectureCardPO Lecturetype='ProposeLecture' />
                 {/* <EmptyCard text1={'현재 진행중인 강좌가 없습니다.'} text2={'새로 강좌를 개설해주세요!'} /> */}
             </Mypage>
-        </>
+        </S.LectureWrap>
     );
 }
 

@@ -30,6 +30,9 @@ export default function LectureList() {
     useEffect(() => {
         const getLectureList = async (props: LectureListOptions) => {
             try {
+                window.scrollTo({
+                    top: 0
+                });
                 const data = await readLectureList(props);
                 setLectureList({ ...data, number: data.number + 1 });
             } catch (error) {

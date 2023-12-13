@@ -4,6 +4,9 @@ export const AIContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 82px;
 `;
 
 export const AITitle = styled.h1`

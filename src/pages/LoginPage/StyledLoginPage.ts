@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import KakaoLoginLargeWide from '@images/kakao_login_large_wide.png';
 
+const LoginWrap = styled.div`
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 82px;
+`;
+
 const LoginHeader = styled.div`
     display: flex;
     flex-direction: column;
@@ -87,4 +93,4 @@ const KakaoLoginButton = styled.button`
     background-position: center;
 `;
 
-export { LoginHeader, ButtonGroup, FormGroup, TextInput, signupButton, LoginButton, KakaoLoginButton };
+export { LoginHeader, ButtonGroup, FormGroup, TextInput, signupButton, LoginButton, KakaoLoginButton, LoginWrap };

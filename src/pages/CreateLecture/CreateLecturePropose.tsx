@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import dayjs from 'dayjs';
@@ -54,6 +54,12 @@ export default function CreateLecturePropose() {
     const handleGoList = () => {
         navigate('/mypage/lecture/propose');
     };
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
 
     const ImageFormHint: JSX.Element = (
         <formStyle.FormHintTitle>

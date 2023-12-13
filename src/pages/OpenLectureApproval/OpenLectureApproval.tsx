@@ -1,10 +1,15 @@
 import Mypage from '../Mypage/Mypage';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
+import useModal from '~/hooks/useModal';
+import InnerModal from '@components/Modals/InnerModal';
 import * as S from './StyledOpenLectureApproval';
 import { LectureBasicApproval } from '~/constants/sample';
+import { useNavigate } from 'react-router-dom';
 
 const OpenLectureApproval = () => {
     const paramArr: CotentHeaderParam = { '개설 강좌': '/mypage/lecture/open', '강좌 참여자 승인하기': '/mypage/lecture/open/approval/1' };
+    const navigate = useNavigate();
+    const [isShowModal, isShowInnerModal, handleShowModal, handleCloseModal, handleShowInnerModal, handleCloseInnerModal] = useModal();
     return (
         <>
             <Mypage>
@@ -32,10 +37,26 @@ const OpenLectureApproval = () => {
                     </S.ListItemWrap>
                 </S.ListWrap>
                 <S.StateBtnWrap>
-                    <button>강좌 모집 마감하기</button>
+                    <button
+                        onClick={() => {
+                            handleShowInnerModal();
+                        }}
+                    >
+                        강좌 모집 마감하기
+                    </button>
                     <button>강좌 진행하기</button>
                 </S.StateBtnWrap>
             </Mypage>
+            {!isShowInnerModal ? null : (
+                <InnerModal
+                    closeInnerModal={() => {
+                        handleCloseInnerModal();
+                    }}
+                    desc='강좌 모집 마감 모달'
+                    text1='강좌 모집을 마감하였습니다.'
+                    moveText='none'
+                />
+            )}
         </>
     );
 };

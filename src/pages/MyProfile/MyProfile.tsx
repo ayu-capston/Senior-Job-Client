@@ -52,7 +52,9 @@ export default function MyProfile() {
                 <formStyle.FormBox>
                     <formStyle.Form>
                         <FormHeader title='프로필 이미지' required={true} hint={ImageFormHint}></FormHeader>
-                        <formStyle.FormBody></formStyle.FormBody>
+                        <formStyle.FormBody>
+                            <input type='file' id='profileImg' accept='image/*' />
+                        </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Form>
                         <FormHeader title='전화 번호' required={true}></FormHeader>

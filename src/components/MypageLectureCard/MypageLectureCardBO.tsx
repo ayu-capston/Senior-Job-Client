@@ -32,7 +32,7 @@ const MypageLectureCardBO = ({ Lecturetype }: MypageLectureCardProps) => {
                 <S.LectureDetailWrap>
                     <S.LectureInfoWrap>
                         <S.LectureTitle>도배 경력자의 도배 기초</S.LectureTitle>
-                        <S.LectureLocation>대구시 북구</S.LectureLocation>
+                        <S.LectureLocation>안양시 동안구</S.LectureLocation>
                         <S.LectureDate>2024년 02월 01일 ~ 2024년 06월 01일</S.LectureDate>
                         <S.LectureCost>95,000</S.LectureCost>
                     </S.LectureInfoWrap>
@@ -43,7 +43,7 @@ const MypageLectureCardBO = ({ Lecturetype }: MypageLectureCardProps) => {
                             남았어요!
                         </S.LectureDeadline>
                         <S.ParticipantsListBtn onClick={handleMoveApproval}>
-                            <p>신청자 (04/05)</p>
+                            <p>신청자 (4/5)</p>
                             <p>모집 마감하기</p>
                         </S.ParticipantsListBtn>
                     </S.ParticipantsBtnWrap>

@@ -17,8 +17,15 @@ import LifeQuotes from '@assets/images/LifeQuotes.svg';
 import HandHeart from '@assets/images/Icon-handheart.svg';
 import PinkLocation from '@assets/images/Icon-pinklocation.svg';
 import * as S from './StyledMainPage';
+import { useEffect } from 'react';
 
 function MainPage() {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
+
     return (
         <S.MinPageWrap>
             <h1 className='hidden'>일벗 메인 페이지</h1>
@@ -37,10 +44,10 @@ function MainPage() {
                         <br />
                         새로운 일자리와 경력을 찾아보세요!
                     </p>
-                    <div>
+                    {/* <div>
                         <BasicLink text='로그인' move='/login' size='s' />
                         <BasicLink text='회원가입' move='/signup' size='s' />
-                    </div>
+                    </div> */}
                 </S.ContentsWrap>
             </S.MoreInfoWrap>
             <S.LectureBtnWrap>

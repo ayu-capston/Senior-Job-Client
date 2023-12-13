@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import dayjs from 'dayjs';
@@ -55,6 +55,12 @@ export default function CreateLecture() {
     const handleGoList = () => {
         navigate('/mypage/lecture/open');
     };
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
 
     const ImageFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
@@ -162,19 +168,6 @@ export default function CreateLecture() {
                             ></Dropdown>
                         </formStyle.FormBody>
                     </formStyle.Form>
-                    <formStyle.Form>
-                        <FormHeader title='모집 마감 기한' required={true} hint={EndDateFormHint}></FormHeader>
-                        <formStyle.FormBody>
-                            <formStyle.FormGroup>
-                                <DatePicker
-                                    startDate={isLectureInfo.start_date}
-                                    onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, recruitEnd_date: e });
-                                    }}
-                                />
-                            </formStyle.FormGroup>
-                        </formStyle.FormBody>
-                    </formStyle.Form>
                     <formStyle.Horizontal />
 
                     <formStyle.Form>
@@ -203,6 +196,21 @@ export default function CreateLecture() {
                                     }}
                                     onChangeEndDate={(e: any) => {
                                         setLectureInfo({ ...isLectureInfo, end_date: e });
+                                    }}
+                                />
+                            </formStyle.FormGroup>
+                        </formStyle.FormBody>
+                    </formStyle.Form>
+                    <formStyle.Horizontal />
+
+                    <formStyle.Form>
+                        <FormHeader title='모집 마감 기한' required={true} hint={EndDateFormHint}></FormHeader>
+                        <formStyle.FormBody>
+                            <formStyle.FormGroup>
+                                <DatePicker
+                                    startDate={isLectureInfo.start_date}
+                                    onChange={(e: any) => {
+                                        setLectureInfo({ ...isLectureInfo, recruitEnd_date: e });
                                     }}
                                 />
                             </formStyle.FormGroup>

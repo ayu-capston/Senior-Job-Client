@@ -66,6 +66,14 @@ export default function Navbar() {
                             로그아웃
                         </s.ButtonTypo>
                     </Link>
+
+                    {/* <Link to='/login
+                    '>
+                        <s.ButtonTypo>
+                            <MypageIcon />
+                            로그인
+                        </s.ButtonTypo>
+                    </Link> */}
                 </s.ButtonGroup>
             </s.Navbar>
         </>

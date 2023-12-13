@@ -4,7 +4,10 @@ export const ResumeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    min-height: 100%;
     margin-top: 70px;
+    padding-bottom: 72px;
 `;
 
 export const BtnWrap = styled.div`

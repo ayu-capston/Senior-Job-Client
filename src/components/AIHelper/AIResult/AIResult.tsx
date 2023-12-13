@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AILoading from '../AILoading/AILoading';
 import ImageResumeSample from '@assets/images/image-resume-sample.png';
+import ImageResumeGpt from '@assets/images/image-resume-gpt.png';
 import * as S from './StyledAIResult';
 
 const AIResult = () => {
@@ -14,7 +15,7 @@ const AIResult = () => {
 
     return (
         <S.ResumeContainer>
-            <S.InputContainer>{data ? <img src={ImageResumeSample} alt='이력서 샘플' /> : <AILoading type='resume' />}</S.InputContainer>
+            <S.InputContainer>{data ? <img src={ImageResumeGpt} alt='이력서 샘플' /> : <AILoading type='resume' />}</S.InputContainer>
             {data && (
                 <S.BtnWrap>
                     <button onClick={() => navigate(-1)}>이전</button>

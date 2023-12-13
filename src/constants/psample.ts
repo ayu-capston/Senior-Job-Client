@@ -189,7 +189,7 @@ export const pListSample: LectureListResponse = {
         },
         {
             create_id: 5,
-            creator: '곽상훈',
+            creator: '김일벗',
             max_participants: 5,
             current_participants: 4,
             category: '요리',

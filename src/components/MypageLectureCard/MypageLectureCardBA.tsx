@@ -19,7 +19,7 @@ const MypageLectureCardBA = ({ Lecturetype }: LectureCardApplyProps) => {
             </S.CategoryBtnWrap>
             <S.LectureDetailWrap>
                 <S.LectureInfoWrap>
-                    <S.LectureTitle>몸이 유연해지는 스포츠 댄스</S.LectureTitle>
+                    <S.LectureTitle>스포츠 댄스 강사 자격증 취득반</S.LectureTitle>
                     <S.LectureLocation>서울시 종로구</S.LectureLocation>
                     <S.LectureDate>2024년 01월 18일 ~ 2024년 03월 18일</S.LectureDate>
                     <S.LectureCost>49,000</S.LectureCost>

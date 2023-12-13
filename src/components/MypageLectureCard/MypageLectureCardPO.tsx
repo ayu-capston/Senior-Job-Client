@@ -34,7 +34,7 @@ const MypageLectureCardPO = ({ Lecturetype }: MypageLectureCardProps) => {
                         <S.LectureTitle>바리스타 자격증을 따고 싶습니다.</S.LectureTitle>
                         <S.LectureLocation>인천시 서구</S.LectureLocation>
                         <S.LectureDate>2024년 01월 25일 ~ 2024년 03월 25일</S.LectureDate>
-                        <S.LectureCost>79,000</S.LectureCost>
+                        <S.LectureCost>130,000</S.LectureCost>
                     </S.LectureInfoWrap>
                     <S.ParticipantsBtnWrap>
                         <S.LectureDeadline>
@@ -43,7 +43,7 @@ const MypageLectureCardPO = ({ Lecturetype }: MypageLectureCardProps) => {
                             남았어요!
                         </S.LectureDeadline>
                         <S.ParticipantsListBtn onClick={handleMoveApproval}>
-                            <p>신청자 (03/20)</p>
+                            <p>신청자 (4/20)</p>
                             <p>모집 마감하기</p>
                         </S.ParticipantsListBtn>
                     </S.ParticipantsBtnWrap>

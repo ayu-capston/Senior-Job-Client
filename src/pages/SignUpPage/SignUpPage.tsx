@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import dayjs from 'dayjs';
@@ -47,6 +47,12 @@ export default function SignUpPage() {
             <formStyle.FormHintBody>최대 파일 크기 : 1024mb</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
     return (
         <>
             <s.body>

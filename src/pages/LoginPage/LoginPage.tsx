@@ -13,7 +13,7 @@ export default function Login() {
     };
 
     return (
-        <>
+        <s.LoginWrap>
             <s.LoginHeader>
                 <LoginLogo />
                 <p>일벗의 다양한 서비스를 이용하시려면</p>
@@ -32,6 +32,6 @@ export default function Login() {
                     <s.signupButton>계정이 없으신가요?</s.signupButton>
                 </Link>
             </s.FormGroup>
-        </>
+        </s.LoginWrap>
     );
 }

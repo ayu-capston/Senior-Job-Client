@@ -23,8 +23,7 @@ const LectureDetail = () => {
         const getLectureData = async () => {
             try {
                 window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+                    top: 0
                 });
                 // const data = await postAPI.getPostDetail(createid);
                 const data = Listsample?.content?.[parseInt(createid!) - 1];

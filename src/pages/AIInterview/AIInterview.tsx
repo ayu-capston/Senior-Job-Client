@@ -1,20 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AILoading from '~/components/AIHelper/AILoading/AILoading';
 import AIInterviewQuestion from '~/components/AIHelper/AIInterviewQuestion/AIInterviewQuestion';
+import { interviewsample } from '~/constants/jobportalsample';
 import * as S from './StyledAIInterview';
 
 const AIInterview = () => {
-    const [data, setData] = useState('');
+    const [data, setData] = useState('TT');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
 
     return (
         <S.AIContainer>
             <div>
                 <S.AITitle>AI 모의 면접</S.AITitle>
-                <S.AIWrap>
-                    {data ? Array.from({ length: 5 }).map((_, index) => <AIInterviewQuestion key={index} />) : <AILoading type='interview' />}
-                </S.AIWrap>
+                <S.AIWrap>{data ? interviewsample.map((item) => <AIInterviewQuestion text={item} />) : <AILoading type='interview' />}</S.AIWrap>
                 {data && (
                     <S.BtnWrap>
                         <button
