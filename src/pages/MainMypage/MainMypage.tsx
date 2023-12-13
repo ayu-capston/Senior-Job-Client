@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Mypage from '../Mypage/Mypage';
 import ProfileSample from '@assets/images/image-profile-sample.png';
 import ResumeSelectCard from '~/components/ResumeSelectCard/ResumeSelectCard';
+import { resumesample } from '~/constants/jobportalsample';
 import * as S from './StyledMainMypage';
 
 const MainMypage = () => {
@@ -25,8 +26,8 @@ const MainMypage = () => {
                 </S.BasicInformWrap>
                 <S.SubTitle>AI 이력서 & 면접 질문 확인하기</S.SubTitle>
                 <S.ResumeSelectWrap>
-                    {Array.from({ length: 3 }).map((_, index) => (
-                        <ResumeSelectCard key={index} id={'select' + index} />
+                    {resumesample.map((item: ResumeState) => (
+                        <ResumeSelectCard {...item} />
                     ))}
                 </S.ResumeSelectWrap>
                 <S.BtnWrap>

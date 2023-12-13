@@ -12,5 +12,12 @@ interface LocalJobState {
     url: string;
 }
 
+interface ResumeState {
+    id: string;
+    title: string;
+    date: string;
+}
+
 declare module 'JobPortalState';
 declare module 'LocalJobState';
+declare module 'ResumeState';

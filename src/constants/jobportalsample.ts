@@ -83,3 +83,21 @@ export const localportalsample: LocalJobState[] = [
         url: 'https://gjsenior.kr/'
     }
 ];
+
+export const resumesample: ResumeState[] = [
+    {
+        id: '1',
+        title: '목표를 위해 무한한 열정을 지닌 전문가',
+        date: '2023.11.30'
+    },
+    {
+        id: '2',
+        title: '다재다능한 역량을 갖춘 믿음직한 전문가',
+        date: '2023.12.01'
+    },
+    {
+        id: '3',
+        title: '노련함과 적극성을 가진 바리스타',
+        date: '2023.12.13'
+    }
+];

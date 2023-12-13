@@ -1,5 +1,5 @@
 import Mypage from '../Mypage/Mypage';
-import MypageLectureCardT from '~/components/MypageLectureCard/MypageLectureCardT';
+import MypageLectureCardBO from '~/components/MypageLectureCard/MypageLectureCardBO';
 import EmptyCard from '~/components/EmptyCard/EmptyCard';
 import * as S from './StyledOpenLectureList';
 
@@ -25,7 +25,7 @@ const OpenLectureList = () => {
                         <S.LectureSortBtn>오래된 순</S.LectureSortBtn>
                     </S.SortBtnWrap>
                 </S.LectureBtnWrap>
-                <MypageLectureCardT Lecturetype='OpenLecture' />
+                <MypageLectureCardBO Lecturetype='OpenLecture' />
                 {/* <EmptyCard text1={'현재 진행중인 강좌가 없습니다.'} text2={'새로 강좌를 개설해주세요!'} /> */}
             </Mypage>
         </>

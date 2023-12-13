@@ -1,6 +1,6 @@
 export const psample: LectureData[] = [
     {
-        create_id: 5,
+        create_id: 4,
         creator: '박광식',
         max_participants: 10,
         current_participants: 7,
@@ -18,35 +18,35 @@ export const psample: LectureData[] = [
         end_date: '2024-03-04T10:00:00:00',
         recruitEnd_date: '2023-08-07T10:00:00:00',
         region: '서울시 용산구',
-        image_url: 'https://cdn.pixabay.com/photo/2014/07/01/12/23/clothes-381209_1280.jpg',
+        image_url: 'https://cdn.pixabay.com/photo/2021/02/02/16/35/woodworker-5974532_1280.jpg',
         createdDate: '2023-08-06T13:58:05:00',
         status: 'AVAILABLE'
     },
     {
-        create_id: 2,
-        creator: '곽상훈',
-        max_participants: 5,
-        current_participants: 4,
+        create_id: 1,
+        creator: '이혜경',
+        max_participants: 30,
+        current_participants: 21,
         category: '요리',
-        bank_name: '오징어뱅크',
-        account_name: '김오징',
-        account_number: '12311111',
-        price: 130000,
-        title: '바리스타 자격증을 따고 싶습니다.',
+        bank_name: '국민은행',
+        account_name: '정은혜',
+        account_number: '122-2333-3444-45',
+        price: 90000,
+        title: '일식 요식업 경력자를 찾습니다.',
         content:
-            '안녕하세요, 커피에 대한 열정을 가지고 있는 학생입니다. 바리스타 자격증을 취득하여 전문적인 커피 제조 기술을 배우고 싶어서 이렇게 글을 적어봅니다.\n\n저는 커피에 대한 관심이 많아서, 정말로 좋은 선생님과 함께 학습하고 싶습니다. 위치는 인천시 서구 근처이며, 일주일에 몇 차례 수업을 듣고 싶습니다. 라떼 아트부터 다양한 원두의 특징까지 배우고 싶습니다.\n\n바리스타 분들 중에서 열정적으로 가르쳐주실 수 있는 선생님을 찾고 있습니다. 함께 멋진 커피 여정을 떠날 선생님을 기다리고 있습니다. 감사합니다!',
+            '안녕하세요, 강좌 수강 메뉴에 일식 요식업 강좌가 없어서 제안 드립니다. 일식당 개업을 준비중이며, 위치는 대구시 수성구 근처였으면 좋겠습니다.\n\n 제가 원하는 일식 요리는 라멘이며, 돈부리 등의 덮밥도 연구 중에 있습니다. 창업에 필요한 실무 경험이 풍부하고, 열정적으로 비법을 전수해줄 수 있으신 경력자 분이었으면 좋겠습니다. \n\n궁금한 점이 있으신 분은 언제든지 아래 문의 전화번로 연락주시면 됩니다. ',
         cycle: '주',
         count: 2,
-        start_date: '2024-01-25T10:00:00:00',
-        end_date: '2024-03-251T10:00:00:00',
+        start_date: '2024-01-10T10:00:00:00',
+        end_date: '2024-04-10T10:00:00:00',
         recruitEnd_date: '2023-08-07T10:00:00:00',
-        region: '인천시 서구',
-        image_url: 'https://cdn.pixabay.com/photo/2019/11/11/15/32/coffee-4618705_1280.jpg',
+        region: '대구시 수성구',
+        image_url: 'https://cdn.pixabay.com/photo/2017/04/04/00/36/ramen-2199962_1280.jpg',
         createdDate: '2023-08-06T13:58:05:00',
         status: 'AVAILABLE'
     },
     {
-        create_id: 4,
+        create_id: 3,
         creator: '김오숙',
         max_participants: 10,
         current_participants: 7,
@@ -69,7 +69,7 @@ export const psample: LectureData[] = [
         status: 'AVAILABLE'
     },
     {
-        create_id: 3,
+        create_id: 2,
         creator: '방숙자',
         max_participants: 49,
         current_participants: 10,
@@ -120,29 +120,6 @@ export const pListSample: LectureListResponse = {
         },
         {
             create_id: 2,
-            creator: '곽상훈',
-            max_participants: 5,
-            current_participants: 4,
-            category: '요리',
-            bank_name: '오징어뱅크',
-            account_name: '김오징',
-            account_number: '12311111',
-            price: 130000,
-            title: '바리스타 자격증을 따고 싶습니다.',
-            content:
-                '안녕하세요, 커피에 대한 열정을 가지고 있는 학생입니다. 바리스타 자격증을 취득하여 전문적인 커피 제조 기술을 배우고 싶어서 이렇게 글을 적어봅니다.\n\n저는 커피에 대한 관심이 많아서, 정말로 좋은 선생님과 함께 학습하고 싶습니다. 위치는 인천시 서구 근처이며, 일주일에 몇 차례 수업을 듣고 싶습니다. 라떼 아트부터 다양한 원두의 특징까지 배우고 싶습니다.\n\n바리스타 분들 중에서 열정적으로 가르쳐주실 수 있는 선생님을 찾고 있습니다. 함께 멋진 커피 여정을 떠날 선생님을 기다리고 있습니다. 감사합니다!',
-            cycle: '주',
-            count: 2,
-            start_date: '2024-01-25T10:00:00:00',
-            end_date: '2024-03-251T10:00:00:00',
-            recruitEnd_date: '2023-08-07T10:00:00:00',
-            region: '인천시 서구',
-            image_url: 'https://cdn.pixabay.com/photo/2019/11/11/15/32/coffee-4618705_1280.jpg',
-            createdDate: '2023-08-06T13:58:05:00',
-            status: 'AVAILABLE'
-        },
-        {
-            create_id: 3,
             creator: '방숙자',
             max_participants: 49,
             current_participants: 10,
@@ -165,7 +142,7 @@ export const pListSample: LectureListResponse = {
             status: 'AVAILABLE'
         },
         {
-            create_id: 4,
+            create_id: 3,
             creator: '김오숙',
             max_participants: 10,
             current_participants: 7,
@@ -188,7 +165,7 @@ export const pListSample: LectureListResponse = {
             status: 'AVAILABLE'
         },
         {
-            create_id: 5,
+            create_id: 4,
             creator: '박광식',
             max_participants: 10,
             current_participants: 7,
@@ -207,6 +184,29 @@ export const pListSample: LectureListResponse = {
             recruitEnd_date: '2023-08-07T10:00:00:00',
             region: '서울시 용산구',
             image_url: 'https://cdn.pixabay.com/photo/2014/07/01/12/23/clothes-381209_1280.jpg',
+            createdDate: '2023-08-06T13:58:05:00',
+            status: 'AVAILABLE'
+        },
+        {
+            create_id: 5,
+            creator: '곽상훈',
+            max_participants: 5,
+            current_participants: 4,
+            category: '요리',
+            bank_name: '오징어뱅크',
+            account_name: '김오징',
+            account_number: '12311111',
+            price: 130000,
+            title: '바리스타 자격증을 따고 싶습니다.',
+            content:
+                '안녕하세요, 커피에 대한 열정을 가지고 있는 학생입니다. 바리스타 자격증을 취득하여 전문적인 커피 제조 기술을 배우고 싶어서 이렇게 글을 적어봅니다.\n\n저는 커피에 대한 관심이 많아서, 정말로 좋은 선생님과 함께 학습하고 싶습니다. 위치는 인천시 서구 근처이며, 일주일에 몇 차례 수업을 듣고 싶습니다. 라떼 아트부터 다양한 원두의 특징까지 배우고 싶습니다.\n\n바리스타 분들 중에서 열정적으로 가르쳐주실 수 있는 선생님을 찾고 있습니다. 함께 멋진 커피 여정을 떠날 선생님을 기다리고 있습니다. 감사합니다!',
+            cycle: '주',
+            count: 2,
+            start_date: '2024-01-25T10:00:00:00',
+            end_date: '2024-03-251T10:00:00:00',
+            recruitEnd_date: '2023-08-07T10:00:00:00',
+            region: '인천시 서구',
+            image_url: 'https://cdn.pixabay.com/photo/2019/11/11/15/32/coffee-4618705_1280.jpg',
             createdDate: '2023-08-06T13:58:05:00',
             status: 'AVAILABLE'
         }

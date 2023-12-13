@@ -61,7 +61,7 @@ export const sample: LectureData[] = [
         cycle: '주',
         count: 1,
         start_date: '2023-12-26T10:00:00:00',
-        end_date: '2023-3-26T10:00:00:00',
+        end_date: '2024-03-26T10:00:00:00',
         recruitEnd_date: '2023-08-07T10:00:00:00',
         region: '서울시 강동구',
         image_url: 'https://cdn.pixabay.com/photo/2016/04/02/17/58/service-1303313_1280.jpg',
@@ -252,7 +252,7 @@ export const Listsample: LectureListResponse = {
             end_date: '2024-03-18T10:00:00:00',
             recruitEnd_date: '2023-08-07T10:00:00:00',
             region: '서울시 종로구',
-            image_url: '',
+            image_url: 'https://cdn.pixabay.com/photo/2019/10/06/14/49/dance-4530415_1280.jpg',
             createdDate: '2023-08-06T13:58:05:00',
             status: 'AVAILABLE'
         },

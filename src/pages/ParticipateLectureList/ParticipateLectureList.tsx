@@ -1,6 +1,6 @@
 import Mypage from '../Mypage/Mypage';
 import * as S from './StyledParticipateLectureList';
-import MypageLectureCardS from '~/components/MypageLectureCard/MypageLectureCardS';
+import MypageLectureCardBA from '~/components/MypageLectureCard/MypageLectureCardBA';
 import EmptyCard from '~/components/EmptyCard/EmptyCard';
 
 function ParticipateLectureList() {
@@ -19,7 +19,7 @@ function ParticipateLectureList() {
                         <S.LectureSortBtn>오래된 순</S.LectureSortBtn>
                     </S.SortBtnWrap>
                 </S.LectureBtnWrap>
-                <MypageLectureCardS Lecturetype='Participate' />
+                <MypageLectureCardBA Lecturetype='Participate' />
                 {/* <EmptyCard text1={'현재 진행중인 강좌가 없습니다.'} text2={'새로 강좌를 개설해주세요!'} /> */}
             </Mypage>
         </>
