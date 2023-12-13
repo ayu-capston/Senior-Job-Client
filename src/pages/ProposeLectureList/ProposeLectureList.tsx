@@ -1,16 +1,23 @@
+import { useNavigate } from 'react-router-dom';
 import Mypage from '../Mypage/Mypage';
 import MypageLectureCardPO from '~/components/MypageLectureCard/MypageLectureCardPO';
 import EmptyCard from '~/components/EmptyCard/EmptyCard';
 import * as S from './StyledProposeLectureList';
 
 function ProposeLectureList() {
+    const navigate = useNavigate();
+
+    const handleGoForm = () => {
+        navigate('/mypage/lecture/form/propose');
+    };
+
     return (
         <>
             <Mypage>
                 <S.OpenLectureTitle>제안 강좌</S.OpenLectureTitle>
                 <S.WrapBanner>
                     <S.BannerTitle>배우고 싶은 강좌가 없나요? 새롭게 제안해보세요!</S.BannerTitle>
-                    <S.BannerBtn>강좌 개설하기</S.BannerBtn>
+                    <S.BannerBtn onClick={handleGoForm}>강좌 제안하기</S.BannerBtn>
                 </S.WrapBanner>
                 <S.LectureBtnWrap>
                     <div>

@@ -27,6 +27,7 @@ import AIIntroduction from '~/components/AIHelper/AIIntroduction/AIIntroduction'
 import AIAdditional from '~/components/AIHelper/AIAdditional/AIAdditional';
 import AIResult from '~/components/AIHelper/AIResult/AIResult';
 import MainMypage from '~/pages/MainMypage/MainMypage';
+import CreateLecturePropose from '~/pages/CreateLecture/CreateLecturePropose';
 
 const Router = () => {
     return (
@@ -47,7 +48,8 @@ const Router = () => {
                 <Route path='/mypage' element={<MainMypage />} />
                 <Route path='/mypage/profile' element={<MyProfile />} />
                 <Route path='/mypage/lecture/*' element={<Outlet />}>
-                    <Route path='created/form' element={<CreateLecture />} />
+                    <Route path='form/basic' element={<CreateLecture />} />
+                    <Route path='form/propose' element={<CreateLecturePropose />} />
                     <Route path='participate' element={<ParticipateLectureList />} />
                     <Route path='apply' element={<ApplyLectureList />} />
                     <Route path='propose' element={<ProposeLectureList />} />

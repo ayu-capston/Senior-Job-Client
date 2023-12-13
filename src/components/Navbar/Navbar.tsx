@@ -60,7 +60,7 @@ export default function Navbar() {
                             마이페이지
                         </s.ButtonTypo>
                     </Link>
-                    <Link to='/signout'>
+                    <Link to='/'>
                         <s.ButtonTypo>
                             <LogoutIcon />
                             로그아웃

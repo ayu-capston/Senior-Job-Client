@@ -65,7 +65,7 @@ export default function LectureList() {
             <section></section>
             <s.RecommendBanner>
                 <s.RecommendBannerTypo>배우고 싶은 강좌가 없나요? 새롭게 제안해보세요!</s.RecommendBannerTypo>
-                <Link to='/mypage/lecture/created/form'>
+                <Link to='/mypage/lecture/form/propose'>
                     <s.RecommendBannerButton>강좌 제안하기</s.RecommendBannerButton>
                 </Link>
             </s.RecommendBanner>

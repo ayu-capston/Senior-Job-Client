@@ -1,16 +1,23 @@
 import Mypage from '../Mypage/Mypage';
 import MypageLectureCardBO from '~/components/MypageLectureCard/MypageLectureCardBO';
 import EmptyCard from '~/components/EmptyCard/EmptyCard';
+import { useNavigate } from 'react-router-dom';
 import * as S from './StyledOpenLectureList';
 
 const OpenLectureList = () => {
+    const navigate = useNavigate();
+
+    const handleGoForm = () => {
+        navigate('/mypage/lecture/form/basic');
+    };
+
     return (
         <>
             <Mypage>
                 <S.OpenLectureTitle>개설 강좌</S.OpenLectureTitle>
                 <S.WrapBanner>
                     <S.BannerTitle>인증 받은 경력 정보로 나만의 강좌를 개설해보세요!</S.BannerTitle>
-                    <S.BannerBtn>강좌 개설하기</S.BannerBtn>
+                    <S.BannerBtn onClick={handleGoForm}>강좌 개설하기</S.BannerBtn>
                 </S.WrapBanner>
                 <S.LectureBtnWrap>
                     <div>

@@ -22,6 +22,10 @@ const LectureDetail = () => {
     useEffect(() => {
         const getLectureData = async () => {
             try {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
                 // const data = await postAPI.getPostDetail(createid);
                 const data = Listsample?.content?.[parseInt(createid!) - 1];
                 console.log(data);
