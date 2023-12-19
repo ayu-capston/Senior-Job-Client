@@ -52,7 +52,9 @@ export default function MyProfile() {
                 <formStyle.FormBox>
                     <formStyle.Form>
                         <FormHeader title='프로필 이미지' required={true} hint={ImageFormHint}></FormHeader>
-                        <formStyle.FormBody></formStyle.FormBody>
+                        <formStyle.FormBody>
+                            <input type='file' id='profileImg' accept='image/*' />
+                        </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Form>
                         <FormHeader title='전화 번호' required={true}></FormHeader>
@@ -236,6 +238,7 @@ export default function MyProfile() {
                                         top: 0,
                                         behavior: 'smooth'
                                     });
+                                    handleShowInnerModal();
                                 } catch (err) {
                                     alert('오류가 발생했습니다. 다시 시도해주세요.');
                                 }
@@ -254,8 +257,8 @@ export default function MyProfile() {
                         navigate(0);
                     }}
                     desc='회원 가입 완료 모달'
-                    text1='회원 가입이 정상적으로 완료 되었습니다.'
-                    moveText='로그인 하러가기'
+                    text1='회원 정보가 수정되었습니다.'
+                    moveText='none'
                 />
             )}
         </>

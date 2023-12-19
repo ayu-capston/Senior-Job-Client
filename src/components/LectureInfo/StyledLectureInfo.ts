@@ -7,6 +7,7 @@ export const Infowrap = styled.section`
     & > P {
         font-size: 2rem;
         line-height: 128%;
+        white-space: pre-line;
     }
 `;
 

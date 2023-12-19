@@ -1,12 +1,15 @@
-import SeoulTypoImg from '@assets/images/img-seoul-typo.png';
+import NotFoundImg from '@assets/images/Image-Not-Found.svg';
 import * as S from './StyledLocalPortalCard';
+import { Link } from 'react-router-dom';
 
-const LocalPortalCard = () => {
+const LocalPortalCard = (props: LocalJobState) => {
     return (
-        <S.PortalCardWrap>
-            <img src={SeoulTypoImg} alt='지역 포털 이미지' />
-            <S.PortalCardName>서울 일자리 포털</S.PortalCardName>
-        </S.PortalCardWrap>
+        <Link to={props.url}>
+            <S.PortalCardWrap>
+                <img src={props.img ? props.img : NotFoundImg} alt='지역 포털 이미지' />
+                <S.PortalCardName>{props.title}</S.PortalCardName>
+            </S.PortalCardWrap>
+        </Link>
     );
 };
 

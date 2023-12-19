@@ -5,7 +5,7 @@ interface MypageLectureCardProps {
     Lecturetype?: string;
 }
 
-const MypageLectureCardT = ({ Lecturetype }: MypageLectureCardProps) => {
+const MypageLectureCardPO = ({ Lecturetype }: MypageLectureCardProps) => {
     const navigate = useNavigate();
     const handleMoveApproval = () => {
         if (Lecturetype === 'ProposeLecture') {
@@ -19,11 +19,11 @@ const MypageLectureCardT = ({ Lecturetype }: MypageLectureCardProps) => {
         <>
             <S.LectureCard>
                 <S.CategoryBtnWrap>
-                    <S.LectureCategoryWrap>
+                    <S.LectureCategoryWrapPO>
                         <S.LectureCategory>요리</S.LectureCategory>
                         {Lecturetype === 'ProposeLecture' && <S.LectureAutoDelete>14일 후에 자동으로 삭제됩니다!</S.LectureAutoDelete>}
                         {Lecturetype === 'OpenLecture' && <S.LectureCategory>모집중</S.LectureCategory>}
-                    </S.LectureCategoryWrap>
+                    </S.LectureCategoryWrapPO>
                     <S.FixBtnWrap>
                         <S.LectureFixBtn>수정하기</S.LectureFixBtn>
                         <S.LectureFixBtn>삭제하기</S.LectureFixBtn>
@@ -31,10 +31,10 @@ const MypageLectureCardT = ({ Lecturetype }: MypageLectureCardProps) => {
                 </S.CategoryBtnWrap>
                 <S.LectureDetailWrap>
                     <S.LectureInfoWrap>
-                        <S.LectureTitle>30년 경력 한식 장인의 퓨전 한식 요리 교실</S.LectureTitle>
-                        <S.LectureLocation>부산시 사하구</S.LectureLocation>
-                        <S.LectureDate>2023년 6월 1일 ~ 2023년 6월 25일</S.LectureDate>
-                        <S.LectureCost>39,800</S.LectureCost>
+                        <S.LectureTitle>바리스타 자격증을 따고 싶습니다.</S.LectureTitle>
+                        <S.LectureLocation>인천시 서구</S.LectureLocation>
+                        <S.LectureDate>2024년 01월 25일 ~ 2024년 03월 25일</S.LectureDate>
+                        <S.LectureCost>130,000</S.LectureCost>
                     </S.LectureInfoWrap>
                     <S.ParticipantsBtnWrap>
                         <S.LectureDeadline>
@@ -43,7 +43,7 @@ const MypageLectureCardT = ({ Lecturetype }: MypageLectureCardProps) => {
                             남았어요!
                         </S.LectureDeadline>
                         <S.ParticipantsListBtn onClick={handleMoveApproval}>
-                            <p>신청자 (5/20)</p>
+                            <p>신청자 (4/20)</p>
                             <p>모집 마감하기</p>
                         </S.ParticipantsListBtn>
                     </S.ParticipantsBtnWrap>
@@ -53,4 +53,4 @@ const MypageLectureCardT = ({ Lecturetype }: MypageLectureCardProps) => {
     );
 };
 
-export default MypageLectureCardT;
+export default MypageLectureCardPO;

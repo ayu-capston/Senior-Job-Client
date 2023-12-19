@@ -22,7 +22,9 @@ const InnerModal = ({ closeInnerModal, movePage, desc, text1, text2, moveText }:
                     {text1}
                     <br /> {text2}
                 </S.SuccessContent>
-                <S.MoveList onClick={movePage}>{moveText}</S.MoveList>
+                <S.MoveList style={{ display: moveText === 'none' ? 'none' : 'block' }} onClick={movePage}>
+                    {moveText}
+                </S.MoveList>
             </S.ModalContentWrap>
         </S.ModalWrap>
     );

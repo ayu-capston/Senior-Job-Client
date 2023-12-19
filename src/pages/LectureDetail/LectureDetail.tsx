@@ -11,17 +11,22 @@ import JoinButton from '~/components/JoinButton/JoinButton';
 import useModal from '~/hooks/useModal';
 import MainModal from '~/components/Modals/MainModal';
 import InnerModal from '~/components/Modals/InnerModal';
+import { Listsample } from '~/constants/sample';
 
 const LectureDetail = () => {
     const { createid } = useParams();
     const navigate = useNavigate();
-    const [lectureData, setLectureData] = useState<LectureData | null>(null);
+    const [lectureData, setLectureData] = useState<LectureData | null | undefined>(null);
     const [isShowModal, isShowInnerModal, handleShowModal, handleCloseModal, handleShowInnerModal, handleCloseInnerModal] = useModal();
 
     useEffect(() => {
         const getLectureData = async () => {
             try {
-                const data = await postAPI.getPostDetail(createid);
+                window.scrollTo({
+                    top: 0
+                });
+                // const data = await postAPI.getPostDetail(createid);
+                const data = Listsample?.content?.[parseInt(createid!) - 1];
                 console.log(data);
                 setLectureData(data);
             } catch (error) {
@@ -35,7 +40,7 @@ const LectureDetail = () => {
     const paramArr = { '강좌 수강': '/lecture', '강좌 상세보기': '/lecture/detail' };
 
     const handleGoListPage = () => {
-        navigate('lecture/apply');
+        navigate('/mypage/lecture/participate');
     };
 
     return (
@@ -97,7 +102,15 @@ const LectureDetail = () => {
                 <S.MoveListLink to='/lecture'>목록으로 돌아가기</S.MoveListLink>
             </S.LectureDetailWrap>
 
-            {!isShowModal ? null : <MainModal closeModal={handleCloseModal} showInnerModal={handleShowInnerModal} />}
+            {!isShowModal ? null : (
+                <MainModal
+                    closeModal={handleCloseModal}
+                    showInnerModal={handleShowInnerModal}
+                    btnText='참여 신청하기'
+                    text1='강좌 신청 이유를 입력해주세요! (선택)'
+                    text2='강좌를 꼭 듣고 싶은 이유를 적어주세요.'
+                />
+            )}
             {!isShowInnerModal ? null : (
                 <InnerModal
                     closeInnerModal={handleCloseInnerModal}

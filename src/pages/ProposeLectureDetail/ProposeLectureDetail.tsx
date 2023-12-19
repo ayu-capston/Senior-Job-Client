@@ -1,38 +1,42 @@
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ContentHeader from '@components/ContentHeader/ContentHeader';
 import LectureInfo from '@components/LectureInfo/LectureInfo';
 import Logo from '../../assets/images/Logo.svg';
 import NotFoundImg from '../../assets/images/Image-Not-Found.svg';
+import { pListSample } from '~/constants/psample';
 import * as S from './StyledProposeLectureDetail';
+import useModal from '~/hooks/useModal';
+import MainModal from '~/components/Modals/MainModal';
+import InnerModal from '~/components/Modals/InnerModal';
 
 const ProposeLectureDetail = () => {
-    const lectureData = {
-        create_id: 92,
-        creator: 'artest18',
-        max_participants: 50,
-        current_participants: 0,
-        category: '운동',
-        bank_name: '카카오뱅크',
-        account_name: '최아랑',
-        account_number: '12311111',
-        price: 55000,
-        title: '운동왕이 되고싶은가?',
-        content: '운동은 손목이 중요한것!',
-        cycle: '주',
-        count: 2,
-        start_date: '2023-08-10T10:00:00',
-        end_date: '2023-08-15T12:00:00',
-        recruitEnd_date: '2023-07-23T12:00:00',
-        region: '울릉도',
-        image_url: '',
-        createdDate: '2023-08-04T18:09:37',
-        status: 'WAITING'
-    };
+    const { createid } = useParams();
     const navigate = useNavigate();
-    const handleGoListPage = () => {
-        navigate('lecture/apply');
-    };
+    const [lectureData, setLectureData] = useState<LectureData | null | undefined>(null);
+    const [isShowModal, isShowInnerModal, handleShowModal, handleCloseModal, handleShowInnerModal, handleCloseInnerModal] = useModal();
 
+    useEffect(() => {
+        const getLectureData = async () => {
+            try {
+                // const data = await postAPI.getPostDetail(createid);
+                window.scrollTo({
+                    top: 0
+                });
+                const data = pListSample?.content?.[parseInt(createid!) - 1];
+                console.log(data);
+                setLectureData(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getLectureData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const handleGoListPage = () => {
+        navigate('/mypage/lecture/apply');
+    };
     const paramArr = { '강좌 제안': '/propose', '강좌 상세보기': '/propose/detail' };
     return (
         <>
@@ -50,23 +54,55 @@ const ProposeLectureDetail = () => {
                                     <S.LectureTitle>{lectureData.title}</S.LectureTitle>
                                     <S.InstructorInfoWrap>
                                         <img src={Logo} alt='프로필 이미지' />
-                                        <span>김땡땡땡</span>
+                                        <span>{lectureData.creator}</span>
                                     </S.InstructorInfoWrap>
                                 </S.LectureTitleWrap>
                                 <LectureInfo type='region' lecturetype='propose' region={lectureData.region} />
                                 <LectureInfo type='lectureContent' lecturetype='propose' content={lectureData.content} />
-                                <LectureInfo type='price' />
-                                <LectureInfo type='schedule' />
+                                <LectureInfo type='price' price={lectureData.price} />
+                                <LectureInfo
+                                    type='schedule'
+                                    startdate={lectureData.start_date}
+                                    enddate={lectureData.end_date}
+                                    cycle={lectureData.cycle}
+                                    count={lectureData.count}
+                                />
                                 <LectureInfo type='question' />
                             </S.LectureInfoWrap>
                         </>
                     )}
                 </S.LecturePostWrap>
                 <S.BtnWrap>
-                    <S.MoveBtn>모집 지원하기</S.MoveBtn>
-                    <S.MoveBtn>목록으로 돌아가기</S.MoveBtn>
+                    <S.MoveBtn onClick={handleShowModal}>모집 지원하기</S.MoveBtn>
+                    <S.MoveBtn
+                        onClick={() => {
+                            navigate(-1);
+                        }}
+                    >
+                        목록으로 돌아가기
+                    </S.MoveBtn>
                 </S.BtnWrap>
             </S.LectureDetailWrap>
+
+            {!isShowModal ? null : (
+                <MainModal
+                    closeModal={handleCloseModal}
+                    showInnerModal={handleShowInnerModal}
+                    btnText='지원 신청하기'
+                    text1='지원자님의 이력을 소개해주세요! (선택)'
+                    text2='지원자님의 이력과 하고 싶은 말을 자유롭게 적어주세요.'
+                />
+            )}
+            {!isShowInnerModal ? null : (
+                <InnerModal
+                    closeInnerModal={handleCloseInnerModal}
+                    movePage={handleGoListPage}
+                    desc='강좌 신청 완료 모달'
+                    text1='지원 신청이 정상적으로 이루어졌습니다.'
+                    text2='제안자의 승인을 기다려주세요!'
+                    moveText='내가 지원한 강좌 목록 보러가기'
+                />
+            )}
         </>
     );
 };

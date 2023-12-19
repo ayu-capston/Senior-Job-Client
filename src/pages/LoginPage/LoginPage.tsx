@@ -1,13 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ReactComponent as LoginLogo } from '@images/Image-Login-Logo.svg';
 
 import * as s from './StyledLoginPage';
 
 export default function Login() {
+    const navigate = useNavigate();
+
+    const handleGoHome = () => {
+        navigate('/');
+    };
+
     return (
-        <>
+        <s.LoginWrap>
             <s.LoginHeader>
                 <LoginLogo />
                 <p>일벗의 다양한 서비스를 이용하시려면</p>
@@ -20,12 +26,12 @@ export default function Login() {
             <s.FormGroup>
                 <s.TextInput placeholder='전화번호' />
                 <s.TextInput type='password' placeholder='비밀번호' />
-                <s.LoginButton>로그인</s.LoginButton>
+                <s.LoginButton onClick={handleGoHome}>로그인</s.LoginButton>
                 {/* <s.KakaoLoginButton /> */}
                 <Link to={`/signup`}>
                     <s.signupButton>계정이 없으신가요?</s.signupButton>
                 </Link>
             </s.FormGroup>
-        </>
+        </s.LoginWrap>
     );
 }

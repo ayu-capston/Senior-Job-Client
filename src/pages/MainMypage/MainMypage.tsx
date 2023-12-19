@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import Mypage from '../Mypage/Mypage';
-import ProfileSample from '@assets/images/image-profile-sample.png';
+// import ProfileSample from '@assets/images/image-profile-sample.png';
+import ProfileSenior from '@assets/images/image-senior.png';
 import ResumeSelectCard from '~/components/ResumeSelectCard/ResumeSelectCard';
+import { resumesample } from '~/constants/jobportalsample';
 import * as S from './StyledMainMypage';
 
 const MainMypage = () => {
@@ -16,7 +18,7 @@ const MainMypage = () => {
                 <S.MyProfileTitle>마이 프로필</S.MyProfileTitle>
                 <S.SubTitle>기본 정보</S.SubTitle>
                 <S.BasicInformWrap>
-                    <img src={ProfileSample} alt='프로필 이미지' />
+                    <img src={ProfileSenior} alt='프로필 이미지' />
                     <S.BasicInform>
                         <button onClick={handleGoFix}>수정하기</button>
                         <div>김일벗</div>
@@ -25,8 +27,8 @@ const MainMypage = () => {
                 </S.BasicInformWrap>
                 <S.SubTitle>AI 이력서 & 면접 질문 확인하기</S.SubTitle>
                 <S.ResumeSelectWrap>
-                    {Array.from({ length: 3 }).map((_, index) => (
-                        <ResumeSelectCard key={index} id={'select' + index} />
+                    {resumesample.map((item: ResumeState) => (
+                        <ResumeSelectCard {...item} />
                     ))}
                 </S.ResumeSelectWrap>
                 <S.BtnWrap>

@@ -17,16 +17,23 @@ import LifeQuotes from '@assets/images/LifeQuotes.svg';
 import HandHeart from '@assets/images/Icon-handheart.svg';
 import PinkLocation from '@assets/images/Icon-pinklocation.svg';
 import * as S from './StyledMainPage';
+import { useEffect } from 'react';
 
 function MainPage() {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
+
     return (
         <S.MinPageWrap>
             <h1 className='hidden'>일벗 메인 페이지</h1>
             <S.CardWrap>
                 <h2 className='hidden'>메뉴 카드 선택</h2>
                 <CardMenu img={label} imgdesc='가격 라벨 이미지' title='강좌 수강/개설' text='제 2의 커리어 시작하기' move='/lecture' />
-                <CardMenu img={location} imgdesc='위치 마커 이미지' title='일자리 찾기' text='내 위치에서 가까운' move='/lecture/proposal' />
-                <CardMenu img={clock} imgdesc='시계 이미지' title='파트타임 구하기' text='자유로운 근무시간' move='/parttime' />
+                <CardMenu img={location} imgdesc='위치 마커 이미지' title='일자리 포털 찾기' text='우리 지역' move='/jobportal' />
+                <CardMenu img={clock} imgdesc='시계 이미지' title='맞춤 이력서 작성' text='빠르고 편리한' move='/aihelper' />
             </S.CardWrap>
             <S.MoreInfoWrap>
                 <h2 className='hidden'>개인 메뉴 선택</h2>
@@ -37,10 +44,10 @@ function MainPage() {
                         <br />
                         새로운 일자리와 경력을 찾아보세요!
                     </p>
-                    <div>
+                    {/* <div>
                         <BasicLink text='로그인' move='/login' size='s' />
                         <BasicLink text='회원가입' move='/signup' size='s' />
-                    </div>
+                    </div> */}
                 </S.ContentsWrap>
             </S.MoreInfoWrap>
             <S.LectureBtnWrap>

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import EmptyCard from '~/components/EmptyCard/EmptyCard';
 import ResumeSelectCard from '~/components/ResumeSelectCard/ResumeSelectCard';
 import * as S from './StyledAIHelperMain';
+import { resumesample } from '~/constants/jobportalsample';
 
 const AIHelperMain = () => {
     const navigate = useNavigate();
@@ -28,8 +29,8 @@ const AIHelperMain = () => {
             <div>
                 <S.MenuTitle>AI 모의 면접</S.MenuTitle>
                 <S.ResumeSelectWrap>
-                    {Array.from({ length: 3 }).map((_, index) => (
-                        <ResumeSelectCard key={index} id={'select' + index} />
+                    {resumesample.map((item: ResumeState) => (
+                        <ResumeSelectCard {...item} />
                     ))}
                 </S.ResumeSelectWrap>
                 <S.BtnWrap>

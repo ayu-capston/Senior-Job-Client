@@ -6,10 +6,11 @@ import ProposalCarousel from '@components/Carousel/ProposalCarousel';
 import SearchBar from '@components/Search/SearchBar';
 import Option from '@components/Option/Option';
 import FilterGroup from '@components/Filiter/FilterGroup';
-import Card from '@components/Card/Card';
 import Pagination from '@components/Pagination/Pagination';
+import { pListSample } from '~/constants/psample';
 
 import * as s from './StyledProposalList';
+import ProposalCard from '~/components/Card/ProposalCard';
 
 export default function LectureList() {
     const initLectureListOptions = {
@@ -23,7 +24,7 @@ export default function LectureList() {
         page: 1
     };
 
-    const [isLectureList, setLectureList] = useState<LectureListResponse | null>(null);
+    const [isLectureList, setLectureList] = useState<LectureListResponse | null>(pListSample);
     const [isLectureListOptions, setLectureListOptions] = useState<LectureListOptions>(initLectureListOptions);
 
     useEffect(() => {
@@ -64,7 +65,7 @@ export default function LectureList() {
             <section></section>
             <s.RecommendBanner>
                 <s.RecommendBannerTypo>배우고 싶은 강좌가 없나요? 새롭게 제안해보세요!</s.RecommendBannerTypo>
-                <Link to='/mypage/lecture/created/form'>
+                <Link to='/mypage/lecture/form/propose'>
                     <s.RecommendBannerButton>강좌 제안하기</s.RecommendBannerButton>
                 </Link>
             </s.RecommendBanner>
@@ -109,7 +110,7 @@ export default function LectureList() {
                 {/* 강좌 카드 리스트 */}
                 <s.LectureItemGroup>
                     {isLectureList?.content?.map((item: LectureData) => (
-                        <Card {...item} />
+                        <ProposalCard {...item} />
                     ))}
                 </s.LectureItemGroup>
             </s.ContentGroup>

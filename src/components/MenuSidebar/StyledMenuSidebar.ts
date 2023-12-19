@@ -37,6 +37,7 @@ const menuTitle = styled.button`
     border-bottom: 2px solid #cccccc;
     font-size: 1.7rem;
     font-weight: 500;
+    cursor: auto;
 `;
 
 const menuList = styled.div``;
@@ -49,7 +50,7 @@ const menuElement = styled.div`
     padding-left: 28px;
     list-style: none;
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: ${({ color }) => (color === 'true' ? '700;' : '500')};
 
     &:hover {
         font-weight: 700;

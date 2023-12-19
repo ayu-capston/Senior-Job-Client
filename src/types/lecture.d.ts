@@ -22,7 +22,7 @@ interface LectureData {
     recruitEnd_date?: Dayjs | null;
     region: string;
     image_url?: string;
-    createdDate?: Date;
+    createdDate?: string;
     status?: string;
 }
 
@@ -62,6 +62,11 @@ interface LectureListResponse {
     number: number;
 }
 
+interface LectureApproval {
+    name: string;
+    reason: string;
+}
+
 declare module 'CotentHeaderParam';
 declare module 'LectureData';
 declare module 'LectureState';
@@ -69,3 +74,4 @@ declare module 'LectureCategory';
 declare module 'lectureFilter';
 declare module 'LectureListOptions';
 declare module 'LectureListResponse';
+declare module 'LectureApproval';

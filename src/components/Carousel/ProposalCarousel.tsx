@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 import readPopularityLectureList from '~/api/readPopularityLectureList';
-import Card from './Card';
+import { psample } from '~/constants/psample';
 import { ReactComponent as LeftArrow } from '@images/icon-carousel-left-arrow.svg';
 import { ReactComponent as RightArrow } from '@images/icon-carousel-right-arrow.svg';
 
 import * as s from './StyledProposalCarousel';
+import ProposalCard from './ProposalCard';
 
 const Carousel = () => {
     const [isNowPosition, setNowPosition] = useState(0);
-    const [isLectureList, setLectureList] = useState<LectureData[] | null>(null);
+    const [isLectureList, setLectureList] = useState<LectureData[] | null>(psample);
 
     useEffect(() => {
         const getPopularityLectureList = async () => {
@@ -43,7 +44,7 @@ const Carousel = () => {
                     </button>
                     <s.CardGroup>
                         {isLectureList?.map((item: LectureData) => (
-                            <Card {...item} />
+                            <ProposalCard {...item} />
                         ))}
                     </s.CardGroup>
                     <button

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import * as S from './StyledJobPortal';
 import JobSearchCard from '~/components/JobPortalCard/JobSearchCard';
 import LocalPortalCard from '~/components/JobPortalCard/LocalPortalCard';
+import { jobportalsample, localportalsample } from '~/constants/jobportalsample';
 
 const JobPortal = () => {
     return (
@@ -14,16 +15,16 @@ const JobPortal = () => {
                 <div>
                     <S.SiteTitle>일자리 탐색 사이트</S.SiteTitle>
                     <S.SearchCardWrap>
-                        {Array.from({ length: 6 }).map((_, index) => (
-                            <JobSearchCard key={index} />
+                        {jobportalsample.map((item: JobPortalState) => (
+                            <JobSearchCard {...item} />
                         ))}
                     </S.SearchCardWrap>
                 </div>
                 <div>
                     <S.SiteTitle>우리 지역 일자리 포털</S.SiteTitle>
                     <S.LocalCardWrap>
-                        {Array.from({ length: 9 }).map((_, index) => (
-                            <LocalPortalCard key={index} />
+                        {localportalsample.map((item: LocalJobState) => (
+                            <LocalPortalCard {...item} />
                         ))}
                     </S.LocalCardWrap>
                 </div>

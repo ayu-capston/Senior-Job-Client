@@ -32,7 +32,7 @@ export default function Navbar() {
                     </s.MenuTypo>
 
                     <s.MenuTypo
-                        color={currentPage === 'jobhelper' ? 'true' : 'false'}
+                        color={currentPage === 'jobportal' || currentPage === 'aihelper' ? 'true' : 'false'}
                         onMouseEnter={() => {
                             setView(true);
                         }}
@@ -60,12 +60,20 @@ export default function Navbar() {
                             마이페이지
                         </s.ButtonTypo>
                     </Link>
-                    <Link to='/signout'>
+                    <Link to='/'>
                         <s.ButtonTypo>
                             <LogoutIcon />
                             로그아웃
                         </s.ButtonTypo>
                     </Link>
+
+                    {/* <Link to='/login
+                    '>
+                        <s.ButtonTypo>
+                            <MypageIcon />
+                            로그인
+                        </s.ButtonTypo>
+                    </Link> */}
                 </s.ButtonGroup>
             </s.Navbar>
         </>

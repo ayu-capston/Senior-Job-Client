@@ -29,6 +29,7 @@ export const BasicInformWrap = styled.div`
     border: 1px solid #ccc;
     img {
         width: 100px;
+        border-radius: 50%;
     }
 `;
 

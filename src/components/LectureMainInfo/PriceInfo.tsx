@@ -11,7 +11,7 @@ const PriceInfo = ({ price }: PriceInfoProps) => {
     return (
         <S.InfoWrap icon={priceIcon}>
             <span>가격</span>
-            <span>{priceformat}원</span>
+            <span>{priceformat}원(월 기준)</span>
         </S.InfoWrap>
     );
 };

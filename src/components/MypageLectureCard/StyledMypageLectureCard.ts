@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import PotIcon from '@images/icon-small-pot.svg';
 import FixIcon from '@images/icon-small-fix.svg';
 import TrashIcon from '@images/icon-small-trash.svg';
 import LocationIcon from '@images/icon-location-black.svg';
 import CalendarIcon from '@images/icon-calendar-black.svg';
 import WonIcon from '@images/icon-won-blue.svg';
 import PersonIcon from '@images/icon-person-white.svg';
+import PencilIcon from '@images/icon-small-pencil.svg';
+import HeartIcon from '@images/icon-small-heart.svg';
+import HouseIcon from '@images/icon-small-house.svg';
+import PotIcon from '@images/icon-small-pot.svg';
 
 export const LectureCard = styled.div`
     padding: 17px 28px 15px 21px;
@@ -29,7 +32,7 @@ export const LectureCategoryWrap = styled.div`
             width: 20px;
             height: 20px;
             margin-right: 7px;
-            background-image: url(${PotIcon});
+            background-image: url(${HeartIcon});
             background-repeat: no-repeat;
             background-size: contain;
             vertical-align: bottom;
@@ -210,6 +213,57 @@ export const ParticipantsListBtn = styled.button`
             margin-right: 3px;
             transform: translateY(3px);
             background-image: url(${PersonIcon});
+            background-repeat: no-repeat;
+            background-size: contain;
+            vertical-align: bottom;
+        }
+    }
+`;
+
+export const LectureCategoryWrapPA = styled.div`
+    :first-child {
+        margin-right: 7px;
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 7px;
+            background-image: url(${PencilIcon});
+            background-repeat: no-repeat;
+            background-size: contain;
+            vertical-align: bottom;
+        }
+    }
+`;
+
+export const LectureCategoryWrapBO = styled.div`
+    :first-child {
+        margin-right: 7px;
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 7px;
+            background-image: url(${HouseIcon});
+            background-repeat: no-repeat;
+            background-size: contain;
+            vertical-align: bottom;
+        }
+    }
+`;
+
+export const LectureCategoryWrapPO = styled.div`
+    :first-child {
+        margin-right: 7px;
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 7px;
+            background-image: url(${PotIcon});
             background-repeat: no-repeat;
             background-size: contain;
             vertical-align: bottom;

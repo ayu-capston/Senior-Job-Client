@@ -8,6 +8,12 @@ import CalendarIcon from '@images/icon-calendar-black.svg';
 import WonIcon from '@images/icon-won-blue.svg';
 import PersonIcon from '@images/icon-person-white.svg';
 
+export const LectureWrap = styled.div`
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 53px;
+`;
+
 export const OpenLectureTitle = styled.h2`
     padding-bottom: 14px;
     color: #000;

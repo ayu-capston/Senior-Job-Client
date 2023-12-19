@@ -8,6 +8,7 @@ import Option from '@components/Option/Option';
 import FilterGroup from '@components/Filiter/FilterGroup';
 import Card from '@components/Card/Card';
 import Pagination from '@components/Pagination/Pagination';
+import { Listsample } from '~/constants/sample';
 
 import * as s from './StyledLectureList';
 
@@ -23,12 +24,15 @@ export default function LectureList() {
         page: 1
     };
 
-    const [isLectureList, setLectureList] = useState<LectureListResponse | null>(null);
+    const [isLectureList, setLectureList] = useState<LectureListResponse | null>(Listsample);
     const [isLectureListOptions, setLectureListOptions] = useState<LectureListOptions>(initLectureListOptions);
 
     useEffect(() => {
         const getLectureList = async (props: LectureListOptions) => {
             try {
+                window.scrollTo({
+                    top: 0
+                });
                 const data = await readLectureList(props);
                 setLectureList({ ...data, number: data.number + 1 });
             } catch (error) {
@@ -64,7 +68,7 @@ export default function LectureList() {
             <section></section>
             <s.RecommendBanner>
                 <s.RecommendBannerTypo>강좌를 개설하고 직접 수업을 진행해보세요!</s.RecommendBannerTypo>
-                <Link to='/mypage/lecture/created/form'>
+                <Link to='/mypage/lecture/form/basic'>
                     <s.RecommendBannerButton>강좌 개설하기</s.RecommendBannerButton>
                 </Link>
             </s.RecommendBanner>

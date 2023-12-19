@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import dayjs from 'dayjs';
@@ -37,12 +37,22 @@ export default function SignUpPage() {
 
     console.log(isUserInfo);
 
+    const handleGoLogin = () => {
+        navigate('/login');
+    };
+
     const ImageFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
             <formStyle.FormHintBody>허용 파일 포맷 : .jpg .png .bmp</formStyle.FormHintBody>
             <formStyle.FormHintBody>최대 파일 크기 : 1024mb</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0
+        });
+    }, []);
     return (
         <>
             <s.body>
@@ -50,7 +60,9 @@ export default function SignUpPage() {
                 <formStyle.FormBox>
                     <formStyle.Form>
                         <FormHeader title='프로필 이미지' required={true} hint={ImageFormHint}></FormHeader>
-                        <formStyle.FormBody></formStyle.FormBody>
+                        <formStyle.FormBody>
+                            <input type='file' id='profileImg' accept='image/*' />
+                        </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
                     <formStyle.Form>
@@ -204,6 +216,7 @@ export default function SignUpPage() {
                         handleCloseInnerModal();
                         navigate(0);
                     }}
+                    movePage={handleGoLogin}
                     desc='회원 가입 완료 모달'
                     text1='회원 가입이 정상적으로 완료 되었습니다.'
                     moveText='로그인 하러가기'

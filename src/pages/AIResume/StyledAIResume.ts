@@ -4,6 +4,9 @@ export const ResumeContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 104px;
 `;
 
 export const InputContainer = styled.div`

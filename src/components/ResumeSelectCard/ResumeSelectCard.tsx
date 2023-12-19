@@ -1,17 +1,13 @@
 import ProfileImg from '@assets/images/image-resume-profile.png';
 
-interface SelectCardProps {
-    id: string;
-}
-
-const ResumeSelectCard = ({ id }: SelectCardProps) => {
+const ResumeSelectCard = (props: ResumeState) => {
     return (
         <>
-            <input type='radio' id={id} name='shop' />
-            <label htmlFor={id}>
+            <input type='radio' id={props.id} name='shop' />
+            <label htmlFor={props.id}>
                 <img src={ProfileImg} alt='일벗 프로필 사진' />
-                <p>일벗 평생 학습 센터에서 어쩌구저쩌구</p>
-                <p>마지막 수정 : 20xx.xx.xax</p>
+                <p>{props.title}</p>
+                <p>마지막 수정 : {props.date}</p>
             </label>
         </>
     );

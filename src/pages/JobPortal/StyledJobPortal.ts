@@ -46,10 +46,10 @@ export const SiteTitle = styled.div`
 `;
 
 export const SearchCardWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     padding: 20px 10px;
-    & > div + div {
-        margin-top: 20px;
-    }
 `;
 
 export const LocalCardWrap = styled.div`

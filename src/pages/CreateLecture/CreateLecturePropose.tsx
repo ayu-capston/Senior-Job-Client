@@ -19,12 +19,11 @@ import KakaoMap from '@components/Map/KakaoMap';
 import useModal from '~/hooks/useModal';
 import InnerModal from '@components/Modals/InnerModal';
 
-import PotIcon from '@assets/images/icon-small-pot.svg';
 import * as formStyle from '@components/Form/StyledForm';
 import * as s from './StyledCreateLecture';
 
-export default function CreateLecture() {
-    const paramArr: CotentHeaderParam = { '개설 강좌': '/lecture', '강좌 개설하기': '/mypage/lecture/form/basic' };
+export default function CreateLecturePropose() {
+    const paramArr: CotentHeaderParam = { '제안 강좌': '/proposal', '강좌 제안하기': '/mypage/lecture/form/propose' };
 
     const navigate = useNavigate();
     const [isSearchRegion, setSearchRegion] = useState('');
@@ -53,7 +52,7 @@ export default function CreateLecture() {
     console.log(isLectureInfo);
 
     const handleGoList = () => {
-        navigate('/mypage/lecture/open');
+        navigate('/mypage/lecture/propose');
     };
 
     useEffect(() => {
@@ -71,7 +70,7 @@ export default function CreateLecture() {
 
     const EndDateFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
-            <formStyle.FormHintBody>실제 강좌를 진행할 날짜를 선택해주세요!</formStyle.FormHintBody>
+            <formStyle.FormHintBody>실제 강좌를 날짜를 선택해주세요!</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
 
@@ -83,21 +82,20 @@ export default function CreateLecture() {
 
     const DateFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
-            <formStyle.FormHintBody>실제 강좌를 진행할 날짜를 선택해주세요!</formStyle.FormHintBody>
+            <formStyle.FormHintBody>희망하는 강좌 진행 날짜를 선택해주세요!</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
 
     const RegionFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
-            <formStyle.FormHintBody>실제 강좌가 개설되기전에는 ‘시/군/구'까지만 노출됩니다!</formStyle.FormHintBody>
+            <formStyle.FormHintBody>원하는 강좌 진행 지역을 선택해주세요!</formStyle.FormHintBody>
             <formStyle.FormHintBody>e.g. 경기도 안양시</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
 
     const PriceFormHint: JSX.Element = (
         <formStyle.FormHintTitle>
-            <formStyle.FormHintBody>전체 강좌 진행 기간동안 받을 금액을 적어주세요.</formStyle.FormHintBody>
-            <formStyle.FormHintBody>계좌번호는 회원가입시 가입한 이름과 동일한 계좌를 기입해주세요!</formStyle.FormHintBody>
+            <formStyle.FormHintBody>강사님께 지급될 금액을 적어주세요. 가격은 강사님과 협의 후 변동될 수 있습니다!</formStyle.FormHintBody>
         </formStyle.FormHintTitle>
     );
 
@@ -116,15 +114,7 @@ export default function CreateLecture() {
                 <ContentHeader {...paramArr}></ContentHeader>
                 <formStyle.FormBox>
                     <formStyle.Form>
-                        <FormHeader title='강좌 이미지' required={true} hint={ImageFormHint}></FormHeader>
-                        <formStyle.FormBody>
-                            <input type='file' id='profileImg' accept='image/*' />
-                        </formStyle.FormBody>
-                    </formStyle.Form>
-                    <formStyle.Horizontal />
-
-                    <formStyle.Form>
-                        <FormHeader title='강좌 명칭' required={true}></FormHeader>
+                        <FormHeader title='제안 강좌 명칭' required={true}></FormHeader>
                         <formStyle.FormBody>
                             <TextInput
                                 type='text'
@@ -157,21 +147,7 @@ export default function CreateLecture() {
                     <formStyle.Horizontal />
 
                     <formStyle.Form>
-                        <FormHeader title='모집 최대 인원' required={true} hint={ParticipantFormHint}></FormHeader>
-                        <formStyle.FormBody>
-                            <Dropdown
-                                menuUnit='명'
-                                menuItems={participantArr}
-                                onChange={(e: any) => {
-                                    setLectureInfo({ ...isLectureInfo, max_participants: e });
-                                }}
-                            ></Dropdown>
-                        </formStyle.FormBody>
-                    </formStyle.Form>
-                    <formStyle.Horizontal />
-
-                    <formStyle.Form>
-                        <FormHeader title='강좌 진행 기간' required={true} hint={DateFormHint}></FormHeader>
+                        <FormHeader title='희망 강좌 진행 기간' required={true} hint={DateFormHint}></FormHeader>
                         <formStyle.FormBody>
                             <formStyle.FormGroup>
                                 <Dropdown
@@ -204,22 +180,7 @@ export default function CreateLecture() {
                     <formStyle.Horizontal />
 
                     <formStyle.Form>
-                        <FormHeader title='모집 마감 기한' required={true} hint={EndDateFormHint}></FormHeader>
-                        <formStyle.FormBody>
-                            <formStyle.FormGroup>
-                                <DatePicker
-                                    startDate={isLectureInfo.start_date}
-                                    onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, recruitEnd_date: e });
-                                    }}
-                                />
-                            </formStyle.FormGroup>
-                        </formStyle.FormBody>
-                    </formStyle.Form>
-                    <formStyle.Horizontal />
-
-                    <formStyle.Form>
-                        <FormHeader title='강좌 진행 지역' required={true} hint={RegionFormHint}></FormHeader>
+                        <FormHeader title='희망 강좌 진행 지역' required={true} hint={RegionFormHint}></FormHeader>
                         <formStyle.FormBody>
                             <s.RegionSection>
                                 <SearchInput
@@ -244,61 +205,32 @@ export default function CreateLecture() {
                     <formStyle.Horizontal />
 
                     <formStyle.Form>
-                        <FormHeader title='가격' hint={PriceFormHint}></FormHeader>
+                        <FormHeader title='희망 가격' hint={PriceFormHint}></FormHeader>
                         <formStyle.FormBody>
-                            <formStyle.FormGroup>
-                                <Dropdown
-                                    menuUnit='은행명'
-                                    menuItems={Object.keys(bankName)}
-                                    onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, bank_name: e });
-                                    }}
-                                ></Dropdown>
+                            <s.PriceGroup>
                                 <TextInput
-                                    name='owner'
-                                    placeholder='예금주'
-                                    type='text'
+                                    name='price'
+                                    placeholder='0'
+                                    width='150px'
+                                    type='number'
+                                    max={1000000}
+                                    required={true}
                                     onChange={(e: any) => {
-                                        setLectureInfo({ ...isLectureInfo, account_name: e });
+                                        setLectureInfo({ ...isLectureInfo, price: e });
                                     }}
                                 />
-                            </formStyle.FormGroup>
-                            <s.PriceGroup>
-                                <formStyle.FormGroup>
-                                    <TextInput
-                                        name='frontBankNumber'
-                                        placeholder='계좌번호'
-                                        width='400px'
-                                        type='number'
-                                        onChange={(e: any) => {
-                                            setLectureInfo({ ...isLectureInfo, account_number: e });
-                                        }}
-                                    />
-                                    <TextInput
-                                        name='price'
-                                        placeholder='0'
-                                        width='150px'
-                                        type='number'
-                                        max={1000000}
-                                        required={true}
-                                        onChange={(e: any) => {
-                                            setLectureInfo({ ...isLectureInfo, price: e });
-                                        }}
-                                    />
-
-                                    <s.InputLabel>원</s.InputLabel>
-                                </formStyle.FormGroup>
+                                {/* <s.InputLabel>원</s.InputLabel> */}
                             </s.PriceGroup>
                         </formStyle.FormBody>
                     </formStyle.Form>
                     <formStyle.Horizontal />
 
                     <formStyle.Form>
-                        <FormHeader title='강좌 설명'></FormHeader>
+                        <FormHeader title='강좌 제안 내용'></FormHeader>
                         <formStyle.FormBody>
                             <TextArea
                                 name='lecture_content'
-                                placeholder='진행할 강좌의 특징을 강조해주세요!&#13;&#10;회원님의 경력을 잘 나타낼 수 있는 문구를 적으면 더 좋겠죠?'
+                                placeholder='제안하고 싶은 강좌의 내용을 입력해주세요!&#13;&#10;구체적으로 작성할 수록 더 좋겠죠??'
                                 required={true}
                                 maxLength={500}
                                 erase={true}
@@ -322,7 +254,7 @@ export default function CreateLecture() {
                             }}
                         >
                             {' '}
-                            강좌 개설하기
+                            강좌 제안하기
                         </SubmitButton>
                     </s.ButtonSection>
                 </formStyle.FormBox>
@@ -334,9 +266,9 @@ export default function CreateLecture() {
                         navigate(0);
                     }}
                     movePage={handleGoList}
-                    desc='강좌 개설 완료 모달'
-                    text1='강좌 개설이 정상적으로 완료 되었습니다.'
-                    moveText='내가 생성한 강좌 목록 보러가기'
+                    desc='강좌 제안 완료 모달'
+                    text1='강좌 제안이 정상적으로 완료 되었습니다.'
+                    moveText='내가 제안한 강좌 목록 보러가기'
                 />
             )}
         </>

@@ -10,6 +10,9 @@ export const CardWrap = styled.div`
 `;
 
 export const CardImg = styled.img`
+    width: 20vw;
+    height: 143px;
+    object-fit: contain;
     border-radius: 11px;
     border: 1px solid #ccc;
 `;

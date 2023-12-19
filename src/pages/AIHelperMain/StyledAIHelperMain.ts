@@ -80,6 +80,7 @@ export const ResumeBtn = styled.button`
 export const ResumeSelectWrap = styled.div`
     display: flex;
     justify-content: space-between;
+    /* gap: 10px; */
     width: 902px;
     padding: 10px;
     border-radius: 20px;
